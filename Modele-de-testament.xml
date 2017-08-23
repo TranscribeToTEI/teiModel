@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="FirstWorldWarWills-EditionOfWill-0001">
    <!-- Ceci est un fichier XML pour tester la saisie de la transcription d'un testament conformément au schéma Relax NG élaboré pour le projet Testaments de Poilus -->
    
    <!-- pour tester dans oXygen : Document > Valider > Configurer scénario de validation 
@@ -8,7 +8,9 @@
       <!-- FC pour l'en-tête TEI, le modèle reste à faire. Tous les éléments TEI sont aujourd'hui disponibles -->
       <fileDesc>
          <titleStmt>
-            <title>Title</title>
+            <title type="corpusTitle">Transcription collaborative de testaments de Poilus de la Grande Guerre</title>
+            <title type="fileTitle">Édition du testament de Fernand Lucien Jules Melchior Chatin (31 juillet
+               1914) conservé aux Archives nationales sous la cote MC/ET/XLVIII/1820 (minute du 20 janvier 1921)</title>
             <!-- mentions de responsabilité : le fichier TEI final doit stocker la liste des contributeurs : transcription, annotation, validation -->
             <respStmt>
                <resp>identification du testament</resp>
@@ -37,10 +39,20 @@
                <persName xml:id="FClavaud"
                   ><surname>Clavaud</surname><forename>Florence</forename></persName>
             </respStmt>
+            <funder><orgName>LabEx PATRIMA</orgName></funder>
+            <funder><orgName>Mission du Centenaire de la Première Guerre Mondiale</orgName></funder>
          </titleStmt>
          <publicationStmt>
-            <p>Publication Information</p>
+            <publisher><orgName>Université de Cergy-Pontoise</orgName></publisher>
+            <publisher><orgName>Archives nationales</orgName></publisher>
+            <publisher><orgName>Archives départementales des Yvelines</orgName></publisher>
+            <publisher><orgName>École nationale des chartes</orgName></publisher>
+            <date when="2017-10"><!-- ici, pour ce fichier,  il faudrait stocker la date de l'export TEI--></date>
+            <availability>
+               <licence>Licence CC-BY (à revoir)</licence>
+            </availability>
          </publicationStmt>
+         
          <sourceDesc>
             <!-- description du document édité -->
             <msDesc>
@@ -61,15 +73,15 @@
                      <p><date when="1914-07-31" type="willDate">1914, 31 juillet</date>. <placeName
                            type="willPlace">Paris</placeName>.</p>
                      <p><term type="willType">testament olographe</term> de <persName
-                           ref="#FLChatin"><forename>Fernand</forename>
+                        ref="FirstWorldWarWills-ListOfPersons.xml#p-0001"><forename>Fernand</forename>
                            <forename>Lucien</forename>
                            <forename>Jules</forename>
                            <forename>Melchior</forename>
                            <surname>Chatin</surname></persName>, mort pour la France à <placeName
-                           ref="#pl-056" type="willAuthorDeathPlace">Maroeuil
+                              ref="FirstWorldWarWills-ListOfPlaces#pl-0056" type="willAuthorDeathPlace">Maroeuil
                            (Pas-de-Calais)</placeName>, le <date when="1915-01-10"
                            type="willAuthorDeathDate">10 janvier 1915</date>.</p>
-                     <bibl/>
+                     
                   </summary>
 
 
@@ -97,6 +109,39 @@
          </sourceDesc>
 
       </fileDesc>
+      <profileDesc>
+         <creation>Fichier produit à partir des données saisies avant import initial dans la plate-forme, et de la transcription du testament qui a été produite directement dans la plate-forme, converties automatiquement en TEI</creation>
+         <langUsage><language ident="fre">français</language></langUsage>
+         
+      </profileDesc>
+      <encodingDesc>
+         <projectDesc>
+            <p>Description générale du projet de transcription collaborative etc.</p></projectDesc>
+         <editorialDecl>
+            <p>L'édition est séquencée par document (le testament et sa ou ses éventuelles enveloppes) : pour chacun d'entre eux, un fichier TEI est produit. Ce choix est adapté à la fois à la nature du corpus (une collection homogène de documents) et aux modalités du travail collaboratif. L’édition liste également, et inclut, l’intégralité des images numériques des documents, qui ont été produites par les Archives nationales et les Archives départementales des Yvelines. A un document correspondent plusieurs image snumériques, lesquelles correspondent en général chacune à une page du testament ou à un des côtés (recto ou verso ) d'une enveloppe. Parfois cependant, le document ayant été relié et étant solidaire des autres pièces composant la minute, il a fallu produire deux images complémentaires pour la même page.</p>
+            <p>Chaque document a reçu un numéro d’ordre qui reflète l'ordre chronologique dans lequel le travail d'identification a été mené, sans autre signification.</p><p>Chaque testament est décrit par une brève analyse donnant : sa date de temps et de lieu ; le nom de son auteur, les circonstances et la date du décès du Poilu ; une description matérielle du testament (type de papier, pagination, dimensions, matière de l’écriture) ; sa cote aux Archives nationales ou aux Archives départementales des Yvelines.</p>
+            
+            <p>Nous avons fait le choix de livrer au lecteur une édition lui permettant à la fois de lire une transcription imitative du texte, permettant de respecter le plus fidèlement possible l’écriture et la mise en page du Poilu, et de rendre compte ainsi de la matérialité du texte ; et une édition du texte définitif, modernisée (orthographe) et normalisée (harmonisation de l’écriture des dates, de la ponctuation et de la présentation, et résolution des abréviations  correction des fautes de syntaxe), qui permet une lecture plus fluide. Pour cette dernière, nous avons suivi les règles d’édition de l’École des Chartes (<bibl><author>Nougaret (Christine)</author>, <author>Parinet (Élisabeth)</author>, <respStmt>
+               <persName>Clavaud Florence</persName>
+               <resp> (collab.)</resp></respStmt>, <title level="a">L’édition critique des textes contemporains, XIXe-XXIe siècle</title>. Paris : École nationale des chartes, 2015.</bibl> .
+            </p>
+            <normalization><p></p></normalization>
+            <hyphenation><p></p></hyphenation>
+            <punctuation><p></p></punctuation>
+            <hyphenation><p></p></hyphenation>
+         </editorialDecl>
+         <samplingDecl><p>L’édition porte sur les testaments olographes et leurs enveloppes éventuelles, si elles sont de la main du Poilu. Seules les parties du texte de la main du testateur sont transcrites. La présente édition ne concerne donc pas les éléments textuels ajoutés au testament lors de son ouverture au tribunal (pagination, paraphes, signature du juge...) ni les autres mentions hors teneur. Seul est donc édité le texte autographe tel que délimité par le bâtonnage du juge. </p></samplingDecl>
+       
+         <variantEncoding method="parallel-segmentation" location="internal"/>
+         
+         <appInfo>
+            <application version="1.0" ident="TranscribeToTEI">
+               <label>Transcribe To TEI</label>
+               <ref target="https://github.com/TranscribeToTEI">https://github.com/TranscribeToTEI</ref>
+            </application>
+         </appInfo>
+         <!-- TODO PREVOIR LIEN VERS LE SCHEMA  <schemaRef>-->
+      </encodingDesc>
       <revisionDesc>
          <!-- le fichier TEI doit consigner la liste des principales étapes de travail -->
 
@@ -203,7 +248,7 @@
                   <sic>blah</sic>
                   <corr>bla</corr>
                </choice></p>
-            <p><damage agent="stain">bla <supplied reason=" hidden" resp="#FClavaud">blah
+            <p><damage agent="stain">bla <supplied reason="hidden" resp="#FClavaud">blah
                      blah</supplied><unclear> et bli</unclear></damage>Je lègue à mon cher frère <choice>
                   <abbr>M.</abbr>
                   <expan>M<ex>onsieur</ex></expan>
@@ -344,7 +389,7 @@
                   <reg>juillet</reg>
 
                </choice> 1914</dateline>
-            <signed rend="centered"><seg type="signature"><persName ref="#FLChatin"
+            <signed rend="centered"><seg type="signature"><persName ref="FirstWorldWarWills-ListOfPersons.xml#p-0001"
                         ><forename>Fernand</forename> <surname>Chatin</surname></persName></seg></signed>
 
             <postscript>
@@ -352,10 +397,11 @@
                      <lem/>
                      <note/>
                   </app>Ce testament annule tous ceux que j’aurais<lb/> pu faire auparavant. <seg
-                     type="signature"><persName ref="#FLChatin"
+                     type="signature"><persName ref="FirstWorldWarWills-ListOfPersons.xml#p-0001"
                            ><forename>Fernand</forename> <surname>Chatin</surname>
                      </persName></seg>
                </p>
+              
             </postscript>
 
 
