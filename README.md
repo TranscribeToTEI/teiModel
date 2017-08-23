@@ -1,6 +1,7 @@
 # teiModel
 
-The TEI models used by the platform for controlling the transcription and the authority files  
-There will be one for transcription, one for the authority files  
-The models are provided under the form of TEI ODD files, and Relax NG files  
-Some HTML documentation will be also provided (or the scripts needed for generating it)  
+The TEI model used by the platform for controlling the transcription and the authority files  
+There will be one model used for both tasks  
+The model is provided under the form of a TEI ODD file, and a Relax NG schema file (XML syntax). Both include Schematron constraints.
+Some HTML documentation is also provided (soon we will try to improve it ; it is generated with TEI Roma from the ODD file)
+We also provide some XML/TEI example files: one containing the transcription of a will; and three files containing examples of authority records (on persons, places and military units).   
