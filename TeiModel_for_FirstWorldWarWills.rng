@@ -5,7 +5,7 @@
          xmlns:teix="http://www.tei-c.org/ns/Examples"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2017-09-06T08:56:47Z. .
+Schema generated from ODD source 2017-10-10T18:06:48Z. .
 TEI Edition: Version 3.2.0. Last updated on
 	10th July 2017, revision 0fcf651
 TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.2.0/
@@ -2241,7 +2241,7 @@ The element indicated by @spanTo (<sch:value-of select="@spanTo"/>) must follow 
    </define>
    <define name="TEI-p">
       <element name="p">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(paragraphe) marque les paragraphes dans un texte en prose.c'est le principal composant du texte des testaments. [3.1. Paragraphs 7.2.5. Speech Contents]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(paragraphe) marque les paragraphes dans un texte en prose.Le paragraphe est le principal composant du texte des testaments. [3.1. Paragraphs 7.2.5. Speech Contents]</a:documentation>
          <zeroOrMore>
             <choice>
                <text/>
@@ -2270,7 +2270,16 @@ The element indicated by @spanTo (<sch:value-of select="@spanTo"/>) must follow 
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-p-pContentIfParentNoteOrMetadata-constraint-rule-9">
+                  id="TeiModel_for_FirstWorldWarWills-p-pContentInTranscription-constraint-rule-9">
+            <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
+                      xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                      xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                      context="tei:p[ancestor::tei:text[starts-with(@xml:id, 'will-')]]">
+               <sch:assert test="not(tei:bibl) and not(tei:note)">Dans un paragraphe de texte transcrit, pas de note directement, et pas de référence bibliographique</sch:assert>
+            </sch:rule>
+         </pattern>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="TeiModel_for_FirstWorldWarWills-p-pContentIfParentNoteOrMetadata-constraint-rule-10">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -2281,7 +2290,7 @@ The element indicated by @spanTo (<sch:value-of select="@spanTo"/>) must follow 
          </pattern>
          <optional>
             <attribute name="rend">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indique comment l'élément en question a été rendu ou présenté dans le texte sourceCet attribut est utilisé pour spécifier à quel endroit, sur la page, se trouve l'élément concerné.
 Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] left(à gauche) </a:documentation>
                <text/>
             </attribute>
@@ -2291,7 +2300,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
    </define>
    <define name="TEI-foreign">
       <element name="foreign">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(étranger) reconnaît un mot ou une expression comme appartenant à une langue différente de celle du contexte.cet élément est à utiliser lorsqu'aucun autre élément de balisage (tel que term, seg, addrLine) n'est pertinent et disponible, pour encoder une expression ou un mot en langue étrangère dans le texte d'un testament. S'il est utilisé, il devrait porter un attribut xml:lang pour spécifier, via son code, de quelle langue il s'agit. [3.3.2.1. Foreign Words or Expressions]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(étranger) reconnaît un mot ou une expression comme appartenant à une langue différente de celle du contexte.L'élément foreign est à utiliser lorsqu'aucun autre élément de balisage (tel que term, seg, addrLine) n'est pertinent et disponible, pour encoder une expression ou un mot en langue étrangère dans le texte d'un testament. S'il est utilisé, il devrait porter un attribut xml:lang pour spécifier, via son code, de quelle langue il s'agit. [3.3.2.1. Foreign Words or Expressions]</a:documentation>
          <zeroOrMore>
             <choice>
                <text/>
@@ -2316,7 +2325,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-foreign-attrXMLLangTypeOnForeign-constraint-rule-10">
+                  id="TeiModel_for_FirstWorldWarWills-foreign-attrXMLLangTypeOnForeign-constraint-rule-11">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -2327,7 +2336,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
             </sch:rule>
          </pattern>
          <attribute name="xml:lang">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(langue) indique la langue du contenu de l'élément en utilisant les codes du RFC 3066Spécifier dans cet attribut le code de la langue du texte balisé. Parmi les codes possibles pour les langues européennes : en (anglais), es (espagnol), it (italien).</a:documentation>
             <choice>
                <data type="language"/>
                <choice>
@@ -2341,7 +2350,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
    </define>
    <define name="TEI-hi">
       <element name="hi">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(mis en évidence) distingue un mot ou une expression comme graphiquement distincte du texte environnant, sans en donner la raison.utilisé pour spécifier que le testateur a graphiquement mis en valeur un mot (ou une expression), le plus souvent en le soulignant ou en l'écrivant en majuscules. Sert aussi pour baliser les lettres placées en exposant. Doit avoir un attribut rend dont la valeur est à prendre dans une liste fermée. [3.3.2.2. Emphatic Words and Phrases 3.3.2. Emphasis, Foreign Words, and Unusual Language]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(mis en évidence) (mise en forme) distingue un mot ou une expression comme graphiquement distincte du texte environnant, sans en donner la raison.L'élément hi est utilisé pour spécifier que le testateur a graphiquement mis en valeur un mot (ou une expression), le plus souvent en le soulignant ou en l'écrivant en majuscules. L'élément hi sert aussi pour baliser les lettres placées en exposant. Il doit avoir un attribut rend dont la valeur est à prendre dans une liste fermée. [3.3.2.2. Emphatic Words and Phrases 3.3.2. Emphasis, Foreign Words, and Unusual Language]</a:documentation>
          <zeroOrMore>
             <choice>
                <text/>
@@ -2367,7 +2376,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-hi-ifHiThenAttrRend-constraint-rule-11">
+                  id="TeiModel_for_FirstWorldWarWills-hi-ifHiThenAttrRend-constraint-rule-12">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -2379,7 +2388,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
             </sch:rule>
          </pattern>
          <attribute name="rend">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(rendu) caractérise la manière dont le mot ou l'expression balisés ont été rendus , présentés, dans le texte source</a:documentation>
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(rendu) indique comment l'élément en question a été rendu ou présenté dans le texte sourceCet attribut permet de préciser quelle mise en forme a été appliquée à la partie du texte balisée à l'aide de l'élément hi.</a:documentation>
             <choice>
                <value>superscript</value>
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(en exposant) </a:documentation>
@@ -2398,7 +2407,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
    </define>
    <define name="TEI-term">
       <element name="term">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(terme) contient un mot simple, un mot composé ou un symbole, qui est considéré comme un terme technique.peut être utilisé dans le corps de la transcription (?), dans les notes historiques ou d'apparat critique, et dans les métadonnées du testament. Devrait normalement avoir un attribut type. [3.3.4. Terms, Glosses, Equivalents, and Descriptions]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(terme) contient un mot simple, un mot composé ou un symbole, qui est considéré comme un terme technique.L'élément term peut être utilisé dans le corps de la transcription, dans les notes historiques ou d'apparat critique, et dans les métadonnées du testament, pour baliser un mot ou une expression qu'on souhaite isoler, comme, par exemple, l'expression l'expression de l'idée d'une mort prochaine possible, ou d'un état d'esprit face à cette vision. Il devrait normalement avoir un attribut type. Dans le cas cité en exemple, l'élément term peut comporter un attribut ana qui renverra à une entrée de la grille d'analyse du vocabulaire employé par les testateurs. [3.3.4. Terms, Glosses, Equivalents, and Descriptions]</a:documentation>
          <zeroOrMore>
             <choice>
                <text/>
@@ -2423,7 +2432,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-term-ifTermThenAttrType-constraint-rule-12">
+                  id="TeiModel_for_FirstWorldWarWills-term-ifTermThenAttrType-constraint-rule-13">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -2435,12 +2444,38 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
          </pattern>
          <optional>
             <attribute name="type">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">caractérise l'élément en utilisant n'importe quel système ou typologie de classification approprié.Utiliser cet attribut pour spécifier la nature du terme balisé.</a:documentation>
                <choice>
                   <value>willType</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(type de testament (dans les métadonnées du testament)) </a:documentation>
+                  <value>willAuthorVisionOfDeath</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(expression de la vision de la mort par le testateur) </a:documentation>
+                  <value>willAuthorStateOfMind</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(expression de l'état d'esprit du testateur) </a:documentation>
                   <value>other</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(autre catégorie de terme) </a:documentation>
+               </choice>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="ana">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(analyse) indique un ou plusieurs éléments contenant des interprétations de l'élément qui porte l'attribut ana.Cet attribut est utilisé pour relier le terme à l'entrée correspondante dans la grille d'analyse du vocabulaire employé par les testateurs.</a:documentation>
+               <list>
+                  <oneOrMore>
+                     <data type="anyURI"/>
+                  </oneOrMore>
+               </list>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="xml:lang">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(langue) indique la langue du contenu de l'élément en utilisant les codes du RFC 3066Spécifier dans cet attribut le code de la langue du terme balisé, lorsque ce n'est pas le français. Parmi les codes possibles pour les langues européennes : en (anglais), es (espagnol), it (italien).</a:documentation>
+               <choice>
+                  <data type="language"/>
+                  <choice>
+                     <value/>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  </choice>
                </choice>
             </attribute>
          </optional>
@@ -2449,7 +2484,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
    </define>
    <define name="TEI-sic">
       <element name="sic">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(du latin ainsi) contient du texte reproduit quoiqu'il est apparemment incorrect ou inexactcontient la transcription, telle quelle, d'une faute de français (orthographe ou syntaxe) dans le texte transcrit. Une proposition de correction de cette faute doit suivre dans l'élément corr. [3.4.1. Apparent Errors]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(sic, du latin ainsi) contient du texte reproduit quoiqu'il est apparemment incorrect ou inexactL'élément sic contient la transcription, telle quelle, d'une faute de français (orthographe ou syntaxe) dans le texte transcrit. Une proposition de correction de cette faute doit suivre dans l'élément corr. [3.4.1. Apparent Errors]</a:documentation>
          <zeroOrMore>
             <choice>
                <text/>
@@ -2460,13 +2495,13 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
                <ref name="TEI-unclear"/>
                <ref name="TEI-supplied"/>
                <ref name="TEI-gap"/>
-               <ref name="TEI-surplus"/>
                <ref name="TEI-foreign"/>
                <ref name="TEI-seg"/>
+               <ref name="TEI-surplus"/>
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-sic-ifSicThenCorr-constraint-rule-13">
+                  id="TeiModel_for_FirstWorldWarWills-sic-ifSicThenCorr-constraint-rule-14">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -2479,7 +2514,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
    </define>
    <define name="TEI-corr">
       <element name="corr">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(correction) contient la forme correcte d'un passage qui est considéré erroné dans la copie du texte.contient une proposition de correction d'une faute d'orthogaphe ou de syntaxe dans le texte transcrit. La faute doit au préalable avoir été encodée dans l'élément sic. [3.4.1. Apparent Errors]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(correction) contient la forme correcte d'un passage qui est considéré erroné dans la copie du texte.L'élément corr contient une proposition de correction d'une faute d'orthogaphe ou de syntaxe dans le texte transcrit. La faute doit au préalable avoir été encodée dans l'élément sic. [3.4.1. Apparent Errors]</a:documentation>
          <zeroOrMore>
             <choice>
                <text/>
@@ -2490,7 +2525,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-corr-ifCorrThenSic-constraint-rule-14">
+                  id="TeiModel_for_FirstWorldWarWills-corr-ifCorrThenSic-constraint-rule-15">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -2501,7 +2536,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
          </pattern>
          <optional>
             <attribute name="resp">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(responsable) indique l'agent responsable de l'intervention ou de l'interprétation, par exemple un éditeur ou un transcripteur.Il est recommandé d'utiliser cet attribut, en l'occurrence pour identifier la ou les auteurs de la proposition de correction.</a:documentation>
                <list>
                   <oneOrMore>
                      <data type="anyURI"/>
@@ -2514,7 +2549,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
    </define>
    <define name="TEI-choice">
       <element name="choice">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(choix) regroupe un certain nombre de balisages alternatifs possibles pour un même endroit dans un texte.regroupe, soit un élément abbr et un élément expan (pour transcrire une abréviation telle quelle et la forme développée de l'expression abrégée), soit un élément sic et un élément corr (pour transcrire une faute de français et une proposition de correction de cette faute), soit un élément orig et un élément reg (pour transcrire une graphie ou une ponctuation ancienne et une proposition de graphie ou de ponctuation normalisée). [3.4. Simple Editorial Changes]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(choix) regroupe un certain nombre de balisages alternatifs possibles pour un même endroit dans un texte.Cet élément regroupe, soit un élément abbr et un élément expan (pour transcrire une abréviation telle quelle et la forme développée de l'expression abrégée), soit un élément sic et un élément corr (pour transcrire une faute de français et une proposition de correction de cette faute), soit un élément orig et un élément reg (pour transcrire une graphie ou une ponctuation ancienne et une proposition de graphie ou de ponctuation normalisée). [3.4. Simple Editorial Changes]</a:documentation>
          <choice>
             <group>
                <ref name="TEI-abbr"/>
@@ -2533,7 +2568,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
    </define>
    <define name="TEI-reg">
       <element name="reg">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(régularisation) contient une partie (de texte) qui a été régularisée ou normalisée de façon quelconquecontient la forme normalisée du mot dont le testament donne une forme ancienne ou non conforme aux règles du français contemporain. La forme du mot telle que trouvée dans le texte du testament doit précéder, dans l'élément orig. [3.4.2. Regularization and
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(régularisation) contient une partie (de texte) qui a été régularisée ou normalisée de façon quelconqueL'élément reg contient la forme normalisée du mot dont le testament donne une forme ancienne ou non conforme aux règles du français contemporain. La forme du mot telle que trouvée dans le texte du testament doit précéder, dans l'élément orig. [3.4.2. Regularization and
 Normalization 12. Critical Apparatus]</a:documentation>
          <zeroOrMore>
             <choice>
@@ -2546,7 +2581,7 @@ Normalization 12. Critical Apparatus]</a:documentation>
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-reg-ifRegThenOrig-constraint-rule-15">
+                  id="TeiModel_for_FirstWorldWarWills-reg-ifRegThenOrig-constraint-rule-16">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -2559,7 +2594,7 @@ Normalization 12. Critical Apparatus]</a:documentation>
          </pattern>
          <optional>
             <attribute name="resp">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(responsable) indique l'agent responsable de l'intervention ou de l'interprétation, par exemple un éditeur ou un transcripteur.Il est recommandé d'utiliser cet attribut, en l'occurrence pour identifier la ou les auteurs de la proposition de forme normalisée.</a:documentation>
                <list>
                   <oneOrMore>
                      <data type="anyURI"/>
@@ -2572,7 +2607,7 @@ Normalization 12. Critical Apparatus]</a:documentation>
    </define>
    <define name="TEI-orig">
       <element name="orig">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(forme originale) contient une partie notée comme étant fidèle à l'original et non pas normalisée ou corrigée.contient, telle quelle, un mot, une expression ou une partie de phrase du testament dans une forme ancienne non conforme à la forme actuelle (ponctuation non conforme aux règles actuelles, emploi non normalisé des majuscules, absence de diacritiques ou présence non normative de diacritiques, graphie syntaxiquement correcte mais ancienne). Une proposition de forme normalisée du mot ou de l'expression concernés doit suivre dans l'élément reg. [3.4.2. Regularization and
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(forme originale) contient une partie notée comme étant fidèle à l'original et non pas normalisée ou corrigée.L'élément orig contient, tels quels, un mot, une expression ou une partie de phrase du testament dans une forme ancienne non conforme à la forme actuelle (ponctuation non conforme aux règles actuelles, emploi non normalisé des majuscules, absence de diacritiques ou présence non normative de diacritiques, graphie syntaxiquement correcte mais ancienne). Une proposition de forme normalisée du mot ou de l'expression concernés doit suivre dans l'élément reg. [3.4.2. Regularization and
 Normalization 12. Critical Apparatus]</a:documentation>
          <zeroOrMore>
             <choice>
@@ -2590,7 +2625,7 @@ Normalization 12. Critical Apparatus]</a:documentation>
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-orig-ifOrigThenReg-constraint-rule-16">
+                  id="TeiModel_for_FirstWorldWarWills-orig-ifOrigThenReg-constraint-rule-17">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -2604,10 +2639,10 @@ Normalization 12. Critical Apparatus]</a:documentation>
    </define>
    <define name="TEI-gap">
       <element name="gap">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(texte non transcrit) indique une omission dans une transcription, soit pour des raisons éditoriales décrites dans l'en-tête TEI au cours d’un échantillonnage, soit parce que le matériau est illisible ou inaudible.utilisé soit dans les cas rares où, un dommage matériel étant survenu, une partie du texte du testament est devenue totalement illisible ou est absente, soit dans le cas où la lecture du mot ou de l'expression est jugée impossible (fil de couture masquant les caractères, rature, écriture non déchiffrable...), ce sans qu'on puisse fournir une proposition de texte palliant la lacune. Dans le premier cas, l'élément gap sera utilisé dans l'élément damage. Dans le cas où la lecture est possible mais incertaine, on utilise unclear. Si la lecture est impossible, mais qu'on peut proposer un texte comblant la lacune, on utilise l'élément supplied. [3.4.3. Additions, Deletions, and Omissions]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(omission) (texte non transcrit) indique une omission dans une transcription, soit pour des raisons éditoriales décrites dans l'en-tête TEI au cours d’un échantillonnage, soit parce que le matériau est illisible ou inaudible.L'élément gap est utilisé soit dans les cas rares où, un dommage matériel étant survenu, une partie du texte du testament est devenue totalement illisible ou est absente, soit dans le cas où la lecture du mot ou de l'expression est jugée impossible (fil de couture masquant les caractères, rature, écriture non déchiffrable...), ce sans qu'on puisse fournir une proposition de texte palliant la lacune. Dans le premier cas, l'élément gap sera utilisé dans l'élément damage. Pour mémoire, dans le cas où la lecture est possible mais incertaine, on utilise unclear. Si la lecture est impossible, mais qu'on peut proposer un texte comblant la lacune, on utilise l'élément supplied. [3.4.3. Additions, Deletions, and Omissions]</a:documentation>
          <empty/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-gap-ifGapThenAttrReasonRecommended-constraint-rule-17">
+                  id="TeiModel_for_FirstWorldWarWills-gap-ifGapThenAttrReasonRecommended-constraint-rule-18">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -2619,7 +2654,7 @@ Normalization 12. Critical Apparatus]</a:documentation>
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-gap-ifAttrUnitOnGapThenAttrQuantity-constraint-rule-18">
+                  id="TeiModel_for_FirstWorldWarWills-gap-ifAttrUnitOnGapThenAttrQuantity-constraint-rule-19">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -2634,17 +2669,17 @@ Normalization 12. Critical Apparatus]</a:documentation>
          </pattern>
          <optional>
             <attribute name="reason">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(raison) donne la raison de l'omission
-Les valeurs suggérées comprennent: 1] cancelled(biffé, devenu illisible) ; 2] deleted(détruit, absent) ; 3] illegible(non déchiffré) ; 4] hidden(masqué (par le fil de couture, par une tache...)) </a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(raison) donne la raison de l'omissionCet attribut sert à indiquer pourquoi il y a une lacune dans sa transcription.
+Les valeurs suggérées comprennent: 1] cancelled(biffébiffé, devenu illisible) ; 2] deleted(détruit, absent) ; 3] illegible(illisiblenon déchiffré) ; 4] hidden(masqué (par le fil de couture, par une tache...)) </a:documentation>
                <list>
                   <oneOrMore>
                      <choice>
                         <value>cancelled</value>
-                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(biffé, devenu illisible) </a:documentation>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(biffé) (biffé, devenu illisible) </a:documentation>
                         <value>deleted</value>
                         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(détruit, absent) </a:documentation>
                         <value>illegible</value>
-                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(non déchiffré) </a:documentation>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(illisible) (non déchiffré) </a:documentation>
                         <value>hidden</value>
                         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(masqué (par le fil de couture, par une tache...)) </a:documentation>
                         <data type="token">
@@ -2657,7 +2692,7 @@ Les valeurs suggérées comprennent: 1] cancelled(biffé, devenu illisible) ; 2]
          </optional>
          <optional>
             <attribute name="unit">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(unité de mesure) noms des unités utilisées pour la mesure.</a:documentation>
                <choice>
                   <value>cm</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(cm) </a:documentation>
@@ -2672,7 +2707,7 @@ Les valeurs suggérées comprennent: 1] cancelled(biffé, devenu illisible) ; 2]
          </optional>
          <optional>
             <attribute name="quantity">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">le nombre de cm, de caractères, de lignes ou de mots, selon l'unité choisie, concernés par la lacune dans la transcription</a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(quantité) spécifie la longueur dans les unités indiquéesCet attribut est utilisé pour spécifier le nombre de cm, de caractères, de mots ou de lignes, selon l'unité choisie et déclarée à l'aide de l'attribut unit, qui ne sont pas transcrits.</a:documentation>
                <choice>
                   <data type="double"/>
                   <data type="token">
@@ -2687,7 +2722,7 @@ Les valeurs suggérées comprennent: 1] cancelled(biffé, devenu illisible) ; 2]
    </define>
    <define name="TEI-add">
       <element name="add">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">( ajout) contient des lettres, des mots ou des phrases insérés dans le texte par un auteur, un copiste, un annotateur ou un correcteur.utilisé pour baliser les parties de texte ajoutées au testament, lors d'une deuxième phase d'écriture, par le testateur (additions interlinéaires ou marginales). De tels cas sont rares. L'addition peut intervenir seule, ou pour remplacer une partie de texte raturée (dans ce dernier cas, l'élément add sera utilisé au sein de l'élément subst, après del). La position du texte ajouté par rapport à la phrase ou au paragraphe peut être précisée à l'aide de l'attribut place. [3.4.3. Additions, Deletions, and Omissions]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(ajout) contient des lettres, des mots ou des phrases insérés dans le texte par un auteur, un copiste, un annotateur ou un correcteur.L'élément add est utilisé pour baliser les parties de texte ajoutées au testament, lors d'une deuxième phase d'écriture, par le testateur (additions interlinéaires ou marginales). De tels cas sont rares. L'addition peut intervenir seule, ou pour remplacer une partie de texte raturée (dans ce dernier cas, l'élément add sera utilisé au sein de l'élément subst, après del). La position du texte ajouté par rapport à la phrase ou au paragraphe peut être précisée à l'aide de l'attribut place. [3.4.3. Additions, Deletions, and Omissions]</a:documentation>
          <zeroOrMore>
             <choice>
                <text/>
@@ -2712,20 +2747,20 @@ Les valeurs suggérées comprennent: 1] cancelled(biffé, devenu illisible) ; 2]
          </zeroOrMore>
          <optional>
             <attribute name="place">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(emplacement) précise la position du texte ajouté par rapport à la phrase ou au paragraphe auquel il est ajouté.</a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(emplacement) specifie où cet item se trouve.Cet attribut précise la position du texte ajouté par rapport à la phrase ou au paragraphe auquel il est ajouté.</a:documentation>
                <choice>
                   <value>above</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(au-dessus de la ligne de texte) </a:documentation>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">au-dessus de la ligneau-dessus de la ligne de texte</a:documentation>
                   <value>below</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(au-dessous de la ligne de texte) </a:documentation>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">au-dessous de la ligneau-dessous de la ligne de texte</a:documentation>
                   <value>inline</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(sur la ligne principale de texte) </a:documentation>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">dans le corps du textedans la ligne principale de texte</a:documentation>
                   <value>marginLeft</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(dans la marge de gauche) </a:documentation>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">dans la marge de gauche</a:documentation>
                   <value>marginRight</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(dans la marge de droite) </a:documentation>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">dans la marge de droite</a:documentation>
                   <value>marginBottom</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(sous le texte) </a:documentation>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">sous le texte</a:documentation>
                </choice>
             </attribute>
          </optional>
@@ -2734,7 +2769,7 @@ Les valeurs suggérées comprennent: 1] cancelled(biffé, devenu illisible) ; 2]
    </define>
    <define name="TEI-del">
       <element name="del">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(suppression) contient une lettre, un mot ou un passage supprimé, marqué comme supprimé, sinon indiqué comme superflu ou erroné dans le texte par un auteur, un copiste, un annotateur ou un correcteur.utilisé pour baliser les parties de texte supprimées (raturées) par le testateur. De tels cas sont rares. La suppression peut intervenir seule, ou être accompagnée d'un mot ou d'une expression qui remplacent le texte supprimé (dans ce dernier cas, l'élément del sera utilisé au sein de l'élément subst, avant add). [3.4.3. Additions, Deletions, and Omissions]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(suppression) contient une lettre, un mot ou un passage supprimé, marqué comme supprimé, sinon indiqué comme superflu ou erroné dans le texte par un auteur, un copiste, un annotateur ou un correcteur.L'élément delest utilisé pour baliser les parties de texte supprimées (raturées) par le testateur. De tels cas sont rares. La suppression peut intervenir seule, ou être accompagnée d'un mot ou d'une expression qui remplacent le texte supprimé (dans ce dernier cas, l'élément del sera utilisé au sein de l'élément subst, avant add). [3.4.3. Additions, Deletions, and Omissions]</a:documentation>
          <zeroOrMore>
             <choice>
                <text/>
@@ -2759,7 +2794,7 @@ Les valeurs suggérées comprennent: 1] cancelled(biffé, devenu illisible) ; 2]
    </define>
    <define name="TEI-unclear">
       <element name="unclear">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(transcription incertaine) contient un mot, une expression ou bien un passage qui ne peut être transcrit avec certitude parce qu'il est illisible ou inaudible dans la source.utilisé lorsque la transcription proposée est incertaine, dans les cas rares où un dommage matériel est survenu, ou bien lorsque l'écriture est difficile à déchiffrer, ou encore si une rature ou un fil de couture masquent partiellement le texte. Dans le premier cas, l'élément unclear sera utilisé dans l'élément damage. Dans le cas où la lecture est totalement impossible mais qu'on peut proposer une restitution du texte, on utilise supplied. Si la lecture est impossible et qu'on ne peut restituer le texte, on utilise l'élément gap. [11.3.3.1. Damage, Illegibility, and Supplied Text 3.4.3. Additions, Deletions, and Omissions]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(transcription incertaine) contient un mot, une expression ou bien un passage qui ne peut être transcrit avec certitude parce qu'il est illisible ou inaudible dans la source.L'élément unclear est utilisé lorsque la transcription proposée est incertaine, dans les cas rares où un dommage matériel est survenu, ou bien lorsque l'écriture est difficile à déchiffrer, ou encore si une rature ou un fil de couture masquent partiellement le texte. Dans le premier cas, l'élément unclear sera utilisé dans l'élément damage. Pour mémoire, dans le cas où la lecture est totalement impossible mais qu'on peut proposer une restitution du texte, on utilise supplied. Si la lecture est impossible et qu'on ne peut restituer le texte, on utilise l'élément gap. [11.3.3.1. Damage, Illegibility, and Supplied Text 3.4.3. Additions, Deletions, and Omissions]</a:documentation>
          <zeroOrMore>
             <choice>
                <text/>
@@ -2777,7 +2812,7 @@ Les valeurs suggérées comprennent: 1] cancelled(biffé, devenu illisible) ; 2]
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-unclear-ifUnclearAloneThenAttrReasonRecommended-constraint-rule-19">
+                  id="TeiModel_for_FirstWorldWarWills-unclear-ifUnclearAloneThenAttrReasonRecommended-constraint-rule-20">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -2789,7 +2824,7 @@ Les valeurs suggérées comprennent: 1] cancelled(biffé, devenu illisible) ; 2]
          </pattern>
          <optional>
             <attribute name="reason">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(raison) indique pourquoi il est difficile de transcrire le texte
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(raison) indique pourquoi il est difficile de transcrire le documentCet attribut indique pourquoi il est difficile de transcrire le texte
 Les valeurs suggérées comprennent: 1] cancelled(biffé) ; 2] quite-illegible(difficile à déchiffrer) ; 3] hidden(masqué (par le fil de couture, par une tache...)) </a:documentation>
                <list>
                   <oneOrMore>
@@ -2810,7 +2845,7 @@ Les valeurs suggérées comprennent: 1] cancelled(biffé) ; 2] quite-illegible(d
          </optional>
          <optional>
             <attribute name="resp">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(responsable) indique l'agent responsable de l'intervention ou de l'interprétation, par exemple un éditeur ou un transcripteur.Il est recommandé d'utiliser cet attribut, en l'occurrence pour identifier la ou les auteurs de cette partie incertaine de la transcription.</a:documentation>
                <list>
                   <oneOrMore>
                      <data type="anyURI"/>
@@ -2831,7 +2866,7 @@ Les valeurs suggérées comprennent: 1] cancelled(biffé) ; 2] quite-illegible(d
    </define>
    <define name="TEI-address">
       <element name="address">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(adresse) contient une adresse postale ou d'un autre type, par exemple l'adresse d'un éditeur, d'un organisme ou d'une personne.cet élément est utilisé, d'une part dans la transcription des testaments, pour baliser une adresse, le plus souvent comme texte écit sur une enveloppe (dans ce cas il contient une série d'éléments addrLine- ligne d'adresse), d'autre part dans les notices descriptives des testateurs, au sein de l'élément residence (résidence) (dans ce cas il contient un élément street (rue), optionnellement un élément district (arrondissement)). [3.5.2. Addresses 2.2.4. Publication, Distribution, Licensing, etc. 3.11.2.4. Imprint, Size of a Document, and Reprint Information]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(adresse) contient une adresse postale ou d'un autre type, par exemple l'adresse d'un éditeur, d'un organisme ou d'une personne.L'élément address est utilisé, d'une part dans la transcription des testaments, pour baliser une adresse, le plus souvent comme texte écrit sur une enveloppe (dans ce cas il contient une série d'éléments addrLine- ligne d'adresse), d'autre part dans les notices descriptives des testateurs, au sein de l'élément residence (résidence) (dans ce cas il contient un élément street (rue), optionnellement un élément district (arrondissement)). [3.5.2. Addresses 2.2.4. Publication, Distribution, Licensing, etc. 3.11.2.4. Imprint, Size of a Document, and Reprint Information]</a:documentation>
          <choice>
             <zeroOrMore>
                <choice>
@@ -2848,7 +2883,7 @@ Les valeurs suggérées comprennent: 1] cancelled(biffé) ; 2] quite-illegible(d
             </group>
          </choice>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-address-ifAddressInAuthorityRecordThenStreet-constraint-rule-20">
+                  id="TeiModel_for_FirstWorldWarWills-address-ifAddressInAuthorityRecordThenStreet-constraint-rule-21">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -2858,7 +2893,7 @@ Les valeurs suggérées comprennent: 1] cancelled(biffé) ; 2] quite-illegible(d
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-address-ifAddressInTranscriptionThenAddrLine-constraint-rule-21">
+                  id="TeiModel_for_FirstWorldWarWills-address-ifAddressInTranscriptionThenAddrLine-constraint-rule-22">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -2870,7 +2905,7 @@ Les valeurs suggérées comprennent: 1] cancelled(biffé) ; 2] quite-illegible(d
          </pattern>
          <optional>
             <attribute name="rend">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indique comment l'élément en question a été rendu ou présenté dans le texte sourceCet attribut est utilisé ici pour spécifier à quel endroit, sur la page, se trouve l'adresse.
 Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] left(à gauche) </a:documentation>
                <text/>
             </attribute>
@@ -2880,7 +2915,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
    </define>
    <define name="TEI-addrLine">
       <element name="addrLine">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(ligne d'adresse) contient une ligne d'adresse postale.utilisé dans le corps de la transcription, en particulier pour transcrire le texte des enveloppes, pour baliser une ligne d'adresse postale. L'élément addrLine est contenu dans un élément address. [3.5.2. Addresses 2.2.4. Publication, Distribution, Licensing, etc. 3.11.2.4. Imprint, Size of a Document, and Reprint Information]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(ligne d'adresse) contient une ligne d'adresse postale.L'élément addrLineest utilisé dans le corps de la transcription, le plus souvent lorsqu'on transcrit le texte d'une enveloppe, pour baliser une ligne d'adresse postale. Il est contenu dans un élément address. [3.5.2. Addresses 2.2.4. Publication, Distribution, Licensing, etc. 3.11.2.4. Imprint, Size of a Document, and Reprint Information]</a:documentation>
          <zeroOrMore>
             <choice>
                <text/>
@@ -2906,9 +2941,21 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
          </zeroOrMore>
          <optional>
             <attribute name="rend">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indique comment l'élément en question a été rendu ou présenté dans le texte sourceCet attribut est utilisé ici pour spécifier à quel endroit, sur la page, se trouve l'élément concerné.
 Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] left(à gauche) </a:documentation>
                <text/>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="xml:lang">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(langue) indique la langue du contenu de l'élément en utilisant les codes du RFC 3066Spécifier dans cet attribut le code de la langue de la ligne d'adresse, lorsque ce n'est pas le français. Parmi les codes possibles pour les langues européennes : en (anglais), es (espagnol), it (italien).</a:documentation>
+               <choice>
+                  <data type="language"/>
+                  <choice>
+                     <value/>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  </choice>
+               </choice>
             </attribute>
          </optional>
          <empty/>
@@ -2934,7 +2981,7 @@ Measures]</a:documentation>
    </define>
    <define name="TEI-date">
       <element name="date">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(date) contient une date exprimée dans n'importe quel format.peut être utilisé pour baliser une date importante dans le corps du testament (date de rédaction du testament le plus souvent). On l'utilise aussi dans les métadonnées du testament. Doit avoir un attribut when pour donner une forme normalisée, exploitable par machine, de la date. L'attribut type permettra en outre de dire de quelle date il s'agit (date de rédaction du testament, date de naissance du testateur, etc.). [3.5.4. Dates and Times 2.2.4. Publication, Distribution, Licensing, etc. 2.6. The Revision Description 3.11.2.4. Imprint, Size of a Document, and Reprint Information 15.2.3. The Setting Description 13.3.6. Dates and Times]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(date) contient une date exprimée dans n'importe quel format.L'élément date peut être utilisé pour baliser une date importante dans le corps du testament (date de rédaction du testament le plus souvent). On l'utilise aussi dans les métadonnées du testament. Doit avoir un attribut when pour donner une forme normalisée, exploitable par machine, de la date. L'attribut type permettra en outre de dire de quelle date il s'agit (date de rédaction du testament, date de naissance du testateur, etc.). [3.5.4. Dates and Times 2.2.4. Publication, Distribution, Licensing, etc. 2.6. The Revision Description 3.11.2.4. Imprint, Size of a Document, and Reprint Information 15.2.3. The Setting Description 13.3.6. Dates and Times]</a:documentation>
          <zeroOrMore>
             <choice>
                <text/>
@@ -2953,11 +3000,11 @@ Measures]</a:documentation>
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-date-ifDateInTranscrOrWillMetadataThenAttrType-constraint-rule-22">
+                  id="TeiModel_for_FirstWorldWarWills-date-ifDateInTranscrOrWillMetadataThenAttrType-constraint-rule-23">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                      context="tei:date[ancestor::tei:msContents/ancestor::tei:sourceDesc or ancestor::tei:body[contains(parent::tei:text/@xml:id, 'EditionOfWill')]]">
+                      context="tei:date[ancestor::tei:msContents/ancestor::tei:sourceDesc or ancestor::tei:body[contains(parent::tei:text/@xml:id, 'will-')]]">
                <sch:assert test="@type">Si vous utilisez l'élément date dans le corps de la
                   transcription (ou dans les métadonnées du testament), vous devriez indiquer de
                   quelle date il s'agit à l'aide de l'attribut
@@ -2965,7 +3012,7 @@ Measures]</a:documentation>
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-date-ifDateThenAttrWhenOfNotBeforPlusNotAfter-constraint-rule-23">
+                  id="TeiModel_for_FirstWorldWarWills-date-ifDateThenAttrWhenOrNotBeforePlusNotAfter-constraint-rule-24">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -2979,7 +3026,7 @@ Measures]</a:documentation>
          </pattern>
          <optional>
             <attribute name="type">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">caractérise l'élément en utilisant n'importe quel système ou typologie de classification approprié.Il est recommandé de spécifier de quel type de date il s'agit, afin de permettre, par la suite, des recherches par type de date.</a:documentation>
                <choice>
                   <value>willDate</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(date de rédaction du testament) </a:documentation>
@@ -2998,7 +3045,7 @@ Measures]</a:documentation>
          </optional>
          <optional>
             <attribute name="when">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">La forme normalisée de la date au format AAA-MM-JJ</a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(date exacte) spécifie une date exacte pour un événement sous une forme normalisée, par ex. aaaa-mm-jj.Cet attribut contient, lorsque la date est une date exacte, la forme normalisée de cette date au format AAA-MM-JJ</a:documentation>
                <choice>
                   <data type="date"/>
                   <data type="gYear"/>
@@ -3013,7 +3060,7 @@ Measures]</a:documentation>
          </optional>
          <optional>
             <attribute name="notBefore">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">La forme normalisée de la date possible la plus ancienne</a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(date la plus ancienne) spécifie la date la plus ancienne dans une tranche de dates, par ex. aaaa-mm-jjLa forme normalisée de la date possible la plus ancienne</a:documentation>
                <choice>
                   <data type="date"/>
                   <data type="gYear"/>
@@ -3028,7 +3075,7 @@ Measures]</a:documentation>
          </optional>
          <optional>
             <attribute name="notAfter">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">La forme normalisée de la date possible la plus récente</a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(date la plus récente) spécifie la date la plus récente possible pour l'événement sous une forme normalisée, par ex. aaaa-mm-jjLa forme normalisée de la date possible la plus récente</a:documentation>
                <choice>
                   <data type="date"/>
                   <data type="gYear"/>
@@ -3046,7 +3093,7 @@ Measures]</a:documentation>
    </define>
    <define name="TEI-abbr">
       <element name="abbr">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(abréviation) contient une abréviation quelconque.contient la transcription, telle quelle, d'un mot dont une ou plusieurs parties sont abrégées. Une proposition du mot dans sa forme développée doit suivre dans l'élément expan. [3.5.5. Abbreviations and Their Expansions]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(abréviation) contient une abréviation quelconque.L'élément abbr contient la transcription, telle quelle, d'un mot dont une ou plusieurs parties sont abrégées. Une proposition du mot dans sa forme développée doit suivre dans l'élément expan. [3.5.5. Abbreviations and Their Expansions]</a:documentation>
          <zeroOrMore>
             <choice>
                <text/>
@@ -3060,7 +3107,7 @@ Measures]</a:documentation>
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-abbr-ifAbbrThenExpan-constraint-rule-24">
+                  id="TeiModel_for_FirstWorldWarWills-abbr-ifAbbrThenExpan-constraint-rule-25">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -3072,7 +3119,7 @@ Measures]</a:documentation>
          </pattern>
          <optional>
             <attribute name="type">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(type) permet à l'éditeur de caractériser l'abréviation selon une typologie adéquate
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(type) permet à l'éditeur de caractériser l'abréviation selon une typologie adéquateUtiliser cet attribut est conseillé lorsqu'on est certain du type d'abréviation.
 Exemple de valeurs possibles: 1] suspension(suspension) ; 2] contraction(contraction) ; 3] brevigraph(brévigraphe) ; 4] superscription(exposant) ; 5] acronym(acronyme) ; 6] title(titre) ; 7] organization(sigle) ; 8] geographic(géographique) </a:documentation>
                <data type="token">
                   <param name="pattern">(\p{L}|\p{N}|\p{P}|\p{S})+</param>
@@ -3084,7 +3131,7 @@ Exemple de valeurs possibles: 1] suspension(suspension) ; 2] contraction(contrac
    </define>
    <define name="TEI-expan">
       <element name="expan">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(expansion) contient l'expansion d'une abréviation.contient la forme développée du mot dont le testament donne une forme abrégée. La forme abrégée du mot doit précéder, dans l'élément abbr. [3.5.5. Abbreviations and Their Expansions]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(expansion) contient l'expansion d'une abréviation.L'élément expan contient la forme développée du mot dont le testament donne une forme abrégée. La forme abrégée du mot doit précéder, dans l'élément abbr. [3.5.5. Abbreviations and Their Expansions]</a:documentation>
          <zeroOrMore>
             <choice>
                <text/>
@@ -3095,7 +3142,7 @@ Exemple de valeurs possibles: 1] suspension(suspension) ; 2] contraction(contrac
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-expan-ifExpanThenAbbr-constraint-rule-25">
+                  id="TeiModel_for_FirstWorldWarWills-expan-ifExpanThenAbbr-constraint-rule-26">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -3107,7 +3154,7 @@ Exemple de valeurs possibles: 1] suspension(suspension) ; 2] contraction(contrac
          </pattern>
          <optional>
             <attribute name="resp">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(responsable) indique l'agent responsable de l'intervention ou de l'interprétation, par exemple un éditeur ou un transcripteur.Il est recommandé d'utiliser cet attribut, en l'occurrence pour identifier la ou les auteurs du développement de l'abréviation.</a:documentation>
                <list>
                   <oneOrMore>
                      <data type="anyURI"/>
@@ -3142,7 +3189,7 @@ attributes @target and @cRef may be supplied on <name/>.</report>
    </define>
    <define name="TEI-ref">
       <element name="ref">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(référence) définit une référence vers un autre emplacement, la référence étant éventuellement modifiée ou complétée par un texte ou un commentaire.utilisé pour créer un appel de note dans le corps de la transcription, dans le cas des notes historiques et commentaires explicatifs sur le contenu du testament ; dans ce cas l'élément est vide. Egalement utilisé, dans les notes elles-mêmes, et dans les notices sur les personnes, les lieux et les régiments, pour renvoyer à des ressources bibliographiques en ligne. Cet élément devrait toujours avoir un attribut target, sauf s'il possède un attribut type de valeur 'uri'. [3.6. Simple Links and Cross-References 16.1. Links]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(référence) définit une référence vers un autre emplacement, la référence étant éventuellement modifiée ou complétée par un texte ou un commentaire.L'élément ref est utilisé pour créer un appel de note dans le corps de la transcription, dans le cas des notes historiques et commentaires explicatifs sur le contenu du testament ; dans ce cas l'élément est vide. Il est également utilisé, dans les notes elles-mêmes, et dans les notices sur les personnes, les lieux et les régiments, pour renvoyer à des ressources bibliographiques en ligne. Cet élément devrait toujours avoir un attribut target, sauf s'il possède un attribut type de valeur 'uri' et que l'URI constitue le contenu de l'élément. [3.6. Simple Links and Cross-References 16.1. Links]</a:documentation>
          <zeroOrMore>
             <choice>
                <text/>
@@ -3150,7 +3197,7 @@ attributes @target and @cRef may be supplied on <name/>.</report>
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-ref-refEmptyIfInTranscription-constraint-rule-26">
+                  id="TeiModel_for_FirstWorldWarWills-ref-refEmptyIfInTranscription-constraint-rule-27">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -3161,7 +3208,7 @@ attributes @target and @cRef may be supplied on <name/>.</report>
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-ref-attrTargetOnRef-constraint-rule-27">
+                  id="TeiModel_for_FirstWorldWarWills-ref-attrTargetOnRef-constraint-rule-28">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -3171,7 +3218,7 @@ attributes @target and @cRef may be supplied on <name/>.</report>
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-ref-refHasContentIfInNote-constraint-rule-28">
+                  id="TeiModel_for_FirstWorldWarWills-ref-refHasContentIfInNote-constraint-rule-29">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -3183,24 +3230,24 @@ attributes @target and @cRef may be supplied on <name/>.</report>
          </pattern>
          <optional>
             <attribute name="target">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(la cible du renvoi) </a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(la cible du renvoi) précise la cible de la référence en donnant une ou plusieurs références URIL'attribut target contient l'identifiant de la ressource liée.</a:documentation>
                <data type="anyURI"/>
             </attribute>
          </optional>
          <optional>
             <attribute name="xml:id">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(identifiant unique du renvoi) </a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(identifiant) (identifiant unique du renvoi) fournit un identifiant unique pour l'élément qui porte l'attribut</a:documentation>
                <data type="ID"/>
             </attribute>
          </optional>
          <optional>
             <attribute name="type">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(catégorie de renvoi) </a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">caractérise l'élément en utilisant n'importe quel système ou typologie de classification approprié.Utiliser cet attribut pour spécifier la catégorie de renvoi.</a:documentation>
                <choice>
                   <value>internal</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(renvoi interne à l'édition du testament en cours) </a:documentation>
                   <value>uri</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(renvoi à une URI externe) </a:documentation>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(renvoi à un URI externe) </a:documentation>
                   <value>external</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(renvoi à une ressource web externe quelconque) </a:documentation>
                </choice>
@@ -3211,7 +3258,7 @@ attributes @target and @cRef may be supplied on <name/>.</report>
    </define>
    <define name="TEI-list">
       <element name="list">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(liste) contient une suite d'items ordonnés dans une liste.utilisé le plus souvent pour encoder une liste de biens dans le corps d'un testament. [3.7. Lists]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(liste) contient une suite d'items ordonnés dans une liste.Cet élément est le plus souvent utilisé pour encoder une liste de biens dans le corps d'un testament. [3.7. Lists]</a:documentation>
          <oneOrMore>
             <group>
                <choice>
@@ -3350,7 +3397,7 @@ attributes @target and @cRef may be supplied on <name/>.</report>
             </group>
          </oneOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-list-ifListThenItem-constraint-rule-29">
+                  id="TeiModel_for_FirstWorldWarWills-list-ifListThenItem-constraint-rule-30">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -3361,7 +3408,7 @@ attributes @target and @cRef may be supplied on <name/>.</report>
          </pattern>
          <optional>
             <attribute name="rend">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indique comment l'élément en question a été rendu ou présenté dans le texte sourceCet attribut est utilisé pour spécifier à quel endroit, sur la page, se trouve l'élément concerné.
 Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] left(à gauche) </a:documentation>
                <text/>
             </attribute>
@@ -3371,7 +3418,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
    </define>
    <define name="TEI-item">
       <element name="item">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(composant de liste (item)) contient un composant d'une liste.utilisé le plus souvent pour encoder la description d'un bien dans une liste. [3.7. Lists 2.6. The Revision Description]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(composant de liste (item)) contient un composant d'une liste.Cet élément est utilisé dans l'élément list, le plus souvent pour encoder la description d'un bien dans une liste de biens. [3.7. Lists 2.6. The Revision Description]</a:documentation>
          <zeroOrMore>
             <choice>
                <text/>
@@ -3399,7 +3446,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
          </zeroOrMore>
          <optional>
             <attribute name="rend">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indique comment l'élément en question a été rendu ou présenté dans le texte sourceCet attribut est utilisé pour spécifier à quel endroit, sur la page, se trouve l'élément concerné.
 Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] left(à gauche) </a:documentation>
                <text/>
             </attribute>
@@ -3420,7 +3467,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
    </define>
    <define name="TEI-head">
       <element name="head">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(en-tête) contient tout type d'en-tête, par exemple le titre d'une section, ou l'intitulé d'une liste, d'un glossaire, d'une description de manuscrit, etc.contient le titre du testament, lorsque le testateur en a écrit un en tête de celui-ci, avant ou après la mention de la date si elle existe, en le centrant en général sur la page. Le plus souvent ce titre est le suivant : "Ceci est mon testament", ou une expression ayant la même signification. [4.2.1. Headings and Trailers]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(en-tête) contient tout type d'en-tête, par exemple le titre d'une section, ou l'intitulé d'une liste, d'un glossaire, d'une description de manuscrit, etc.L'élément head contient le titre du testament, lorsque le testateur en a écrit un en tête de celui-ci, avant ou après la mention de la date si elle existe, en le centrant en général sur la page. Le plus souvent ce titre est le suivant : "Ceci est mon testament", ou une expression ayant la même signification. [4.2.1. Headings and Trailers]</a:documentation>
          <zeroOrMore>
             <choice>
                <text/>
@@ -3449,7 +3496,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
    </define>
    <define name="TEI-note">
       <element name="note">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(note) contient une note ou une annotationutilisé par les éditeurs pour saisir les notes sur le contenu des testaments (dans ce cas, l'élément note est enregistré dans l'élément back) ou les notes d'apparat critique relatives à la forme de la transcription (dans ce cas l'élément note est enregistré dans l'élément app dans le corps de la transcription). Dans ces deux cas cet élément a obligatoirement un attribut resp qui désigne le ou les auteurs de la note. Dans de rares cas, l'élément note sert à encoder une note du testateur lui-même, ajoutée en marge, relative le plus souvent à un ou des mots qu'il a rayés dans le testament. Enfin, l'élément note est utilisé dans les notices sur les testateurs, les lieux et les unités militaires, pour saisir un historique de l'entité décrite. [3.8.1. Notes and Simple Annotation 2.2.6. The Notes Statement 3.11.2.8. Notes and Statement of Language 9.3.5.4. Notes within Entries]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(note) contient une note ou une annotationL'élément note est utilisé par les éditeurs pour saisir les notes sur le contenu des testaments (dans ce cas, l'élément note est enregistré dans l'élément back) ou les notes d'apparat critique relatives à la forme de la transcription (dans ce cas l'élément note est enregistré dans l'élément app dans le corps de la transcription). Dans ces deux cas cet élément a obligatoirement un attribut resp qui désigne le ou les auteurs de la note. Dans de rares cas, l'élément note sert à encoder une note du testateur lui-même, ajoutée en marge, relative le plus souvent à un ou des mots qu'il a rayés dans le testament. Enfin, l'élément note est utilisé dans les notices sur les testateurs, les lieux et les unités militaires, pour saisir un historique de l'entité décrite. [3.8.1. Notes and Simple Annotation 2.2.6. The Notes Statement 3.11.2.8. Notes and Statement of Language 9.3.5.4. Notes within Entries]</a:documentation>
          <choice>
             <zeroOrMore>
                <choice>
@@ -3493,7 +3540,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
             </oneOrMore>
          </choice>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-note-attrIdOnHistoricalNote-constraint-rule-30">
+                  id="TeiModel_for_FirstWorldWarWills-note-attrIdOnHistoricalNote-constraint-rule-31">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -3503,17 +3550,17 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-note-noteContentIfInBack-constraint-rule-31">
+                  id="TeiModel_for_FirstWorldWarWills-note-noteContentIfInBack-constraint-rule-32">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                      context="tei:note[ancestor::back]">
-               <sch:assert test="not(tei:lb) and not(tei:pb) and not(tei:choice) and not(tei:gap) and not(tei:unclear) and not(tei:supplied) and not(tei:damage) and not(tei:add) and not(tei:del) and not(tei:subst) and not(tei:app) and not(tei:seg)">Dans une note historique, on ne doit pas trouver les éléments dédiés à la
+                      context="tei:note[parent::tei:app or ancestor::tei:div[@type='notes']]">
+               <sch:assert test="not(tei:lb) and not(tei:pb) and not(tei:choice) and not(tei:gap) and not(tei:unclear) and not(tei:supplied) and not(tei:damage) and not(tei:add) and not(tei:del) and not(tei:subst) and not(tei:app) and not(tei:seg)">Dans une note historique ou d'apparat critique, on ne doit pas trouver les éléments dédiés à la
                   transcription.</sch:assert>
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-note-noteContentIfInAuthorityRecord-constraint-rule-32">
+                  id="TeiModel_for_FirstWorldWarWills-note-noteContentIfInAuthorityRecord-constraint-rule-33">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -3526,7 +3573,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
          </pattern>
          <optional>
             <attribute name="resp">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(responsable) indique l'agent responsable de l'intervention ou de l'interprétation, par exemple un éditeur ou un transcripteur.Il est recommandé d'utiliser cet attribut, dans le cas d'une note d'apparat critique ou d'une note historique, pour identifier son ou ses auteurs.</a:documentation>
                <list>
                   <oneOrMore>
                      <data type="anyURI"/>
@@ -3536,13 +3583,13 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
          </optional>
          <optional>
             <attribute name="xml:id">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(identifiant unique de la note) </a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(identifiant) fournit un identifiant unique pour l'élément qui porte l'attributidentifiant unique de la note</a:documentation>
                <data type="ID"/>
             </attribute>
          </optional>
          <optional>
             <attribute name="type">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">caractérise l'élément en utilisant n'importe quel système ou typologie de classification approprié.Utiliser cet attribut pour spécifier que la note contient un historique du testateur, du lieu ou de l'unité militaire en cours de description.</a:documentation>
                <choice>
                   <value>history</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(historique de l'entité décrite) </a:documentation>
@@ -3554,14 +3601,14 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
    </define>
    <define name="TEI-graphic">
       <element name="graphic">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">utilisé, au sein d'un élément surface, pour consigner l'adresse relative et l'identifiant d'une image numérique reproduisant une surface physique d'un testament ou de son enveloppe. Doit obligatoirement avoir un attribut url et un attribut xml:id</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indique l'emplacement d'une image, d'une illustration ou d'un schéma intégrés.Cet élément est utilisé, au sein d'un élément surface, pour consigner l'adresse relative et l'identifiant d'une image numérique reproduisant une surface physique d'un testament ou de son enveloppe. Doit obligatoirement avoir un attribut url et un attribut xml:id</a:documentation>
          <empty/>
          <attribute name="url">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">L'adresse relative de l'image numérique</a:documentation>
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(adresse URL) L'adresse relative de l'image numérique</a:documentation>
             <data type="anyURI"/>
          </attribute>
          <attribute name="xml:id">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">l'identifiant unique de l'image numérique (sera utilisé pour faire référence à cette image dans le corps de la transcription).</a:documentation>
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(identifiant) fournit un identifiant unique pour l'élément qui porte l'attributL'identifiant unique de l'image numérique (sera utilisé pour faire référence à cette image dans le corps de la transcription).</a:documentation>
             <data type="ID"/>
          </attribute>
          <empty/>
@@ -3569,11 +3616,11 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
    </define>
    <define name="TEI-pb">
       <element name="pb">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(saut de page) marque le début d'une page de texte dans un document paginé.utilisé pour indiquer les changements de page dans le texte du testament. On l'utilise aussi pour indiquer la première page du testament. L'élément pb a obligatoirement un attribut facs qui renvoie, via son identifiant, à l'image numérique reproduisant la nouvelle page, telle que déclarée dans l'élément facsimile. [3.10.3. Milestone
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(saut de page) marque le début d'une page de texte dans un document paginé.L'élément pb est utilisé pour indiquer les changements de page dans le texte du testament. On l'utilise aussi pour indiquer la première page du testament. L'élément pb a obligatoirement un attribut facs qui renvoie, via son identifiant, à l'image numérique reproduisant la nouvelle page, telle que déclarée dans l'élément facsimile. [3.10.3. Milestone
 Elements]</a:documentation>
          <empty/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-pb-ifPbThenAttrFacs-constraint-rule-33">
+                  id="TeiModel_for_FirstWorldWarWills-pb-ifPbThenAttrFacs-constraint-rule-34">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -3585,7 +3632,7 @@ Elements]</a:documentation>
             </sch:rule>
          </pattern>
          <attribute name="facs">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">après le caractère dièse qui indique un pointeur interne, taper l'identifiant (la valeur de l'attribut xml:id de l'élément graphic) de l'image numérique reproduisant la page sur laquelle on se trouve après le changement de page.</a:documentation>
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(fac-similé) pointe directement vers une image ou vers une partie d'une image correspondant au contenu de l'élément.Après le caractère dièse qui indique un pointeur interne, taper l'identifiant (la valeur de l'attribut xml:id de l'élément graphic) de l'image numérique reproduisant la page sur laquelle on se trouve après le changement de page.</a:documentation>
             <text/>
          </attribute>
          <empty/>
@@ -3593,16 +3640,15 @@ Elements]</a:documentation>
    </define>
    <define name="TEI-lb">
       <element name="lb">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(saut de ligne) marque le début d'une nouvelle ligne (typographique) dans une édition ou dans une version d'un texte.à utiliser pour indiquer un changement de ligne dans le texte du testament. Si le changement de ligne intervient à l'intérieur d'un mot, ne pas taper le tiret de césure, mais utiliser l'attribut break en lui donnant la valeur "no". [3.10.3. Milestone
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(saut de ligne) marque le début d'une nouvelle ligne (typographique) dans une édition ou dans une version d'un texte.L'élément lb doit être utilisé pour indiquer un changement de ligne dans le corps d'un composant textuel de premier niveau du testament (un en-tête, une mention de date, un paragraphe, une liste de biens, un post-scriptum, une signature). Si le changement de ligne intervient à l'intérieur d'un mot, ne pas taper le tiret de césure, mais utiliser l'attribut break en lui donnant la valeur "no". [3.10.3. Milestone
 Elements 7.2.5. Speech Contents]</a:documentation>
          <empty/>
          <optional>
             <attribute name="break">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indique si l'élément qui porte cet attribut peut être considéré comme une espace blanche indiquant la fin d'un mot orthographique.</a:documentation>
                <choice>
                   <value>no</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(non (pas de nouveau mot après le changement de ligne ; ce changement
-                    intervient à l'intérieur d'un mot)) </a:documentation>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(non) l'élément qui porte cet attribut ne peut être pas considéré comme indiquant la fin d'un mot orthographiqueà utiliser lorsque le changement de ligne intervient au milieu d'un mot.</a:documentation>
                </choice>
             </attribute>
          </optional>
@@ -3700,7 +3746,7 @@ Elements]</a:documentation>
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-title-attrTypeOnTitleInTitleStmt-constraint-rule-34">
+                  id="TeiModel_for_FirstWorldWarWills-title-attrTypeOnTitleInTitleStmt-constraint-rule-35">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -3778,7 +3824,7 @@ Exemple de valeurs possibles: 1] corpusTitle(titre du corpus TEI (dans teiHeader
             </zeroOrMore>
          </group>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-bibl-biblShouldHaveAtLeastTitle-constraint-rule-35">
+                  id="TeiModel_for_FirstWorldWarWills-bibl-biblShouldHaveAtLeastTitle-constraint-rule-36">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -5246,7 +5292,7 @@ Les valeurs suggérées comprennent: 1] WGS84(World Geodetic System) ; 2] MGRS(M
    </define>
    <define name="TEI-seg">
       <element name="seg">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(segment quelconque (de texte)) contient une unité de texte quelconque de niveau segment.utilisé notamment pour encoder, dans signed ou directement dans un paragraphe ou un post-scriptum, une signature. Devrait normalement avoir un attribut type pour catégoriser le segment. [16.3. Blocks, Segments, and Anchors 6.2. Components of the Verse Line 7.2.5. Speech Contents]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(segment quelconque (de texte)) contient une unité de texte quelconque de niveau segment.Cet élément est utilisé notamment pour encoder, dans signed ou directement dans un paragraphe ou un post-scriptum, une signature. Devrait normalement avoir un attribut type pour catégoriser le segment. [16.3. Blocks, Segments, and Anchors 6.2. Components of the Verse Line 7.2.5. Speech Contents]</a:documentation>
          <zeroOrMore>
             <choice>
                <text/>
@@ -5271,7 +5317,7 @@ Les valeurs suggérées comprennent: 1] WGS84(World Geodetic System) ; 2] MGRS(M
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-seg-ifSegThenAttrType-constraint-rule-36">
+                  id="TeiModel_for_FirstWorldWarWills-seg-ifSegThenAttrType-constraint-rule-37">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -5283,10 +5329,14 @@ Les valeurs suggérées comprennent: 1] WGS84(World Geodetic System) ; 2] MGRS(M
          </pattern>
          <optional>
             <attribute name="type">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">caractérise l'élément en utilisant n'importe quel système ou typologie de classification approprié.Catégorise ici le segment textuel. Il est recommandé de l'utiliser.</a:documentation>
                <choice>
                   <value>signature</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(une signature proprement dite) </a:documentation>
+                  <value>willAuthorVisionOfDeath</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(expression de la vision de la mort par le testateur) </a:documentation>
+                  <value>willAuthorStateOfMind</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(expression de l'état d'esprit du testateur) </a:documentation>
                   <value>other</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(autre catégorie de segment) </a:documentation>
                </choice>
@@ -5294,9 +5344,31 @@ Les valeurs suggérées comprennent: 1] WGS84(World Geodetic System) ; 2] MGRS(M
          </optional>
          <optional>
             <attribute name="rend">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indique comment l'élément en question a été rendu ou présenté dans le texte sourceCet attribut est utilisé pour spécifier à quel endroit, sur la page, se trouve l'élément concerné.
 Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] left(à gauche) </a:documentation>
                <text/>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="ana">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(analyse) indique un ou plusieurs éléments contenant des interprétations de l'élément qui porte l'attribut ana.Cet attribut est utilisé pour relier le terme à l'entrée correspondante dans la grille d'analyse du vocabulaire employé par les testateurs.</a:documentation>
+               <list>
+                  <oneOrMore>
+                     <data type="anyURI"/>
+                  </oneOrMore>
+               </list>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="xml:lang">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(langue) indique la langue du contenu de l'élément en utilisant les codes du RFC 3066Spécifier dans cet attribut le code de la langue du segment textuel balisé, lorsque ce n'est pas le français. Parmi les codes possibles pour les langues européennes : en (anglais), es (espagnol), it (italien).</a:documentation>
+               <choice>
+                  <data type="language"/>
+                  <choice>
+                     <value/>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  </choice>
+               </choice>
             </attribute>
          </optional>
          <empty/>
@@ -6059,7 +6131,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
    </define>
    <define name="TEI-orgName">
       <element name="orgName">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(nom d'organisation) contient le nom d'une organisation.peut être utilisé dans le corps de la transcription pour baliser un nom de régiment lorsque celui-ci fait l'objet d'une notice. L'élément orgName sert aussi dans les notices descriptives des régiments ; dans ce cas il aura un attribut type. [13.2.2. Organizational Names]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(nom d'organisation) contient le nom d'une organisation.L'élément orgName peut être utilisé dans le corps de la transcription, pour baliser un nom de régiment, notamment lorsque celui-ci fait l'objet d'une notice. L'élément orgName sert aussi dans les notices descriptives des régiments ; dans ce cas il aura un attribut type. [13.2.2. Organizational Names]</a:documentation>
          <zeroOrMore>
             <choice>
                <text/>
@@ -6082,7 +6154,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-orgName-contentIfOrgNameInAuthorityRecord-constraint-rule-37">
+                  id="TeiModel_for_FirstWorldWarWills-orgName-contentIfOrgNameInAuthorityRecord-constraint-rule-38">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6092,7 +6164,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-orgName-attrTypeIfOrgNameInAuthorityRecord-constraint-rule-38">
+                  id="TeiModel_for_FirstWorldWarWills-orgName-attrTypeIfOrgNameInAuthorityRecord-constraint-rule-39">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6104,7 +6176,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
          </pattern>
          <optional>
             <attribute name="type">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Utiliser cet attribut, lorsque le nom de l'unité militaire est donné dans la notice sur l'unité militaire, pour spécifier si la forme du nom est saisie en langage naturel ou si elle est saisie comme une entrée d'index complète</a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">caractérise l'élément en utilisant n'importe quel système ou typologie de classification approprié.Utiliser cet attribut, lorsque le nom de l'unité militaire est donné dans la notice sur l'unité militaire, pour spécifier si la forme du nom est saisie en langage naturel ou si elle est saisie comme une entrée d'index complète</a:documentation>
                <choice>
                   <value>proseForm</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(forme en français (langage naturel)) </a:documentation>
@@ -6117,19 +6189,19 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
          </optional>
          <optional>
             <attribute name="ref">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">L'attribut ref contient, le cas échéant, un renvoi vers la notice décrivant, au sein de la plate-forme de transcription, l'unité militaire dont le nom a été balisé.</a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(référence) fournit un moyen explicite de localiser une définition complète de l'entité nommée au moyen d'un ou plusieurs URIs.L'attribut ref contient, le cas échéant, un renvoi vers la notice décrivant, au sein de la plate-forme de transcription, l'unité militaire dont le nom a été balisé.</a:documentation>
                <data type="anyURI"/>
             </attribute>
          </optional>
          <optional>
             <attribute name="xml:id">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(identifiant) fournit un identifiant unique pour l'élément qui porte l'attributCet attribut sert, dans les métadonnées du fichier TEI de transcription, pour assigner un identifiant à chacun des organismes contributeurs.</a:documentation>
                <data type="ID"/>
             </attribute>
          </optional>
          <optional>
             <attribute name="corresp">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(correspond) pointe vers des éléments qui ont une correspondance avec l'élément en question.Cet attribut sert, dans les métadonnées du fichier TEI de transcription, pour établir une correspondance entre le nom d'un organisme contributeur et une autre occurrence du même nom, située plus haut dans le fichier et dotée d'un identifiant.</a:documentation>
                <list>
                   <oneOrMore>
                      <data type="anyURI"/>
@@ -6142,7 +6214,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
    </define>
    <define name="TEI-persName">
       <element name="persName">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(nom de personne) contient un nom propre ou une expression nominale se référant à une personne, pouvant inclure tout ou partie de ses prénoms, noms de famille, titres honorifiques, noms ajoutés, etc.peut être utilisé dans le corps de la transcription pour baliser un nom de personne lorsque la personne fait l'objet d'une notice. On l'utilise notamment dans la ou les mentions de signature du testament. Dans ce cas, il est recommandé de distinguer, dans la chaîne de caractères ainsi balisée, le nom de famille de la personne (afin que celui-ci, ultérieurement, puisse être mis en forme de manière spécifique dans l'édition de restitution). L'élément persName sert aussi pour baliser les métadonnées du testament et dans les notices sur les testateurs ; dans ce dernier cas, on devra trouver dans cet élément les sous-éléments distinguant nom de famille et prénoms. [13.2.1. Personal Names]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(nom de personne) contient un nom propre ou une expression nominale se référant à une personne, pouvant inclure tout ou partie de ses prénoms, noms de famille, titres honorifiques, noms ajoutés, etc.L'élément persNamepeut être utilisé dans le corps de la transcription pour baliser un nom de personne, notamment lorsque la personne fait l'objet d'une notice. On l'utilise notamment dans la ou les mentions de signature du testament. Dans ce cas, il est recommandé de distinguer, dans la chaîne de caractères ainsi balisée, le nom de famille de la personne (afin que celui-ci, ultérieurement, puisse être mis en forme de manière spécifique dans l'édition de restitution), à l'aide de l'élément surname. L'élément persName sert aussi pour baliser les métadonnées du testament et dans les notices sur les testateurs ; dans ce dernier cas, on devra trouver dans cet élément les sous-éléments distinguant nom de famille et prénoms. [13.2.1. Personal Names]</a:documentation>
          <zeroOrMore>
             <choice>
                <text/>
@@ -6165,7 +6237,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-persName-contentIfPersNameInSigned-constraint-rule-39">
+                  id="TeiModel_for_FirstWorldWarWills-persName-contentIfPersNameInSigned-constraint-rule-40">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6175,7 +6247,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-persName-contentIfPersNameInAuthorityRecord-constraint-rule-40">
+                  id="TeiModel_for_FirstWorldWarWills-persName-contentIfPersNameInAuthorityRecord-constraint-rule-41">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6186,7 +6258,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-persName-contentIfPersNameInRespStmt-constraint-rule-41">
+                  id="TeiModel_for_FirstWorldWarWills-persName-contentIfPersNameInRespStmt-constraint-rule-42">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6198,7 +6270,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-persName-attrTypeIfPersNameInAuthorityRecord-constraint-rule-42">
+                  id="TeiModel_for_FirstWorldWarWills-persName-attrTypeIfPersNameInAuthorityRecord-constraint-rule-43">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6210,19 +6282,19 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
          </pattern>
          <optional>
             <attribute name="ref">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">L'attribut ref contient, le cas échéant, un renvoi vers la notice décrivant, au sein de la plate-forme de transcription, la personne dont le nom a été balisé.</a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(référence) fournit un moyen explicite de localiser une définition complète de l'entité nommée au moyen d'un ou plusieurs URIs.L'attribut ref contient, le cas échéant, un renvoi vers la notice décrivant, au sein de la plate-forme de transcription, la personne dont le nom a été balisé.</a:documentation>
                <data type="anyURI"/>
             </attribute>
          </optional>
          <optional>
             <attribute name="xml:id">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(identifiant) fournit un identifiant unique pour l'élément qui porte l'attributCet attribut sert, dans les métadonnées du fichier TEI de transcription, pour assigner un identifiant à chacun des contributeurs.</a:documentation>
                <data type="ID"/>
             </attribute>
          </optional>
          <optional>
             <attribute name="corresp">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(correspond) pointe vers des éléments qui ont une correspondance avec l'élément en question.Cet attribut sert, dans les métadonnées du fichier TEI de transcription, pour établir une correspondance entre le nom d'un contributeur et une autre occurrence du même nom, située plus haut dans le fichier et dotée d'un identifiant.</a:documentation>
                <list>
                   <oneOrMore>
                      <data type="anyURI"/>
@@ -6232,7 +6304,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
          </optional>
          <optional>
             <attribute name="type">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Utiliser cet attribut, lorsque le nom de personne est donné dans une notice sur la personne, pour spécifier si la forme du nom est saisie en langage naturel ou si elle est saisie comme une entrée d'index</a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">caractérise l'élément en utilisant n'importe quel système ou typologie de classification approprié.Utiliser cet attribut, lorsque le nom de personne est donné dans une notice sur la personne, pour spécifier si la forme du nom est saisie en langage naturel ou si elle est saisie comme une entrée d'index</a:documentation>
                <choice>
                   <value>fullProseForm</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(forme complète en français (langage naturel)) </a:documentation>
@@ -6264,7 +6336,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-surname-surnameNotEmpty-constraint-rule-43">
+                  id="TeiModel_for_FirstWorldWarWills-surname-surnameNotEmpty-constraint-rule-44">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6275,7 +6347,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-surname-contentIfSurnameInAuthorityRecord-constraint-rule-44">
+                  id="TeiModel_for_FirstWorldWarWills-surname-contentIfSurnameInAuthorityRecord-constraint-rule-45">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6288,7 +6360,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
    </define>
    <define name="TEI-forename">
       <element name="forename">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(prénom) contient un prénom, qu'il soit donné ou un nom de baptême.cet élément est utilisé au sein de l'élément persName (nom de personne), pour baliser par ex. chacun des prénoms dans une signature dans le corps de la transcription. Il est surtout employé dans les notices descriptives des testateurs, au sein de l'élément persName qui sert à enregistrer la forme complète, normalisée et segmentée, du nom de la personne. [13.2.1. Personal Names]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(prénom) contient un prénom, qu'il soit donné ou un nom de baptême.L'élément forename est utilisé au sein de l'élément persName (nom de personne), pour baliser par ex. chacun des prénoms dans une signature dans le corps de la transcription. Il est surtout employé dans les notices descriptives des testateurs, au sein de l'élément persName qui sert à enregistrer la forme complète, normalisée et segmentée, du nom de la personne. [13.2.1. Personal Names]</a:documentation>
          <zeroOrMore>
             <choice>
                <text/>
@@ -6306,7 +6378,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-forename-forenameNotEmpty-constraint-rule-45">
+                  id="TeiModel_for_FirstWorldWarWills-forename-forenameNotEmpty-constraint-rule-46">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6316,7 +6388,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-forename-contentIfForenameInAuthorityRecord-constraint-rule-46">
+                  id="TeiModel_for_FirstWorldWarWills-forename-contentIfForenameInAuthorityRecord-constraint-rule-47">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6333,7 +6405,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
    </define>
    <define name="TEI-placeName">
       <element name="placeName">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(nom de lieu) contient un nom de lieu absolu ou relatif.peut être utilisé dans le corps de la transcription pour baliser un nom de lieu lorsque le lieu fait l'objet d'une notice. Dans ce cas, l'attribut type permettra de dire de quel type de lieu il s'agit (lieu de rédaction du testament, lieu de naissance ou de décès du testateur, etc.). L'élément placeName sert aussi pour baliser les métadonnées du testament. Enfin, cet élément est aussi utilisé dans les notices sur les lieux, pour baliser soit le nom du lieu décrit, soit le nom d'une commune, d'une région ou autre circonscription administrative dans lequel le lieu décrit se situe. Si placeName sert à encoder le nom du lieu décrit, on trouvera dans cet élément les sous-éléments distinguant les composants du nom de lieu : nom de lieu habité, nom de lieu géographique. Toujours dans le cas de la notice sur un lieu, le nom de lieu pourra le cas échéant avoir un attribut when-iso pour spécifier les dates d'utilisation de ce nom de lieu. [13.2.3. Place Names]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(nom de lieu) contient un nom de lieu absolu ou relatif.L'élément placeNamepeut être utilisé dans le corps de la transcription pour baliser un nom de lieu, notamment lorsque le lieu fait l'objet d'une notice. Dans ce cas, l'attribut type permettra de dire de quel type de lieu il s'agit (lieu de rédaction du testament, lieu de naissance ou de décès du testateur, etc.). L'élément placeName sert aussi pour baliser les métadonnées du testament. Enfin, cet élément est aussi utilisé dans les notices sur les lieux, pour baliser soit le nom du lieu décrit, soit le nom d'une commune, d'une région ou autre circonscription administrative dans lequel le lieu décrit se situe. Si placeName sert à encoder le nom du lieu décrit, on trouvera dans cet élément les sous-éléments distinguant les composants du nom de lieu : nom de lieu habité, nom de lieu géographique. Toujours dans le cas de la notice sur un lieu, le nom de lieu pourra le cas échéant avoir un attribut when-iso pour spécifier les dates d'utilisation de ce nom de lieu. [13.2.3. Place Names]</a:documentation>
          <zeroOrMore>
             <choice>
                <text/>
@@ -6356,7 +6428,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-placeName-contentIfPlaceNameInPlaceAuthorityRecord-constraint-rule-47">
+                  id="TeiModel_for_FirstWorldWarWills-placeName-contentIfPlaceNameInPlaceAuthorityRecord-constraint-rule-48">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6367,7 +6439,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-placeName-contentIfPlaceNameInPersonAuthorityRecord-constraint-rule-48">
+                  id="TeiModel_for_FirstWorldWarWills-placeName-contentIfPlaceNameInPersonAuthorityRecord-constraint-rule-49">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6378,7 +6450,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-placeName-attrWhen-isoIfPlaceNameInAuthorityRecord-constraint-rule-49">
+                  id="TeiModel_for_FirstWorldWarWills-placeName-attrWhen-isoIfPlaceNameInAuthorityRecord-constraint-rule-50">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6390,7 +6462,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-placeName-attrTypeIfPlaceNameInTranscriptionOrWillMetadata-constraint-rule-50">
+                  id="TeiModel_for_FirstWorldWarWills-placeName-attrTypeIfPlaceNameInTranscriptionOrWillMetadata-constraint-rule-51">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6401,7 +6473,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-placeName-contentIfPlaceNameInTranscription-constraint-rule-51">
+                  id="TeiModel_for_FirstWorldWarWills-placeName-contentIfPlaceNameInTranscription-constraint-rule-52">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6413,13 +6485,13 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
          </pattern>
          <optional>
             <attribute name="ref">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">L'attribut ref contient, le cas échéant, un renvoi vers la notice décrivant, au sein de la plate-forme de transcription, le lieu dont le nom a été balisé.</a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(référence) fournit un moyen explicite de localiser une définition complète de l'entité nommée au moyen d'un ou plusieurs URIs.L'attribut ref contient, le cas échéant, un renvoi vers la notice décrivant, au sein de la plate-forme de transcription, le lieu dont le nom a été balisé.</a:documentation>
                <data type="anyURI"/>
             </attribute>
          </optional>
          <optional>
             <attribute name="type">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">caractérise l'élément en utilisant n'importe quel système ou typologie de classification approprié.Utiliser cet attribut, lorsque le nom de lieu est balisé dans le corps de la transcription, pour spécifier de quel type de date il s'agit, afin de permettre, par la suite, des recherches par type de lieu.</a:documentation>
                <choice>
                   <value>willPlace</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(lieu de rédaction du testament) </a:documentation>
@@ -6434,13 +6506,13 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
                   <value>militaryEventPlace</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(lieu d'un événement militaire (bataille, offensive...)) </a:documentation>
                   <value>otherPlace</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(autre date) </a:documentation>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(autre type de lieu) </a:documentation>
                </choice>
             </attribute>
          </optional>
          <optional>
             <attribute name="when-iso">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">la forme normalisée de la période pendant laquelle le nom de lieu a été utilisé (dans une notice sur un lieu)</a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(date exacte au format ISO 8601) précise une date exacte pour l'évènement selon la forme normalisée ISO 8601, c'est-à-dire aaaa-mm-jj.Cet attribut contient le cas échéant la forme normalisée de la période pendant laquelle le nom de lieu a été utilisé (dans une notice sur un lieu)</a:documentation>
                <choice>
                   <data type="date"/>
                   <data type="gYear"/>
@@ -6464,7 +6536,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(pays) contient le nom d'une unité géo-politique, comme une nation, un pays, une colonie ou une communauté, plus grande ou administrativement supérieure à une région et plus petite qu'un bloc.dans les notices descriptives des lieux, cet élément est obligatoire au sein de l'élément location servant à localiser le lieu dans un contexte géopolitique, pour spécifier dans quel pays se trouve le lieu. [13.2.3. Place Names]</a:documentation>
          <text/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-country-countryNotEmpty-constraint-rule-52">
+                  id="TeiModel_for_FirstWorldWarWills-country-countryNotEmpty-constraint-rule-53">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6486,7 +6558,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-region-regionNotEmpty-constraint-rule-53">
+                  id="TeiModel_for_FirstWorldWarWills-region-regionNotEmpty-constraint-rule-54">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6497,7 +6569,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-region-attrTypeIfRegionInFranceInAuthorityRecord-constraint-rule-54">
+                  id="TeiModel_for_FirstWorldWarWills-region-attrTypeIfRegionInFranceInAuthorityRecord-constraint-rule-55">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6531,7 +6603,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </oneOrMore>
          </choice>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-settlement-settlementNotEmpty-constraint-rule-55">
+                  id="TeiModel_for_FirstWorldWarWills-settlement-settlementNotEmpty-constraint-rule-56">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6542,7 +6614,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-settlement-settlementInLocationContainsAtLeastPLaceName-constraint-rule-56">
+                  id="TeiModel_for_FirstWorldWarWills-settlement-settlementInLocationContainsAtLeastPLaceName-constraint-rule-57">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6588,7 +6660,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-geogName-geogNameNotEmpty-constraint-rule-57">
+                  id="TeiModel_for_FirstWorldWarWills-geogName-geogNameNotEmpty-constraint-rule-58">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6598,7 +6670,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-geogName-ifGeogNameThenAttrType-constraint-rule-58">
+                  id="TeiModel_for_FirstWorldWarWills-geogName-ifGeogNameThenAttrType-constraint-rule-59">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6626,7 +6698,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(nom de caractéristique géographique) contient un nom commun identifiant une caractéristique géographique contenue dans un nom de lieu, comme vallée, mont, etc. [13.2.3. Place Names]</a:documentation>
          <text/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-geogFeat-geogFeatNotEmpty-constraint-rule-59">
+                  id="TeiModel_for_FirstWorldWarWills-geogFeat-geogFeatNotEmpty-constraint-rule-60">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6648,7 +6720,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-affiliation-useOrgNameInAffiliation-constraint-rule-60">
+                  id="TeiModel_for_FirstWorldWarWills-affiliation-useOrgNameInAffiliation-constraint-rule-61">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6673,7 +6745,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-birth-birthShouldHaveAtLeastDate-constraint-rule-61">
+                  id="TeiModel_for_FirstWorldWarWills-birth-birthShouldHaveAtLeastDate-constraint-rule-62">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6696,7 +6768,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-death-deathShouldHaveAtLeastDate-constraint-rule-62">
+                  id="TeiModel_for_FirstWorldWarWills-death-deathShouldHaveAtLeastDate-constraint-rule-63">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6712,7 +6784,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(coordonnées géographiques) contient toute expression, dans un système de notation, d'un ensemble de coordonnées géographiques représentant un point, une ligne ou une zone sur la surface de la Terre.cet élément est utilisé dans les notices descriptives des lieux, pour donner la latitude et la longitude du lieu décrit, selon le Système géodésique mondial (WGS84). La latitude et la longitude sont séparées par une espace. On peut les trouver en consultant, par ex., la base Geonames. [13.3.4.1. Varieties of Location]</a:documentation>
          <text/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-geo-geoNotEmpty-constraint-rule-63">
+                  id="TeiModel_for_FirstWorldWarWills-geo-geoNotEmpty-constraint-rule-64">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6767,7 +6839,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </optional>
          </choice>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-location-locationIfGeopoliticalHasAtLeastCountry-constraint-rule-64">
+                  id="TeiModel_for_FirstWorldWarWills-location-locationIfGeopoliticalHasAtLeastCountry-constraint-rule-65">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6779,7 +6851,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-location-attrWhen-isoIfLocationInAuthorityRecord-constraint-rule-65">
+                  id="TeiModel_for_FirstWorldWarWills-location-attrWhen-isoIfLocationInAuthorityRecord-constraint-rule-66">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6792,7 +6864,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-location-attrTypeIfGeographicalLocationInAuthorityRecord-constraint-rule-66">
+                  id="TeiModel_for_FirstWorldWarWills-location-attrTypeIfGeographicalLocationInAuthorityRecord-constraint-rule-67">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6856,7 +6928,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </zeroOrMore>
          </group>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-org-orgIdPattern-constraint-rule-67">
+                  id="TeiModel_for_FirstWorldWarWills-org-orgIdPattern-constraint-rule-68">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6915,7 +6987,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </zeroOrMore>
          </group>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-person-personIdPattern-constraint-rule-68">
+                  id="TeiModel_for_FirstWorldWarWills-person-personIdPattern-constraint-rule-69">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6966,7 +7038,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </zeroOrMore>
          </group>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-place-placeIdPattern-constraint-rule-69">
+                  id="TeiModel_for_FirstWorldWarWills-place-placeIdPattern-constraint-rule-70">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6977,7 +7049,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-place-attrType-constraint-rule-70">
+                  id="TeiModel_for_FirstWorldWarWills-place-attrType-constraint-rule-71">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -7031,7 +7103,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-residence-usePlaceNameInResidence-constraint-rule-71">
+                  id="TeiModel_for_FirstWorldWarWills-residence-usePlaceNameInResidence-constraint-rule-72">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -7045,13 +7117,13 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
    </define>
    <define name="TEI-app">
       <element name="app">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(entrée d'apparat critique) contient une entrée dans un apparat critique, constituée d'un lemme facultatif et d'au moins une leçon.cet élément est utilisé dans le corps de la transcription lorsqu'on observe un micro-phénomène textuel (addition, suppression, abréviation, erreur de syntaxe, dommage matériel, texte superflu, etc.) que l'on souhaite commenter par une note d'apparat critique. Il contient obligatoirement un élément lem (englobant le texte transcrit) suivi d'un élément note. [12.1.1. The Apparatus Entry]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(entrée d'apparat critique) contient une entrée dans un apparat critique, constituée d'un lemme facultatif et d'au moins une leçon.L'élément app est utilisé dans le corps de la transcription, lorsqu'on observe un micro-phénomène textuel (addition, suppression, abréviation, erreur de syntaxe, dommage matériel, texte superflu, etc.) que l'on souhaite commenter par une note d'apparat critique. Il contient obligatoirement un élément lem (englobant le texte transcrit) suivi d'un élément note. [12.1.1. The Apparatus Entry]</a:documentation>
          <group>
             <ref name="TEI-lem"/>
             <ref name="TEI-note"/>
          </group>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-app-appContent-constraint-rule-72">
+                  id="TeiModel_for_FirstWorldWarWills-app-appContent-constraint-rule-73">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -7064,7 +7136,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
          </pattern>
          <optional>
             <attribute name="xml:id">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(identifiant unique de l'entrée d'apparat critique) </a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(identifiant) (identifiant unique de l'entrée d'apparat critique) fournit un identifiant unique pour l'élément qui porte l'attribut</a:documentation>
                <data type="ID"/>
             </attribute>
          </optional>
@@ -7073,7 +7145,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
    </define>
    <define name="TEI-lem">
       <element name="lem">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(lemme (texte de base)) contient le lemme ou le texte de base d'une variante textuelledans le cadre de ce projet o il n'existe qu'un seul témoin textuel pour un testament donné, l'élément lem est utilisé, au sein de l'entrée d'apparat critique app, pour saisir la transcription d'une partie du texte que l'on souhaite commenter par une note d'apparat critique. [12.1. The Apparatus Entry, Readings, and Witnesses]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(lemme (texte de base)) contient le lemme ou le texte de base d'une variante textuelleDans le cadre de ce projet, comme il n'existe qu'un seul témoin textuel pour un testament donné, l'élément lem est utilisé, au sein de l'entrée d'apparat critique app, pour saisir la transcription d'une partie du texte que l'on souhaite commenter par une note d'apparat critique. [12.1. The Apparatus Entry, Readings, and Witnesses]</a:documentation>
          <zeroOrMore>
             <choice>
                <text/>
@@ -7098,7 +7170,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-lem-lemSibling-constraint-rule-73">
+                  id="TeiModel_for_FirstWorldWarWills-lem-lemSibling-constraint-rule-74">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -7136,7 +7208,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </choice>
          </attribute>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-variantEncoding-location-variantEncodingLocation-constraint-rule-74">
+                  id="TeiModel_for_FirstWorldWarWills-variantEncoding-location-variantEncodingLocation-constraint-rule-75">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -7182,7 +7254,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
    </define>
    <define name="TEI-text">
       <element name="text">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(texte) si et élément contient l'édition du testament, il possède obligatoirement un attribut xml:id qui donne un identifiant unique à l'édition. Il contient obligatoirement un élément body, qui englobe la transcription proprement dite et les notes d'apparat critique, et optionnellement un élément back, qui sert pour consigner les notes explicatives et commentaires divers associés à une partie de la transcription.</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(texte) contient un seul texte quelconque, simple ou composite, par exemple un poème ou une pièce de théâtre, un recueil d’essais, un roman, un dictionnaire ou un échantillon de corpus.Si cet élément contient l'édition du testament, il possède obligatoirement un attribut xml:id qui donne un identifiant unique à l'édition. Il contient obligatoirement un élément body, qui englobe la transcription proprement dite et les notes d'apparat critique, et optionnellement un élément back, qui sert pour consigner les notes explicatives et commentaires divers associés à une partie de la transcription.</a:documentation>
          <group>
             <ref name="TEI-body"/>
             <optional>
@@ -7190,19 +7262,19 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </optional>
          </group>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-text-textIdPattern-constraint-rule-75">
+                  id="TeiModel_for_FirstWorldWarWills-text-textIdPattern-constraint-rule-76">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                       context="tei:text[contains(ancestor::tei:TEI/@xml:id, 'EditionOfWill-')]">
-               <sch:assert test="matches(@xml:id, 'will-\d\d\d\d')">l'identifiant du testament doit
-                  être formé du préfixe 'will-' suivi d'un
-              nombre de quatre chiffres.</sch:assert>
+               <sch:assert test="matches(@xml:id, 'will-\d\d\d\d')">l'identifiant du testament
+                  doit être formé du préfixe 'will-' suivi d'un nombre de quatre
+                  chiffres.</sch:assert>
             </sch:rule>
          </pattern>
          <optional>
             <attribute name="xml:id">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(l'identifiant unique du texte.) </a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(identifiant) fournit un identifiant unique pour l'élément qui porte l'attributl'identifiant unique du testament dont le texte est édité</a:documentation>
                <data type="ID"/>
             </attribute>
          </optional>
@@ -7211,7 +7283,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
    </define>
    <define name="TEI-body">
       <element name="body">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(corps du texte) contient la totalité du corps d’un seul texte simple, à l’exclusion de toute partie pré- ou post-liminaire.contient la totalité de la transcription du document, notes d'apparat critique incluses.</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(corps du texte) contient la totalité du corps d’un seul texte simple, à l’exclusion de toute partie pré- ou post-liminaire.Contient la totalité de la transcription du document, notes d'apparat critique incluses.</a:documentation>
          <choice>
             <choice>
                <oneOrMore>
@@ -7268,7 +7340,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
    </define>
    <define name="TEI-div">
       <element name="div">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(division du texte) contient une subdivision dans le texte préliminaire, dans le corps d’un texte ou dans le texte postliminaire.pour ce qui est de la transcription; div englobe soit le texte du testament, soit le texte d'une enveloppe. div est aussi utilisé pour englober les notes explicatives et commentaires dans l'élément back.</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(division du texte) contient une subdivision dans le texte préliminaire, dans le corps d’un texte ou dans le texte postliminaire.Pour ce qui est de la transcription, l'élément div englobe soit le texte du testament, soit le texte d'une enveloppe. Il est aussi utilisé pour englober les notes explicatives et commentaires dans l'élément back.</a:documentation>
          <choice>
             <group>
                <ref name="TEI-pb"/>
@@ -7894,7 +7966,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-div-contentIfTypeWill-constraint-rule-76">
+                  id="TeiModel_for_FirstWorldWarWills-div-contentIfTypeWill-constraint-rule-77">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -7904,7 +7976,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-div-contentIfTypeEnvelope-constraint-rule-77">
+                  id="TeiModel_for_FirstWorldWarWills-div-contentIfTypeEnvelope-constraint-rule-78">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -7914,7 +7986,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-div-contentIfTypeNotes-constraint-rule-78">
+                  id="TeiModel_for_FirstWorldWarWills-div-contentIfTypeNotes-constraint-rule-79">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -7924,7 +7996,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </sch:rule>
          </pattern>
          <attribute name="type">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">caractérise l'élément en utilisant n'importe quel système ou typologie de classification approprié.Permet de catégoriser la division de texte en indiquant quel est son contenu.</a:documentation>
             <choice>
                <value>will</value>
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(le texte du testament) </a:documentation>
@@ -7939,7 +8011,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
    </define>
    <define name="TEI-dateline">
       <element name="dateline">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(mention de date) contient une brève description des lieux, date, heure, etc. concernant la production d’une lettre, d’un article de journal ou d’un autre texte qui, placée au début ou à la fin, lui est associée comme en-tête ou annonce de fin.il y a normalement une mention de date au moins dans le testament. Celle-ci peut être placée au tout début du testament ou un peu plus bas. Elle est souvent répétée en fin de testament. En principe le testateur y consigne la date et le lieu de rédaction de son testament. [4.2.2. Openers and Closers]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(mention de date) contient une brève description des lieux, date, heure, etc. concernant la production d’une lettre, d’un article de journal ou d’un autre texte qui, placée au début ou à la fin, lui est associée comme en-tête ou annonce de fin.Il y a normalement une mention de date, donc un élément dateline au moins dans le testament. Cette mention de date peut être placée au tout début du testament ou un peu plus bas. Elle est souvent répétée en fin de testament. En principe le testateur y consigne la date et le lieu de rédaction de son testament. [4.2.2. Openers and Closers]</a:documentation>
          <zeroOrMore>
             <choice>
                <text/>
@@ -7967,7 +8039,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
          </zeroOrMore>
          <optional>
             <attribute name="rend">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indique comment l'élément en question a été rendu ou présenté dans le texte sourceCet attribut est utilisé pour spécifier à quel endroit, sur la page, se trouve l'élément concerné.
 Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] left(à gauche) </a:documentation>
                <text/>
             </attribute>
@@ -7977,7 +8049,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
    </define>
    <define name="TEI-signed">
       <element name="signed">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(signature) contient la dernière salutation, ajoutée à un avant-propos, à une dédicace ou à une autre division du texte.ce segment de texte peut contenir, outre la signature proprement dite du testament ou de l'enveloppe, une salutation ou autre formule d'accompagnement, une adresse, une date, etc. On peut, à l'aide de l'attribut rend, en préciser la position sur la page. [4.2.2. Openers and Closers]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(signature) contient la dernière salutation, ajoutée à un avant-propos, à une dédicace ou à une autre division du texte.Ce segment de texte peut contenir, outre la signature proprement dite du testament ou de l'enveloppe, une salutation ou autre formule d'accompagnement, une adresse, une date, etc. On peut, à l'aide de l'attribut rend, en préciser la position sur la page. [4.2.2. Openers and Closers]</a:documentation>
          <zeroOrMore>
             <choice>
                <text/>
@@ -8005,7 +8077,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
          </zeroOrMore>
          <optional>
             <attribute name="rend">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indique comment l'élément en question a été rendu ou présenté dans le texte sourceCet attribut est utilisé pour spécifier à quel endroit, sur la page, se trouve l'élément concerné.
 Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] left(à gauche) </a:documentation>
                <text/>
             </attribute>
@@ -8015,7 +8087,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
    </define>
    <define name="TEI-postscript">
       <element name="postscript">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(post-scriptum) contient un post-scriptum, par exemple au bas d' une lettre.un testament peut avoir plusieurs post-scripta successifs, parfois signés. [4.2. Elements Common to All Divisions]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(post-scriptum) contient un post-scriptum, par exemple au bas d'une lettre.Un testament peut avoir plusieurs post-scripta successifs, parfois signés. Il peut donc y avoir zéro, un ou plusieurs éléments postscriptum dans la transcription. [4.2. Elements Common to All Divisions]</a:documentation>
          <group>
             <choice>
                <group>
@@ -8221,7 +8293,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
          </zeroOrMore>
          <optional>
             <attribute name="rend">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indique comment l'élément en question a été rendu ou présenté dans le texte sourceCet attribut est utilisé pour spécifier à quel endroit, sur la page, se trouve l'élément concerné.
 Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] left(à gauche) </a:documentation>
                <text/>
             </attribute>
@@ -8335,7 +8407,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
    </define>
    <define name="TEI-facsimile">
       <element name="facsimile">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">la liste des images numériques d'un testament comprend uniquement des éléments surfaceou surfaceGrp. Pas d'attribut pour cet élément facsimile.</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contient une représentation d'une source écrite quelconque sous la forme d'un ensemble d'images plutôt que sous la forme d'un texte transcrit ou encodé.La liste des images numériques d'un testament comprend uniquement des éléments surfaceou surfaceGrp. Pas d'attribut pour cet élément facsimile.</a:documentation>
          <oneOrMore>
             <choice>
                <ref name="TEI-surface"/>
@@ -8344,7 +8416,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
          </oneOrMore>
          <optional>
             <attribute name="xml:base">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">permettra si nécessaire de stocker une URL de base pour les images numériques, le segment final de l'URI de chaque image étant donné par l'attribut url de graphic</a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">donne une référence URI de base au moyen de laquelle les applications peuvent résoudre des références d'URI relatives en références d'URI absoluesPermettra si nécessaire de stocker une URL de base pour les images numériques, le segment final de l'URI de chaque image étant donné par l'attribut url de graphic</a:documentation>
                <data type="anyURI"/>
             </attribute>
          </optional>
@@ -8353,17 +8425,17 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
    </define>
    <define name="TEI-surface">
       <element name="surface">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(surface) l'élément surfaceconcerne une des surfaces physiques du testament (page, partie de page, recto ou verso d'une enveloppe). Il contient 2 éléments graphic, un pour l'image au format JPEG, l'autre pour l'image au format TIFF, reproduisant cette surface. Il a obligatoirement deux attributs, type et n.</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(surface) définit une surface écrite comme un rectangle décrit par ses coordonnées spatiales, en regroupant éventuellement une ou plusieurs représentations graphiques de cet espace et des zones rectangulaires intéressantes à l'intérieur de celui-ci.L'élément surfaceconcerne une des surfaces physiques du testament (page, partie de page, recto ou verso d'une enveloppe). Il contient deux éléments graphic, un pour l'image au format JPEG, l'autre pour l'image au format TIFF, reproduisant cette surface. Il a obligatoirement deux attributs, type et n.</a:documentation>
          <group>
             <ref name="TEI-graphic"/>
             <ref name="TEI-graphic"/>
          </group>
          <attribute name="n">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(le numéro de la surface dans l'ordre de lecture logique du testament) </a:documentation>
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(nombre) donne un nombre (ou une autre étiquette) pour un élément, qui n'est pas nécessairement unique dans le document TEI.le numéro de la surface dans l'ordre de lecture logique du testament</a:documentation>
             <text/>
          </attribute>
          <attribute name="type">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">caractérise l'élément en utilisant n'importe quel système ou typologie de classification approprié.Catégorise ici la surface reproduite par l'image numérique</a:documentation>
             <choice>
                <value>will-page</value>
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(page du testament) </a:documentation>
@@ -8380,7 +8452,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
    </define>
    <define name="TEI-surfaceGrp">
       <element name="surfaceGrp">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">surfaceGrp est utilisé lorsque la page du testament dont il sert à déclarer les reproductions numériques est en fait physiquement segmentée en deux parties du fait que le testament est cousu avec les autres pièces formant la minute notariale. On peut donc avoir dans ce cas deux (ou plus ?) surfaces différentes constituant, regroupées, une page. Ces deux surfaces sont numérisées isolément. Donc l'élément surfaceGrp contient au moins 2 éléments surface. L'élément surfaceGrp porte obligatoirement un attribut type et un attribut n.</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">L'élément surfaceGrp est utilisé lorsque la page du testament dont il sert à déclarer les reproductions numériques est en fait physiquement segmentée en deux parties du fait que le testament est cousu avec les autres pièces formant la minute notariale. On peut donc avoir dans ce cas deux (ou plus ?) surfaces différentes constituant, regroupées, une page. Ces deux surfaces sont numérisées isolément. Donc l'élément surfaceGrp contient au moins deux éléments surface. L'élément surfaceGrp porte obligatoirement un attribut type et un attribut n.</a:documentation>
          <oneOrMore>
             <group>
                <ref name="TEI-surface"/>
@@ -8388,11 +8460,11 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
             </group>
          </oneOrMore>
          <attribute name="n">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(le numéro de la surface dans l'ordre de lecture logique du testament) </a:documentation>
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(nombre) donne un nombre (ou une autre étiquette) pour un élément, qui n'est pas nécessairement unique dans le document TEI.le numéro de la surface dans l'ordre de lecture logique du testament</a:documentation>
             <text/>
          </attribute>
          <attribute name="type">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">caractérise l'élément en utilisant n'importe quel système ou typologie de classification approprié.Catégorise ici le groupe de surfaces segmentées par la numérisation</a:documentation>
             <choice>
                <value>will-page</value>
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(page du testament) </a:documentation>
@@ -8407,7 +8479,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
    </define>
    <define name="TEI-damage">
       <element name="damage">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(dommage) sert à encoder une zone qui a subi des dommages dans le manuscrit témoin du texte.utilisé lorsque le support a subi des dégâts matériels (taches, traces de fumée, de frottements, déchirures...) qui rendent la lecture du texte plus ou moins incertaine, jusqu'à parfois le faire disparaître en tout ou en partie. Souvent, on utilise dans cet élément damage un élément unclear ou supplied, voire un élément gap. [11.3.3.1. Damage, Illegibility, and Supplied Text]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(dommage) sert à encoder une zone qui a subi des dommages dans le manuscrit témoin du texte.L'élément damage est utilisé lorsque le support a subi des dégâts matériels (taches, traces de fumée, de frottements, déchirures...) qui rendent la lecture du texte plus ou moins incertaine, jusqu'à parfois le faire disparaître en tout ou en partie. Souvent, on utilise dans cet élément damage un élément unclear ou supplied, voire un élément gap. [11.3.3.1. Damage, Illegibility, and Supplied Text]</a:documentation>
          <zeroOrMore>
             <choice>
                <text/>
@@ -8424,7 +8496,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-damage-ifAttrUnitOnDamageThenAttrQuantity-constraint-rule-79">
+                  id="TeiModel_for_FirstWorldWarWills-damage-ifAttrUnitOnDamageThenAttrQuantity-constraint-rule-80">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -8438,7 +8510,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-damage-ifDamageThenAttrAgentRecommended-constraint-rule-80">
+                  id="TeiModel_for_FirstWorldWarWills-damage-ifDamageThenAttrAgentRecommended-constraint-rule-81">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -8450,7 +8522,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
          </pattern>
          <optional>
             <attribute name="unit">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(unité de mesure) noms des unités utilisées pour la mesure.Cet attribut est utiisé, conjointement avec l'attribut quantity, pour spécifier une mesure de la partie du testament qui a subi un dommage. Il sert à indiquer l'unité de mesure.</a:documentation>
                <choice>
                   <value>cm</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(cm) </a:documentation>
@@ -8465,7 +8537,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
          </optional>
          <optional>
             <attribute name="quantity">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">le nombre de cm, de caractères, de mots ou de lignes, selon l'unité choisie, concernés par le dommage</a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(quantité) spécifie la longueur dans les unités indiquéesCet attribut est utilisé pour spécifier le nombre de cm, de caractères, de mots ou de lignes, selon l'unité choisie et déclarée à l'aide de l'attribut unit, concernés par le dommage</a:documentation>
                <choice>
                   <data type="double"/>
                   <data type="token">
@@ -8477,22 +8549,22 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
          </optional>
          <optional>
             <attribute name="agent">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">caractérise la cause du dommage</a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(cause du dommage) caractérise la raison des dommages, lorsqu'elle peut être identifiéeCaractérise la cause du dommage métariel subi par le testament, lorsqu'elle peut être identifiée à l'aide de l'image numérique.</a:documentation>
                <choice>
                   <value>smoke</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">traces de fumée</a:documentation>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(traces de fumée) </a:documentation>
                   <value>rubbing</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">frottements subis par le support</a:documentation>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(frottements subis par le support) </a:documentation>
                   <value>stain</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">tache</a:documentation>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(tache) </a:documentation>
                   <value>tear</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">déchirure</a:documentation>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(déchirure) </a:documentation>
                   <value>dirt</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">poussière</a:documentation>
-                  <value>unknown</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">agent inconnu</a:documentation>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(poussière) </a:documentation>
                   <value>other</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">autre agent</a:documentation>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(autre agent) </a:documentation>
+                  <value>unknown</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(agent inconnu) </a:documentation>
                </choice>
             </attribute>
          </optional>
@@ -8510,10 +8582,10 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
    </define>
    <define name="TEI-space">
       <element name="space">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(espace) permet de situer un espace significatif dans le texte édité.utilisé lorsque dans le corps de son testament, le testateur a laissé blanc un espace significatif (le plus souvent une ou plusieurs lignes). Devrait toujours avoir les attributs dim, quantity et unit. [11.5.1. Space]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(espace) permet de situer un espace significatif dans le texte édité.L'élément space est utilisé lorsque dans le corps de son testament, le testateur a laissé blanc un espace significatif (le plus souvent une ou plusieurs lignes). Il devrait toujours avoir les attributs dim, quantity et unit. [11.5.1. Space]</a:documentation>
          <empty/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-space-ifAttrUnitOnSpaceThenAttrQuantity-constraint-rule-81">
+                  id="TeiModel_for_FirstWorldWarWills-space-ifAttrUnitOnSpaceThenAttrQuantity-constraint-rule-82">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -8537,7 +8609,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
          </attribute>
          <optional>
             <attribute name="unit">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(unité de mesure) noms des unités utilisées pour la mesure.Cet attribut est utiisé, conjointement avec l'attribut quantity, pour spécifier une mesure de l'espace laissé blanc par le testateur. Il sert à indiquer l'unité de mesure.</a:documentation>
                <choice>
                   <value>cm</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(cm) </a:documentation>
@@ -8548,7 +8620,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
          </optional>
          <optional>
             <attribute name="quantity">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">le nombre de cm, ou de lignes, selon l'unité choisie, sur lesquels s'étend l'espace laissé blanc par le testateur</a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(quantité) spécifie la longueur dans les unités indiquéesCet attribut est utilisé pour spécifier le nombre de cm ou de lignes, selon l'unité choisie et déclarée à l'aide de l'attribut unit, sur lesquels s'étend laissé blanc par le testateur</a:documentation>
                <choice>
                   <data type="double"/>
                   <data type="token">
@@ -8563,13 +8635,13 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
    </define>
    <define name="TEI-subst">
       <element name="subst">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">( substitution) regroupe une ou plusieurs parties de texte supprimées et une ou plusieurs parties de texte ajoutées, lorsque cette combinaison peut être considérée comme une intervention unique sur le texte.utilisé pour regrouper un élément del et un élément add lorsque le texte ajouté se substitue au texte supprimé. [11.3.1.5. Substitutions]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(substitution) regroupe une ou plusieurs parties de texte supprimées et une ou plusieurs parties de texte ajoutées, lorsque cette combinaison peut être considérée comme une intervention unique sur le texte.L'élément subst est utilisé pour regrouper un élément del et un élément add lorsque le texte ajouté se substitue au texte supprimé. [11.3.1.5. Substitutions]</a:documentation>
          <group>
             <ref name="TEI-del"/>
             <ref name="TEI-add"/>
          </group>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-subst-ifSubstThenDelAndAdd-constraint-rule-82">
+                  id="TeiModel_for_FirstWorldWarWills-subst-ifSubstThenDelAndAdd-constraint-rule-83">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -8583,7 +8655,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
    </define>
    <define name="TEI-supplied">
       <element name="supplied">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(texte restitué) permet d'encoder du texte restitué par l'auteur de la transcription ou par l'éditeur pour une raison quelconque, le plus souvent parce que le texte du document original ne peut être lu, par suite de dommages matériels ou de lacunes.utilisé soit dans les cas rares où, un dommage matériel étant survenu, une partie du texte du testament est devenue illisible ou est absente, soit dans le cas où la lecture du mot ou de l'expression est jugée impossible (fil de couture masquant les caractères, rature, écriture non déchiffrable...), dès lors qu'on peut fournir une proposition de texte palliant la lacune. Dans le premier cas, l'élément supplied sera utilisé dans l'élément damage. Dans le cas où la lecture est possible mais incertaine, on utilise unclear. Si la lecture est impossible et qu'on ne peut restituer le texte, on utilise l'élément gap. [11.3.3.1. Damage, Illegibility, and Supplied Text]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(texte restitué) permet d'encoder du texte restitué par l'auteur de la transcription ou par l'éditeur pour une raison quelconque, le plus souvent parce que le texte du document original ne peut être lu, par suite de dommages matériels ou de lacunes.L'élément supplied est utilisé soit dans les cas rares où, un dommage matériel étant survenu, une partie du texte du testament est devenue illisible ou est absente, soit dans le cas où la lecture du mot ou de l'expression est jugée impossible (fil de couture masquant les caractères, rature, écriture non déchiffrable...), dès lors qu'on peut fournir une proposition de texte palliant la lacune. Dans le premier cas, l'élément supplied sera utilisé dans l'élément damage. Pour mémoire, dans le cas où la lecture est possible mais incertaine, on utilise unclear. Si la lecture est impossible et qu'on ne peut restituer le texte, on utilise l'élément gap. [11.3.3.1. Damage, Illegibility, and Supplied Text]</a:documentation>
          <zeroOrMore>
             <choice>
                <text/>
@@ -8601,7 +8673,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-supplied-ifSuppliedAloneThenAttrReasonRecommended-constraint-rule-83">
+                  id="TeiModel_for_FirstWorldWarWills-supplied-ifSuppliedAloneThenAttrReasonRecommended-constraint-rule-84">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -8612,7 +8684,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-supplied-ifAttrUnitOnSuppliedThenAttrQuantity-constraint-rule-84">
+                  id="TeiModel_for_FirstWorldWarWills-supplied-ifAttrUnitOnSuppliedThenAttrQuantity-constraint-rule-85">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -8626,7 +8698,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
          </pattern>
          <optional>
             <attribute name="unit">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(unité de mesure) noms des unités utilisées pour la mesure.</a:documentation>
                <choice>
                   <value>cm</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(cm) </a:documentation>
@@ -8641,7 +8713,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
          </optional>
          <optional>
             <attribute name="quantity">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">le nombre de cm, de caractères, de mots ou de lignes, selon l'unité choisie, restitués par le contributeur</a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(quantité) spécifie la longueur dans les unités indiquéesCet attribut est utilisé pour spécifier le nombre de cm, de caractères, de mots ou de lignes, selon l'unité choisie et déclarée à l'aide de l'attribut unit, qui sont restitués par le contributeur</a:documentation>
                <choice>
                   <data type="double"/>
                   <data type="token">
@@ -8653,17 +8725,17 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
          </optional>
          <optional>
             <attribute name="reason">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(raison) donne la raison pour laquelle on a du restituer le texte
-Les valeurs suggérées comprennent: 1] cancelled(biffé, devenu illisible) ; 2] deleted(détruit, absent) ; 3] illegible(non déchiffré) ; 4] hidden(masqué (par le fil de couture, par une tache...)) </a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(raison) donne la raison pour laquelle on a du restituer le texteCet attribut sert à indiquer pourquoi une partie du texte est restituée.
+Les valeurs suggérées comprennent: 1] cancelled(biffébiffé, devenu illisible) ; 2] deleted(détruit, absent) ; 3] illegible(illisiblenon déchiffré) ; 4] hidden(masqué (par le fil de couture, par une tache...)) </a:documentation>
                <list>
                   <oneOrMore>
                      <choice>
                         <value>cancelled</value>
-                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(biffé, devenu illisible) </a:documentation>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(biffé) (biffé, devenu illisible) </a:documentation>
                         <value>deleted</value>
                         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(détruit, absent) </a:documentation>
                         <value>illegible</value>
-                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(non déchiffré) </a:documentation>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(illisible) (non déchiffré) </a:documentation>
                         <value>hidden</value>
                         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(masqué (par le fil de couture, par une tache...)) </a:documentation>
                         <data type="token">
@@ -8676,7 +8748,7 @@ Les valeurs suggérées comprennent: 1] cancelled(biffé, devenu illisible) ; 2]
          </optional>
          <optional>
             <attribute name="resp">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(responsable) indique l'agent responsable de l'intervention ou de l'interprétation, par exemple un éditeur ou un transcripteur.Il est recommandé d'utiliser cet attribut, en l'occurrence pour identifier la ou les auteurs de la proposition de texte restitué.</a:documentation>
                <list>
                   <oneOrMore>
                      <data type="anyURI"/>
@@ -8689,7 +8761,7 @@ Les valeurs suggérées comprennent: 1] cancelled(biffé, devenu illisible) ; 2]
    </define>
    <define name="TEI-surplus">
       <element name="surplus">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(texte superflu) permet d'encoder une partie de texte présente dans la source lorsque l'éditeur la considère superflue ou redondante.utilisé à l'intérieur de l'élément sic uniquement, le plus souvent parce que le testateur a écrit deux fois le même mot ou la même expression. [11.3.3.1. Damage, Illegibility, and Supplied Text]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(texte superflu) permet d'encoder une partie de texte présente dans la source lorsque l'éditeur la considère superflue ou redondante.L'élémnt surplus est utilisé à l'intérieur de l'élément sic uniquement, le plus souvent parce que le testateur a écrit deux fois le même mot ou la même expression. [11.3.3.1. Damage, Illegibility, and Supplied Text]</a:documentation>
          <zeroOrMore>
             <choice>
                <text/>
@@ -8703,10 +8775,10 @@ Les valeurs suggérées comprennent: 1] cancelled(biffé, devenu illisible) ; 2]
    </define>
    <define name="TEI-metamark">
       <element name="metamark">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(métamarque) contient ou décrit tout type de signe graphique ou de caractère dans un document dont la fonction est de déterminer comment le document devrait être lu (ce signe ne fait donc pas partie du contenu proprement dit du document).cet élément est utilisé lorsqu'on souhaite spécifier que le testateur a inscrit un signe ou un dessin (le plus souvent une ligne ou une croix) ayant un rôle dans la lecture du testament (le plus souvent, cette marque a été posée pour mettre en évidence un passage ou pour séparer deux parties du testament). Cet élément devrait avoir les attributs function et rend. [11.3.4.2. Metamarks]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(métamarque) contient ou décrit tout type de signe graphique ou de caractère dans un document dont la fonction est de déterminer comment le document devrait être lu (ce signe ne fait donc pas partie du contenu proprement dit du document).L'élément metamark est utilisé lorsqu'on souhaite spécifier que le testateur a inscrit un signe ou un dessin (le plus souvent une ligne ou une croix) ayant un rôle dans la lecture du testament (le plus souvent, cette marque a été posée pour mettre en évidence un passage ou pour séparer deux parties du testament). Cet élément devrait avoir les attributs function et rend. [11.3.4.2. Metamarks]</a:documentation>
          <empty/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-metamark-ifMetamarkThenAttrsFunctionAndRend-constraint-rule-85">
+                  id="TeiModel_for_FirstWorldWarWills-metamark-ifMetamarkThenAttrsFunctionAndRend-constraint-rule-86">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -8719,13 +8791,12 @@ Les valeurs suggérées comprennent: 1] cancelled(biffé, devenu illisible) ; 2]
          </pattern>
          <optional>
             <attribute name="function">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">définit la fonction de la marque.</a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(fonction) définit la fonction de la marque.</a:documentation>
                <choice>
                   <value>separating</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(marque de séparation) </a:documentation>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">marque de séparation</a:documentation>
                   <value>emphasis</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(marque de mise en valeur (pour signaler un mot ou une expression
-                    importants)) </a:documentation>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">marque de mise en valeur (pour signaler un mot ou une expression importants)</a:documentation>
                   <value>other</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
                </choice>
@@ -8733,7 +8804,7 @@ Les valeurs suggérées comprennent: 1] cancelled(biffé, devenu illisible) ; 2]
          </optional>
          <optional>
             <attribute name="rend">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">définit la forme de la marque</a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(rendu) indique comment l'élément en question a été rendu ou présenté dans le texte sourceCet attribut permet de spécifier la forme de la métamarque.</a:documentation>
                <choice>
                   <value>horizontal-line</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(trait horizontal) </a:documentation>
