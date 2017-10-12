@@ -507,12 +507,11 @@
           <exemplum>
             <egXML xmlns="http://www.tei-c.org/ns/Examples"><surfaceGrp type="will-page" n="02"
                   ><surface type="will-page-part" n="02a"><graphic
-                    url="JPEG/FRAN_Poilus_t-0001_02a.jpg" xml:id="testament-0001_vue-02a_jpg"
+                    url="JPEG/FRAN_Poilus_t-0001_02a.jpg" xml:id="t-0001_vue-02a_jpg"
                     > </graphic><graphic url="TIFF/FRAN_Poilus_t-0001_02a.tif"
-                    xml:id="testament-0001_vue-02a_tif"/></surface><surface type="will-page-part"
-                  n="02b"><graphic url="JPEG/FRAN_Poilus_t-0001_02b.jpg"
-                    xml:id="testament-0001_vue-02b_jpg"/><graphic
-                    url="TIFF/FRAN_Poilus_t-0001_02b.jpg" xml:id="testament-0001_vue-02b_tif"
+                    xml:id="t-0001_vue-02a_tif"/></surface><surface type="will-page-part" n="02b"
+                    ><graphic url="JPEG/FRAN_Poilus_t-0001_02b.jpg" xml:id="t-0001_vue-02b_jpg"
+                    /><graphic url="TIFF/FRAN_Poilus_t-0001_02b.jpg" xml:id="t-0001_vue-02b_tif"
                   /></surface></surfaceGrp></egXML>
           </exemplum>
         </elementSpec>
@@ -553,8 +552,8 @@
           </attList>
           <exemplum>
             <egXML xmlns="http://www.tei-c.org/ns/Examples"><surface type="will-page" n="01"
-                  ><graphic url="TIFF/FRAN_Poilus_t-0001_01.tif" xml:id="testament-0001_vue-01_jpg"
-                  /><graphic url="JPEG/FRAN_Poilus_t-0001_01.jpg" xml:id="testament-0001_vue-01_tif"
+                  ><graphic url="TIFF/FRAN_Poilus_t-0001_01.tif" xml:id="t-0001_vue-01_jpg"
+                  /><graphic url="JPEG/FRAN_Poilus_t-0001_01.jpg" xml:id="t-0001_vue-01_tif"
                 /></surface></egXML>
           </exemplum>
           <!-- <content>
@@ -2167,6 +2166,16 @@
             transcrire une faute de français et une proposition de correction de cette faute), soit
             un élément <gi>orig</gi> et un élément <gi>reg</gi> (pour transcrire une graphie ou une
             ponctuation ancienne et une proposition de graphie ou de ponctuation normalisée).</desc>
+          <desc type="wills-ui-complexTag-info"> L'élément <gi>choice</gi> doit contenir une des
+            trois configurations suivantes : <list><item>un mot contenant une abréviation (dans
+                l'élément <gi>abbr</gi>) et sa version développée (dans l'élément
+                <gi>expan</gi>)</item><item>un mot ou une expression contenant une ou plusieurs
+                faute(s) de français (dans l'élément <gi>sic</gi>) et sa version corrigée (dans
+                l'élément <gi>corr</gi>)</item><item>un mot ou une expression dont la forme ne
+                respecte pas les règles actuelles d'orthographe (dans l'élément <gi>orig</gi>) et sa
+                version normalisée selon les règles d'orthographe actuelles (dans l'élément
+                  <gi>reg</gi>)</item></list>
+          </desc>
           <classes>
             <!-- <memberOf key="att.global"/>-->
             <memberOf key="model.pPart.editorial"/>
@@ -3574,6 +3583,12 @@
           <desc type="wills-ui">L'élément <gi>subst</gi> est utilisé pour regrouper un élément
               <gi>del</gi> et un élément <gi>add</gi> lorsque le texte ajouté se substitue au texte
             supprimé.</desc>
+          <desc type="wills-ui-complexTag-info"> L'élément <gi>subst</gi> doit avoir le contenu
+            suivant : <list><item>un mot ou une expression biffés par le testateur (dans l'élément
+                  <gi>del</gi>)</item><item>un mot ou une expression inscrits par la suite par le
+                testateur, et venant remplacer le mot biffé (dans l'élément
+              <gi>add</gi>)</item></list>
+          </desc>
           <classes>
             <!-- <memberOf key="att.global"/>-->
             <memberOf key="model.pPart.editorial"/>
@@ -3817,19 +3832,17 @@
                 target=" http://elec.enc.sorbonne.fr/testaments-de-poilus/testaments/testament-001.html#transcription"
                 >
                 http://elec.enc.sorbonne.fr/testaments-de-poilus/testaments/testament-001.html</ref>.</p>
-            <egXML xmlns="http://www.tei-c.org/ns/Examples"><text xml:id="will-0001">
-                <body>
-                  <div type="will">
-                    <pb facs="#testament-0001_vue-01_jpg"/>
-                    <dateline rend="centered">Paris<choice><orig/><reg>,</reg></choice> le
-                          <choice><orig>trente et un</orig><reg>trente-et-un</reg></choice>
-                      <choice><orig> Juillet</orig><reg> juillet</reg></choice><lb/>
-                      <choice><orig>mil</orig><reg>mille</reg></choice> neuf cent quatorze<lb/> (31
-                          <choice><orig>Juillet</orig><reg>juillet</reg></choice> 1914)</dateline>
-                    <!-- [... etc. ] -->
-                  </div>
-                </body>
-              </text></egXML>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples"><body>
+                <div type="will">
+                  <pb facs="#testament-0001_vue-01_jpg"/>
+                  <dateline rend="centered">Paris<choice><orig/><reg>,</reg></choice> le
+                        <choice><orig>trente et un</orig><reg>trente-et-un</reg></choice>
+                    <choice><orig> Juillet</orig><reg> juillet</reg></choice><lb/>
+                    <choice><orig>mil</orig><reg>mille</reg></choice> neuf cent quatorze<lb/> (31
+                        <choice><orig>Juillet</orig><reg>juillet</reg></choice> 1914)</dateline>
+                  <!-- [... etc. ] -->
+                </div>
+              </body></egXML>
           </exemplum>
           <listRef>
             <ptr target="#CORS5" type="div3"/>
@@ -4357,7 +4370,7 @@
                       ><forename>E.</forename> <surname>Gorand</surname></persName></seg></signed></egXML>
           </exemplum>
           <exemplum>
-            <egXML xmlns="http://www.tei-c.org/ns/Examples"><person xml:id="p-0001"
+            <egXML xmlns="http://www.tei-c.org/ns/Examples"><person xml:id="person-0001"
                 resp="#ML #JD #FC"><persName type="fullProseForm"> Fernand Lucien Jules Melchior
                   Chatin</persName><persName type="fullIndexEntryForm"><surname>Chatin</surname>,
                     <forename>Fernand</forename><forename>Lucien</forename><forename>Jules</forename><forename>Melchior</forename></persName><!-- etc. --></person></egXML>
@@ -5292,9 +5305,9 @@
           <exemplum>
             <p>Une note éditoriale sur le contenu du testament</p>
             <egXML xmlns="http://www.tei-c.org/ns/Examples"><div type="notes"><note
-                  xml:id="will-001-footnote001" resp="#MDurand #FClavaud">Sur Paul Chatin de
-                  Chastaing, voir <bibl>une référence biblio avec un <title>titre</title></bibl>, et
-                  consulter <ref target="http://www.bnf.fr">une page web</ref>.</note></div></egXML>
+                  xml:id="will-001-fnote001" resp="#MDurand #FClavaud">Sur Paul Chatin de Chastaing,
+                  voir <bibl>une référence biblio avec un <title>titre</title></bibl>, et consulter
+                    <ref target="http://www.bnf.fr">une page web</ref>.</note></div></egXML>
           </exemplum>
           <exemplum>
             <p>Une note d'un testateur dans une addition marginale au testament, faisant suite à la
@@ -5329,6 +5342,20 @@ lemma and usually one or more readings or notes on the relevant passage.</desc>-
             souhaite commenter par une note d'apparat critique. Il contient obligatoirement un
             élément <gi>lem</gi> (englobant le texte transcrit) suivi d'un élément
             <gi>note</gi>.</desc>
+          <desc type="wills-ui-complexTag-info"> L'élément <gi>app</gi> sert à englober deux
+            éléments, dans l'ordre ci-dessous : <list><item>l'élément <gi>lem</gi>, qui contient le
+                mot ou l'expression du texte du testament sur lequel portera la note d'apparat
+                critique. Exemple fictif : <egXML xmlns="http://www.tei-c.org/ns/Examples"
+                        ><lem><choice><sic>je done à mon aipouze tout mes biens</sic><corr>je donne
+                        à mon épouse tous mes
+                biens</corr></choice></lem></egXML></item><item>l'élément <gi>note</gi>, qui
+                contient la note d'apparat critique que vous souhaitez créer pour commenter une
+                particularité d'écriture présente dans ce mot ou cette expression. Exemple fictif
+                (pour annoter l'élément <gi>lem</gi> donné en exemple ci-dessus) : <egXML
+                  xmlns="http://www.tei-c.org/ns/Examples"><note>il s'agit des seules fautes
+                    d'orthographe rencontrées dans ce testament par ailleurs très bien
+                  écrit</note></egXML></item></list>
+          </desc>
           <classes>
             <!--<memberOf key="att.global"/>-->
             <memberOf key="model.global.edit"/>
@@ -5892,7 +5919,7 @@ reading groups, each associated with witness specifications.</p>
               <elementRef key="death" minOccurs="1" maxOccurs="1"/>
               <elementRef key="occupation" minOccurs="0" maxOccurs="1"/>
               <elementRef key="residence" minOccurs="0" maxOccurs="1"/>
-              <elementRef key="affiliation" minOccurs="0" maxOccurs="1"/>
+              <elementRef key="affiliation" minOccurs="0" maxOccurs="unbounded"/>
               <elementRef key="note" minOccurs="0" maxOccurs="1"/>
               <elementRef key="bibl" minOccurs="0" maxOccurs="unbounded"/>
               <elementRef key="idno" minOccurs="0" maxOccurs="unbounded"/>
@@ -5979,7 +6006,7 @@ reading groups, each associated with witness specifications.</p>
             </attDef>
           </attList>
           <exemplum>
-            <egXML xmlns="http://www.tei-c.org/ns/Examples"><person xml:id="p-0001"
+            <egXML xmlns="http://www.tei-c.org/ns/Examples"><person xml:id="pe-0001"
                 resp="#ML #JD #FC"><persName type="fullProseName"> Fernand Lucien Jules Melchior
                   Chatin</persName><persName type="fullIndexedName"><surname>Chatin</surname>,
                     <forename>Fernand</forename><forename>Lucien</forename><forename>Jules</forename><forename>Melchior</forename></persName><death>"Mort
@@ -6187,7 +6214,7 @@ reading groups, each associated with witness specifications.</p>
             </egXML>
           </exemplum>-->
           <exemplum>
-            <egXML xmlns="http://www.tei-c.org/ns/Examples"><place xml:id="pl-0001" type="city"
+            <egXML xmlns="http://www.tei-c.org/ns/Examples"><place xml:id="place-0001" type="city"
                     ><placeName><settlement>Ablain-Saint-Nazaire</settlement></placeName><location><region
                     type="FrenchDepartement">Pas-de-Calais</region><region type="FrenchRegion"
                     >Nord-Pas-de-Calais-Picardie</region><country>France</country></location><location
@@ -6325,10 +6352,10 @@ reading groups, each associated with witness specifications.</p>
             </egXML>
           </exemplum>-->
           <exemplum>
-            <egXML xmlns="http://www.tei-c.org/ns/Examples"><org xml:id="or-0001" resp="#ML #JD #FC"
-                  ><orgName type="fullIndexedName"><orgName>France</orgName>. <orgName>Armée de
-                    terre</orgName>. <orgName type="unit">Régiment d'infanterie
-                    (<num>68</num>)</orgName></orgName><orgName type="proseName">68<hi
+            <egXML xmlns="http://www.tei-c.org/ns/Examples"><org xml:id="org-0001"
+                resp="#ML #JD #FC"><orgName type="fullIndexedName"><orgName>France</orgName>.
+                    <orgName>Armée de terre</orgName>. <orgName type="unit">Régiment d'infanterie
+                      (<num>68</num>)</orgName></orgName><orgName type="proseName">68<hi
                     rend="superscript">e</hi> régiment d'infanterie</orgName><note type="history"
                   ><p/><p/></note><bibl/></org></egXML>
           </exemplum>
@@ -6671,7 +6698,7 @@ reading groups, each associated with witness specifications.</p>
                   naissances (1881)</msName></msIdentifier></egXML>
           </exemplum>
           <exemplum>
-            <egXML xmlns="http://www.tei-c.org/ns/Examples"><place xml:id="pl-0008"
+            <egXML xmlns="http://www.tei-c.org/ns/Examples"><place xml:id="pla-0008"
                     ><placeName><settlement type="locality"
                     >Baleycourt</settlement></placeName><location><placeName when-iso="1801/1970"
                       ><settlement type="city">Verdun-sur-Meuse</settlement></placeName><placeName
@@ -7764,6 +7791,52 @@ epistemology, methodology and history of
                   l'élément orgName pour baliser le nom de cette
               unité.</sch:assert></sch:rule></constraint>
           </constraintSpec>
+          <constraintSpec ident="ifExcludeThenAttXmlId" scheme="schematron">
+            <constraint><sch:rule context="tei:affiliation[@exclude]"><sch:assert test="@xml:id">Si
+                  vous utilisez l'attribut exclude pour cette affectation, il convient d'assigner un
+                  identifiant à l'affectation (et aussi, mais ce n'est pas rendu obligatoire) de
+                  spécifier quelle(s) source(s) donnent
+              l'information.</sch:assert></sch:rule></constraint>
+          </constraintSpec>
+          <attList>
+            <attDef ident="xml:id" usage="opt">
+              <gloss versionDate="2008-03-30">identifiant</gloss>
+              <desc versionDate="2009-05-25">fournit un identifiant unique pour l'élément qui porte
+                l'attribut</desc>
+              <desc type="wills-ui">l'identifiant unique de l'affiliation. A utiliser uniquement si
+                l'affiliation qui est spécifiée est exclusive d'une autre affiliation pour la même
+                personne (pour mémoire, dans ce cas, les éléments <gi>affiliation</gi> concernés
+                devraient aussi avoir les attributs <att>excl</att> et <att>source</att>
+              </desc>
+              <datatype>
+                <dataRef name="ID"/>
+              </datatype>
+            </attDef>
+            <attDef ident="source" usage="opt">
+              <gloss type="wills-ui">source</gloss>
+              <!-- <desc versionDate="2010-05-09" xml:lang="en">specifies the source from which some aspect of
+                this element is drawn.</desc>-->
+              <desc type="wills-ui">Cet attribut est utilisé pour pointer vers une ou plusieurs
+                sources (références bibliographiques, sources archivistiques en ligne...) qui
+                permettent d'établir l'affiliation.</desc>
+              <datatype maxOccurs="unbounded">
+                <dataRef key="teidata.pointer"/>
+              </datatype>
+            </attDef>
+            <attDef ident="exclude" usage="opt">
+              <gloss type="wills-ui">exclusif (de)</gloss>
+              <desc versionDate="2007-06-12">pointe vers des éléments qui sont une alternative
+                exclusive à l'élément en question.</desc>
+              <desc type="wills-ui">Cet attribut donne les identifiants des éléments
+                  <gi>affiliation</gi> qui constituent une alternative exclusive à l'affiliation
+                spécifiée. Peut éventuellement servir dans le cas où une ou plusieurs sources
+                indiquent plusieurs affiliations différentes pour le Poilu au même moment. Si cet
+                attribut est présent, les attributs xml:id et source devraient l'être aussi.</desc>
+              <datatype maxOccurs="unbounded">
+                <dataRef key="teidata.pointer"/>
+              </datatype>
+            </attDef>
+          </attList>
           <!--  <attList>
             <attDef ident="type" usage="opt" mode="change">
               <datatype>
@@ -7886,8 +7959,8 @@ epistemology, methodology and history of
                 <elementRef key="pb" maxOccurs="1" minOccurs="0"/>
               </sequence>-->
               <alternate minOccurs="0" maxOccurs="unbounded">
-                <elementRef key="pb"/>
-                <elementRef key="lb"/>
+                <!--<elementRef key="pb"/>-->
+                <!-- <elementRef key="lb"/>-->
                 <elementRef key="addrLine"/>
               </alternate>
               <sequence>
@@ -8151,7 +8224,7 @@ epistemology, methodology and history of
                       rend="superscript">e</hi></district></address></residence></egXML>
           </exemplum>
           <exemplum>
-            <egXML xmlns="http://www.tei-c.org/ns/Examples"><org xml:id="o-0002" resp="#ML #JD"
+            <egXML xmlns="http://www.tei-c.org/ns/Examples"><org xml:id="org-0002" resp="#ML #JD"
                   ><orgName type="fullIndexEntryForm"><orgName>France</orgName>. <orgName>Armée de
                     terre</orgName>. <orgName>Régiment de zouaves
                   (<num>4</num>)</orgName></orgName><orgName type="proseForm">4<hi
@@ -8454,7 +8527,7 @@ epistemology, methodology and history of
             </egXML>
           </exemplum>-->
           <exemplum>
-            <egXML xmlns="http://www.tei-c.org/ns/Examples"><place xml:id="pl-0009" type="city"
+            <egXML xmlns="http://www.tei-c.org/ns/Examples"><place xml:id="pla-0009" type="city"
                   ><!-- une commune qui a changé de nom --><placeName when-iso="1793/1801"
                     ><settlement type="city">Bar sur Ornain</settlement></placeName><placeName
                   when-iso="1801/"><settlement type="city"
@@ -8465,9 +8538,9 @@ epistemology, methodology and history of
                   type="GeonamesURI">http://sws.geonames.org/3034911/</idno></place></egXML>
           </exemplum>
           <exemplum>
-            <egXML xmlns="http://www.tei-c.org/ns/Examples"><place xml:id="pl-0008" type="locality"
-                    ><placeName><settlement type="locality"
-                    >Baleycourt</settlement></placeName><location><!-- un lieu-dit dont la commune de rattachement a changé de nom --><settlement
+            <egXML xmlns="http://www.tei-c.org/ns/Examples"><place xml:id="place-0008"
+                type="locality"><placeName><settlement type="locality"
+                  >Baleycourt</settlement></placeName><location><!-- un lieu-dit dont la commune de rattachement a changé de nom --><settlement
                     type="city"><placeName when-iso="1801/1970"
                       >Verdun-sur-Meuse</placeName><placeName when-iso="1970/"
                     >Verdun</placeName></settlement><region type="FrenchDepartement"
@@ -8750,7 +8823,7 @@ epistemology, methodology and history of
             </egXML>
           </exemplum>-->
           <exemplum>
-            <egXML xmlns="http://www.tei-c.org/ns/Examples"><place xml:id="pl-0015" type="forest"
+            <egXML xmlns="http://www.tei-c.org/ns/Examples"><place xml:id="pla-0015" type="forest"
                     ><placeName><geogName type="forest"
                     >Bois-de-la-Grille</geogName></placeName><location><settlement type="city"
                       ><placeName when-iso="1793/1950"> Moronvilliers </placeName><placeName
@@ -8761,7 +8834,7 @@ epistemology, methodology and history of
                   type="GeonamesURI">http://sws.geonames.org/2986186/</idno></place></egXML>
           </exemplum>
           <exemplum>
-            <egXML xmlns="http://www.tei-c.org/ns/Examples"><place xml:id="pl-0061" type="city"
+            <egXML xmlns="http://www.tei-c.org/ns/Examples"><place xml:id="pla-0061" type="city"
                   ><placeName when-iso="1793/"><settlement type="city"
                   >Metzeral</settlement></placeName><location when-iso="1871/1919-06-27"
                     ><region>Alsace</region><country>Empire
@@ -8809,7 +8882,7 @@ epistemology, methodology and history of
                   un contenu textuel.</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <exemplum>
-            <egXML xmlns="http://www.tei-c.org/ns/Examples"><place xml:id="pl-0070" type="city"
+            <egXML xmlns="http://www.tei-c.org/ns/Examples"><place xml:id="pla-0070" type="city"
                     ><placeName><settlement type="city"
                     >Parchim</settlement></placeName><location><region>Mecklembourg-Poméranie-Occidentale</region><country>Allemagne</country></location><location
                   type="geographicalCoordinates"><geo>53.38153 10.72375</geo></location><idno
@@ -8922,7 +8995,7 @@ epistemology, methodology and history of
             </egXML>
           </exemplum>-->
           <exemplum>
-            <egXML xmlns="http://www.tei-c.org/ns/Examples"><place xml:id="pl-0056" type="city"
+            <egXML xmlns="http://www.tei-c.org/ns/Examples"><place xml:id="pla-0056" type="city"
                   ><placeName when-iso="1793/"><settlement type="city"
                   >Maroeuil</settlement></placeName><location><region type="FrenchDepartement"
                     >Pas-de-Calais</region><region type="FrenchRegion"
@@ -8970,7 +9043,7 @@ epistemology, methodology and history of
                   longitude.</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <exemplum>
-            <egXML xmlns="http://www.tei-c.org/ns/Examples"><place xml:id="pl-0001" type="city"
+            <egXML xmlns="http://www.tei-c.org/ns/Examples"><place xml:id="place-0010" type="city"
                     ><placeName><!-- optionnellement : @when-iso ; dans ce cas, 2e placeName avec @when-iso --><settlement
                     type="city"
                   >Ablain-Saint-Nazaire</settlement><!-- valeurs possibles de @type pour settlement : locality (= lieu-dit), city (= commune)--><!-- valeurs possibles de @type pour geogName : mountain, forest, + cote?--><!-- si geogName, placeName peut alors aussi  contenir geogFeat --></placeName><location><!--cas classique d'une commune en France : country, region (avec un possible attr. type si country = France --><region

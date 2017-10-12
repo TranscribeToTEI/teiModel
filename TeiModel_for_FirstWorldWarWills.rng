@@ -5,7 +5,7 @@
          xmlns:teix="http://www.tei-c.org/ns/Examples"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2017-10-10T18:06:48Z. .
+Schema generated from ODD source 2017-10-12T17:22:01Z. .
 TEI Edition: Version 3.2.0. Last updated on
 	10th July 2017, revision 0fcf651
 TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.2.0/
@@ -2275,7 +2275,9 @@ The element indicated by @spanTo (<sch:value-of select="@spanTo"/>) must follow 
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                       context="tei:p[ancestor::tei:text[starts-with(@xml:id, 'will-')]]">
-               <sch:assert test="not(tei:bibl) and not(tei:note)">Dans un paragraphe de texte transcrit, pas de note directement, et pas de référence bibliographique</sch:assert>
+               <sch:assert test="not(tei:bibl) and not(tei:note)">Dans un paragraphe de texte
+                  transcrit, pas de note directement, et pas de référence
+                  bibliographique</sch:assert>
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
@@ -2447,7 +2449,8 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">caractérise l'élément en utilisant n'importe quel système ou typologie de classification approprié.Utiliser cet attribut pour spécifier la nature du terme balisé.</a:documentation>
                <choice>
                   <value>willType</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(type de testament (dans les métadonnées du testament)) </a:documentation>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(type de testament (dans les métadonnées du
+                    testament)) </a:documentation>
                   <value>willAuthorVisionOfDeath</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(expression de la vision de la mort par le testateur) </a:documentation>
                   <value>willAuthorStateOfMind</value>
@@ -2549,7 +2552,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
    </define>
    <define name="TEI-choice">
       <element name="choice">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(choix) regroupe un certain nombre de balisages alternatifs possibles pour un même endroit dans un texte.Cet élément regroupe, soit un élément abbr et un élément expan (pour transcrire une abréviation telle quelle et la forme développée de l'expression abrégée), soit un élément sic et un élément corr (pour transcrire une faute de français et une proposition de correction de cette faute), soit un élément orig et un élément reg (pour transcrire une graphie ou une ponctuation ancienne et une proposition de graphie ou de ponctuation normalisée). [3.4. Simple Editorial Changes]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(choix) regroupe un certain nombre de balisages alternatifs possibles pour un même endroit dans un texte.Cet élément regroupe, soit un élément abbr et un élément expan (pour transcrire une abréviation telle quelle et la forme développée de l'expression abrégée), soit un élément sic et un élément corr (pour transcrire une faute de français et une proposition de correction de cette faute), soit un élément orig et un élément reg (pour transcrire une graphie ou une ponctuation ancienne et une proposition de graphie ou de ponctuation normalisée).L'élément choice doit contenir une des trois configurations suivantes :  * un mot contenant une abréviation (dans l'élément abbr) et sa version développée (dans l'élément expan) * un mot ou une expression contenant une ou plusieurs faute(s) de français (dans l'élément sic) et sa version corrigée (dans l'élément corr) * un mot ou une expression dont la forme ne respecte pas les règles actuelles d'orthographe (dans l'élément orig) et sa version normalisée selon les règles d'orthographe actuelles (dans l'élément reg) [3.4. Simple Editorial Changes]</a:documentation>
          <choice>
             <group>
                <ref name="TEI-abbr"/>
@@ -2870,8 +2873,6 @@ Les valeurs suggérées comprennent: 1] cancelled(biffé) ; 2] quite-illegible(d
          <choice>
             <zeroOrMore>
                <choice>
-                  <ref name="TEI-pb"/>
-                  <ref name="TEI-lb"/>
                   <ref name="TEI-addrLine"/>
                </choice>
             </zeroOrMore>
@@ -3037,7 +3038,8 @@ Measures]</a:documentation>
                   <value>willAuthorDeathDate</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(date de décès du testateur) </a:documentation>
                   <value>militaryEventDate</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(date d'un événement militaire (bataille, offensive...)) </a:documentation>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(date d'un événement militaire (bataille,
+                    offensive...)) </a:documentation>
                   <value>otherDate</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(autre date) </a:documentation>
                </choice>
@@ -3555,8 +3557,8 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                       context="tei:note[parent::tei:app or ancestor::tei:div[@type='notes']]">
-               <sch:assert test="not(tei:lb) and not(tei:pb) and not(tei:choice) and not(tei:gap) and not(tei:unclear) and not(tei:supplied) and not(tei:damage) and not(tei:add) and not(tei:del) and not(tei:subst) and not(tei:app) and not(tei:seg)">Dans une note historique ou d'apparat critique, on ne doit pas trouver les éléments dédiés à la
-                  transcription.</sch:assert>
+               <sch:assert test="not(tei:lb) and not(tei:pb) and not(tei:choice) and not(tei:gap) and not(tei:unclear) and not(tei:supplied) and not(tei:damage) and not(tei:add) and not(tei:del) and not(tei:subst) and not(tei:app) and not(tei:seg)">Dans une note historique ou d'apparat critique, on ne doit pas trouver les
+                  éléments dédiés à la transcription.</sch:assert>
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
@@ -6504,7 +6506,8 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
                   <value>willAuthorResidence</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(domicile du testateur) </a:documentation>
                   <value>militaryEventPlace</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(lieu d'un événement militaire (bataille, offensive...)) </a:documentation>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(lieu d'un événement militaire (bataille,
+                    offensive...)) </a:documentation>
                   <value>otherPlace</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(autre type de lieu) </a:documentation>
                </choice>
@@ -6731,6 +6734,46 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
               unité.</sch:assert>
             </sch:rule>
          </pattern>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="TeiModel_for_FirstWorldWarWills-affiliation-ifExcludeThenAttXmlId-constraint-rule-62">
+            <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
+                      xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                      xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                      context="tei:affiliation[@exclude]">
+               <sch:assert test="@xml:id">Si
+                  vous utilisez l'attribut exclude pour cette affectation, il convient d'assigner un
+                  identifiant à l'affectation (et aussi, mais ce n'est pas rendu obligatoire) de
+                  spécifier quelle(s) source(s) donnent
+              l'information.</sch:assert>
+            </sch:rule>
+         </pattern>
+         <optional>
+            <attribute name="xml:id">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(identifiant) fournit un identifiant unique pour l'élément qui porte l'attributl'identifiant unique de l'affiliation. A utiliser uniquement si l'affiliation qui est spécifiée est exclusive d'une autre affiliation pour la même personne (pour mémoire, dans ce cas, les éléments affiliation concernés devraient aussi avoir les attributs excl et source</a:documentation>
+               <data type="ID"/>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="source">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(source) Cet attribut est utilisé pour pointer vers une ou plusieurs sources (références bibliographiques, sources archivistiques en ligne...) qui permettent d'établir l'affiliation.</a:documentation>
+               <list>
+                  <oneOrMore>
+                     <data type="anyURI"/>
+                  </oneOrMore>
+               </list>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="exclude">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(exclusif (de)) pointe vers des éléments qui sont une alternative exclusive à l'élément en question.Cet attribut donne les identifiants des éléments affiliation qui constituent une alternative exclusive à l'affiliation spécifiée. Peut éventuellement servir dans le cas où une ou plusieurs sources indiquent plusieurs affiliations différentes pour le Poilu au même moment. Si cet attribut est présent, les attributs xml:id et source devraient l'être aussi.</a:documentation>
+               <list>
+                  <oneOrMore>
+                     <data type="anyURI"/>
+                  </oneOrMore>
+               </list>
+            </attribute>
+         </optional>
+         <empty/>
       </element>
    </define>
    <define name="TEI-birth">
@@ -6745,7 +6788,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-birth-birthShouldHaveAtLeastDate-constraint-rule-62">
+                  id="TeiModel_for_FirstWorldWarWills-birth-birthShouldHaveAtLeastDate-constraint-rule-63">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6768,7 +6811,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-death-deathShouldHaveAtLeastDate-constraint-rule-63">
+                  id="TeiModel_for_FirstWorldWarWills-death-deathShouldHaveAtLeastDate-constraint-rule-64">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6784,7 +6827,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(coordonnées géographiques) contient toute expression, dans un système de notation, d'un ensemble de coordonnées géographiques représentant un point, une ligne ou une zone sur la surface de la Terre.cet élément est utilisé dans les notices descriptives des lieux, pour donner la latitude et la longitude du lieu décrit, selon le Système géodésique mondial (WGS84). La latitude et la longitude sont séparées par une espace. On peut les trouver en consultant, par ex., la base Geonames. [13.3.4.1. Varieties of Location]</a:documentation>
          <text/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-geo-geoNotEmpty-constraint-rule-64">
+                  id="TeiModel_for_FirstWorldWarWills-geo-geoNotEmpty-constraint-rule-65">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6839,7 +6882,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </optional>
          </choice>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-location-locationIfGeopoliticalHasAtLeastCountry-constraint-rule-65">
+                  id="TeiModel_for_FirstWorldWarWills-location-locationIfGeopoliticalHasAtLeastCountry-constraint-rule-66">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6851,7 +6894,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-location-attrWhen-isoIfLocationInAuthorityRecord-constraint-rule-66">
+                  id="TeiModel_for_FirstWorldWarWills-location-attrWhen-isoIfLocationInAuthorityRecord-constraint-rule-67">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6864,7 +6907,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-location-attrTypeIfGeographicalLocationInAuthorityRecord-constraint-rule-67">
+                  id="TeiModel_for_FirstWorldWarWills-location-attrTypeIfGeographicalLocationInAuthorityRecord-constraint-rule-68">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6928,7 +6971,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </zeroOrMore>
          </group>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-org-orgIdPattern-constraint-rule-68">
+                  id="TeiModel_for_FirstWorldWarWills-org-orgIdPattern-constraint-rule-69">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -6973,9 +7016,9 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             <optional>
                <ref name="TEI-residence"/>
             </optional>
-            <optional>
+            <zeroOrMore>
                <ref name="TEI-affiliation"/>
-            </optional>
+            </zeroOrMore>
             <optional>
                <ref name="TEI-note"/>
             </optional>
@@ -6987,7 +7030,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </zeroOrMore>
          </group>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-person-personIdPattern-constraint-rule-69">
+                  id="TeiModel_for_FirstWorldWarWills-person-personIdPattern-constraint-rule-70">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -7038,7 +7081,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </zeroOrMore>
          </group>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-place-placeIdPattern-constraint-rule-70">
+                  id="TeiModel_for_FirstWorldWarWills-place-placeIdPattern-constraint-rule-71">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -7049,7 +7092,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-place-attrType-constraint-rule-71">
+                  id="TeiModel_for_FirstWorldWarWills-place-attrType-constraint-rule-72">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -7103,7 +7146,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-residence-usePlaceNameInResidence-constraint-rule-72">
+                  id="TeiModel_for_FirstWorldWarWills-residence-usePlaceNameInResidence-constraint-rule-73">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -7117,13 +7160,13 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
    </define>
    <define name="TEI-app">
       <element name="app">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(entrée d'apparat critique) contient une entrée dans un apparat critique, constituée d'un lemme facultatif et d'au moins une leçon.L'élément app est utilisé dans le corps de la transcription, lorsqu'on observe un micro-phénomène textuel (addition, suppression, abréviation, erreur de syntaxe, dommage matériel, texte superflu, etc.) que l'on souhaite commenter par une note d'apparat critique. Il contient obligatoirement un élément lem (englobant le texte transcrit) suivi d'un élément note. [12.1.1. The Apparatus Entry]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(entrée d'apparat critique) contient une entrée dans un apparat critique, constituée d'un lemme facultatif et d'au moins une leçon.L'élément app est utilisé dans le corps de la transcription, lorsqu'on observe un micro-phénomène textuel (addition, suppression, abréviation, erreur de syntaxe, dommage matériel, texte superflu, etc.) que l'on souhaite commenter par une note d'apparat critique. Il contient obligatoirement un élément lem (englobant le texte transcrit) suivi d'un élément note.L'élément app sert à englober deux éléments, dans l'ordre ci-dessous :  * l'élément lem, qui contient le mot ou l'expression du texte du testament sur lequel portera la note d'apparat critique. Exemple fictif : je done à mon aipouze tout mes biensje donne à mon épouse tous mes biens * l'élément note, qui contient la note d'apparat critique que vous souhaitez créer pour commenter une particularité d'écriture présente dans ce mot ou cette expression. Exemple fictif (pour annoter l'élément lem donné en exemple ci-dessus) : il s'agit des seules fautes d'orthographe rencontrées dans ce testament par ailleurs très bien écrit [12.1.1. The Apparatus Entry]</a:documentation>
          <group>
             <ref name="TEI-lem"/>
             <ref name="TEI-note"/>
          </group>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-app-appContent-constraint-rule-73">
+                  id="TeiModel_for_FirstWorldWarWills-app-appContent-constraint-rule-74">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -7170,7 +7213,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-lem-lemSibling-constraint-rule-74">
+                  id="TeiModel_for_FirstWorldWarWills-lem-lemSibling-constraint-rule-75">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -7208,7 +7251,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </choice>
          </attribute>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-variantEncoding-location-variantEncodingLocation-constraint-rule-75">
+                  id="TeiModel_for_FirstWorldWarWills-variantEncoding-location-variantEncodingLocation-constraint-rule-76">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -7262,7 +7305,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </optional>
          </group>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-text-textIdPattern-constraint-rule-76">
+                  id="TeiModel_for_FirstWorldWarWills-text-textIdPattern-constraint-rule-77">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -7966,7 +8009,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-div-contentIfTypeWill-constraint-rule-77">
+                  id="TeiModel_for_FirstWorldWarWills-div-contentIfTypeWill-constraint-rule-78">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -7976,7 +8019,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-div-contentIfTypeEnvelope-constraint-rule-78">
+                  id="TeiModel_for_FirstWorldWarWills-div-contentIfTypeEnvelope-constraint-rule-79">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -7986,7 +8029,7 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-div-contentIfTypeNotes-constraint-rule-79">
+                  id="TeiModel_for_FirstWorldWarWills-div-contentIfTypeNotes-constraint-rule-80">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -8496,7 +8539,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-damage-ifAttrUnitOnDamageThenAttrQuantity-constraint-rule-80">
+                  id="TeiModel_for_FirstWorldWarWills-damage-ifAttrUnitOnDamageThenAttrQuantity-constraint-rule-81">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -8510,7 +8553,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-damage-ifDamageThenAttrAgentRecommended-constraint-rule-81">
+                  id="TeiModel_for_FirstWorldWarWills-damage-ifDamageThenAttrAgentRecommended-constraint-rule-82">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -8585,7 +8628,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(espace) permet de situer un espace significatif dans le texte édité.L'élément space est utilisé lorsque dans le corps de son testament, le testateur a laissé blanc un espace significatif (le plus souvent une ou plusieurs lignes). Il devrait toujours avoir les attributs dim, quantity et unit. [11.5.1. Space]</a:documentation>
          <empty/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-space-ifAttrUnitOnSpaceThenAttrQuantity-constraint-rule-82">
+                  id="TeiModel_for_FirstWorldWarWills-space-ifAttrUnitOnSpaceThenAttrQuantity-constraint-rule-83">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -8635,13 +8678,13 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
    </define>
    <define name="TEI-subst">
       <element name="subst">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(substitution) regroupe une ou plusieurs parties de texte supprimées et une ou plusieurs parties de texte ajoutées, lorsque cette combinaison peut être considérée comme une intervention unique sur le texte.L'élément subst est utilisé pour regrouper un élément del et un élément add lorsque le texte ajouté se substitue au texte supprimé. [11.3.1.5. Substitutions]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(substitution) regroupe une ou plusieurs parties de texte supprimées et une ou plusieurs parties de texte ajoutées, lorsque cette combinaison peut être considérée comme une intervention unique sur le texte.L'élément subst est utilisé pour regrouper un élément del et un élément add lorsque le texte ajouté se substitue au texte supprimé.L'élément subst doit avoir le contenu suivant :  * un mot ou une expression biffés par le testateur (dans l'élément del) * un mot ou une expression inscrits par la suite par le testateur, et venant remplacer le mot biffé (dans l'élément add) [11.3.1.5. Substitutions]</a:documentation>
          <group>
             <ref name="TEI-del"/>
             <ref name="TEI-add"/>
          </group>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-subst-ifSubstThenDelAndAdd-constraint-rule-83">
+                  id="TeiModel_for_FirstWorldWarWills-subst-ifSubstThenDelAndAdd-constraint-rule-84">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -8673,7 +8716,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-supplied-ifSuppliedAloneThenAttrReasonRecommended-constraint-rule-84">
+                  id="TeiModel_for_FirstWorldWarWills-supplied-ifSuppliedAloneThenAttrReasonRecommended-constraint-rule-85">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -8684,7 +8727,7 @@ Exemple de valeurs possibles: 1] centered(centré) ; 2] right(à droite) ; 3] le
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-supplied-ifAttrUnitOnSuppliedThenAttrQuantity-constraint-rule-85">
+                  id="TeiModel_for_FirstWorldWarWills-supplied-ifAttrUnitOnSuppliedThenAttrQuantity-constraint-rule-86">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -8778,7 +8821,7 @@ Les valeurs suggérées comprennent: 1] cancelled(biffébiffé, devenu illisible
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(métamarque) contient ou décrit tout type de signe graphique ou de caractère dans un document dont la fonction est de déterminer comment le document devrait être lu (ce signe ne fait donc pas partie du contenu proprement dit du document).L'élément metamark est utilisé lorsqu'on souhaite spécifier que le testateur a inscrit un signe ou un dessin (le plus souvent une ligne ou une croix) ayant un rôle dans la lecture du testament (le plus souvent, cette marque a été posée pour mettre en évidence un passage ou pour séparer deux parties du testament). Cet élément devrait avoir les attributs function et rend. [11.3.4.2. Metamarks]</a:documentation>
          <empty/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="TeiModel_for_FirstWorldWarWills-metamark-ifMetamarkThenAttrsFunctionAndRend-constraint-rule-86">
+                  id="TeiModel_for_FirstWorldWarWills-metamark-ifMetamarkThenAttrsFunctionAndRend-constraint-rule-87">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
