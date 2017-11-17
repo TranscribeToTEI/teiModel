@@ -5,7 +5,7 @@
          xmlns:teix="http://www.tei-c.org/ns/Examples"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2017-10-12T17:22:01Z. .
+Schema generated from ODD source 2017-11-17T14:26:56Z. .
 TEI Edition: Version 3.2.0. Last updated on
 	10th July 2017, revision 0fcf651
 TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.2.0/
@@ -2871,11 +2871,11 @@ Les valeurs suggérées comprennent: 1] cancelled(biffé) ; 2] quite-illegible(d
       <element name="address">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(adresse) contient une adresse postale ou d'un autre type, par exemple l'adresse d'un éditeur, d'un organisme ou d'une personne.L'élément address est utilisé, d'une part dans la transcription des testaments, pour baliser une adresse, le plus souvent comme texte écrit sur une enveloppe (dans ce cas il contient une série d'éléments addrLine- ligne d'adresse), d'autre part dans les notices descriptives des testateurs, au sein de l'élément residence (résidence) (dans ce cas il contient un élément street (rue), optionnellement un élément district (arrondissement)). [3.5.2. Addresses 2.2.4. Publication, Distribution, Licensing, etc. 3.11.2.4. Imprint, Size of a Document, and Reprint Information]</a:documentation>
          <choice>
-            <zeroOrMore>
+            <oneOrMore>
                <choice>
                   <ref name="TEI-addrLine"/>
                </choice>
-            </zeroOrMore>
+            </oneOrMore>
             <group>
                <ref name="TEI-street"/>
                <optional>
@@ -7328,6 +7328,9 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
       <element name="body">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(corps du texte) contient la totalité du corps d’un seul texte simple, à l’exclusion de toute partie pré- ou post-liminaire.Contient la totalité de la transcription du document, notes d'apparat critique incluses.</a:documentation>
          <choice>
+            <oneOrMore>
+               <ref name="TEI-div"/>
+            </oneOrMore>
             <choice>
                <oneOrMore>
                   <ref name="TEI-interpGrp"/>
@@ -7336,9 +7339,6 @@ Les valeurs suggérées comprennent: 1] paper; 2] parch(parchment) ; 3] mixed</a
                <ref name="TEI-listOrg"/>
                <ref name="TEI-listPlace"/>
             </choice>
-            <oneOrMore>
-               <ref name="TEI-div"/>
-            </oneOrMore>
          </choice>
       </element>
    </define>

@@ -151,13 +151,13 @@
                               </classes>-->
           <content xmlns:rng="http://relaxng.org/ns/structure/1.0">
             <alternate>
+              <elementRef key="div" minOccurs="1" maxOccurs="unbounded"/>
               <alternate>
                 <elementRef key="interpGrp" minOccurs="1" maxOccurs="unbounded"/>
                 <elementRef key="listPerson"/>
                 <elementRef key="listOrg"/>
                 <elementRef key="listPlace"/>
               </alternate>
-              <elementRef key="div" minOccurs="1" maxOccurs="unbounded"/>
             </alternate>
             <!--<sequence>
                                           <!-\- globals as usual -\->
@@ -7958,7 +7958,7 @@ epistemology, methodology and history of
                 <elementRef key="lb" maxOccurs="1" minOccurs="0"/>
                 <elementRef key="pb" maxOccurs="1" minOccurs="0"/>
               </sequence>-->
-              <alternate minOccurs="0" maxOccurs="unbounded">
+              <alternate minOccurs="1" maxOccurs="unbounded">
                 <!--<elementRef key="pb"/>-->
                 <!-- <elementRef key="lb"/>-->
                 <elementRef key="addrLine"/>
