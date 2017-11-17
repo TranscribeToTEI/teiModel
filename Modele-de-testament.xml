@@ -79,6 +79,7 @@
 
 
                </msContents>
+              
                <!-- <physDesc><p>Papier à lettre de deuil avec adresse imprimée, 4 pages, dim. 17,2 x 11,2 cm,
                  encre.</p></physDesc>-->
                <physDesc>
@@ -97,7 +98,9 @@
                      <p>encre</p>
                   </handDesc>
                </physDesc>
-
+               <history>
+                  <provenance><orgName>75123</orgName></provenance>
+               </history>
             </msDesc>
          </sourceDesc>
 
