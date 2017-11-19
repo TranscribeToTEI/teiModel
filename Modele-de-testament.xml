@@ -336,7 +336,7 @@
                      <reg>20 000</reg>
 
                   </choice>) <app>
-                     <lem>en pleine propriété et libre de tous frais</lem>
+                     <lem><add place="above">en pleine propriété et libre de tous frais</add></lem>
                      <note>Ajout dans l’interligne.</note>
                   </app><choice>
                      <orig> - </orig>
@@ -401,7 +401,7 @@
                      <orig>à</orig>
                      <reg>À</reg>
                   </choice> mon vieil ami Morel mon fusil<lb/> calibre 12 percussion centrale <!--(de Warn--><!-- FC correction 21 mars 2°16--><app>
-                     <lem> (de Warn<damage agent="stain">er</damage><supplied reason="hidden" resp="#MDurand">er</supplied>)</lem>
+                     <lem> (de Warn<damage agent="stain"><supplied reason="hidden" resp="#MDurand">er</supplied>)</damage></lem>
                      <note resp="#MDurand">Tache d’encre à la fin du mot.</note>
                   </app>
                   <choice>
