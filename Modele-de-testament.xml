@@ -220,7 +220,7 @@
       <!--  la valeur de l'attr. n est prise dans la colonne numéro du fichier de récolement ; dans le cas général on y trouve le numéro d'ordre logique, de 1 à n, de l'unité physique, testament avant enveloppe  -->
       <surface type="will-page" n="01">
          <graphic url="TIFF/FRAN_Poilus_t-0001_01_A.tif" xml:id="testament-0001_vue-01_jpg"/>
-         <graphic url="JPEG/FRAN_Poilus_t-0001_01_L.jpg" xml:id="testament-0001_vue-01_tif"/>
+        <!-- <graphic url="JPEG/FRAN_Poilus_t-0001_01_L.jpg" xml:id="testament-0001_vue-01_tif"/>-->
       </surface>
       <!-- lorsqu'on a deux images complémentaires, reproduisant une partie de la même unité physique, on peut utiliser surfaceGrp -->
       <!-- ici l'attr. n a toujours pour valeur le numéro d'ordre de l'unité physique -->
@@ -228,14 +228,14 @@
 
          <surface type="will-page-part" n="02a">
             <graphic url="JPEG/FRAN_Poilus_t-0001_02a_L.jpg" xml:id="testament-0001_vue-02a_jpg"> </graphic>
-            <graphic url="TIFF/FRAN_Poilus_t-0001_02a_A.tif" xml:id="testament-0001_vue-02a_tif"/>
+          <!--  <graphic url="TIFF/FRAN_Poilus_t-0001_02a_A.tif" xml:id="testament-0001_vue-02a_tif"/>-->
          </surface>
          <surface type="will-page-part" n="02b">
             <graphic url="JPEG/FRAN_Poilus_t-0001_02b_L.jpg" xml:id="testament-0001_vue-02b_jpg"/>
 
-            <graphic url="TIFF/FRAN_Poilus_t-0001_02b_L.jpg" xml:id="testament-0001_vue-02b_tif"/>
+           <!-- <graphic url="TIFF/FRAN_Poilus_t-0001_02b_L.jpg" xml:id="testament-0001_vue-02b_tif"/>
 
-
+-->
          </surface>
       </surfaceGrp>
       <!-- supposons qu'il y a une enveloppe ; deux cas, recto et verso-->
@@ -260,28 +260,28 @@
 
             <dateline rend="centered"><placeName type="willPlace">Paris</placeName><choice>
 
-                  <orig><damage agent="stain" quantity="2" unit="cm"><gap reason="hidden"/></damage></orig>
-                  <reg>,</reg>
+                  <sic><damage agent="stain" quantity="2" unit="cm"><gap reason="hidden"/></damage></sic>
+                  <corr>,</corr>
                </choice> le <date type="willDate" when="1914-07-31"><choice>
-                     <orig>trente et un</orig>
-                     <reg>trente-et-un</reg>
+                     <sic>trente et un</sic>
+                     <corr>trente-et-un</corr>
                   </choice>
                   <choice>
-                     <orig> Juillet</orig>
-                     <reg> juillet</reg>
+                     <sic> Juillet</sic>
+                     <corr> juillet</corr>
 
                   </choice><lb/>
                   <choice>
-                     <orig>mil</orig>
-                     <reg>mille</reg>
+                     <sic>mil</sic>
+                     <corr>mille</corr>
                   </choice> neuf cent quatorze<lb/> (31 <choice>
-                     <orig>Juillet</orig>
-                     <reg>juillet</reg>
+                     <sic>Juillet</sic>
+                     <corr>juillet</corr>
 
                   </choice> 1914)</date></dateline>
             <head>Ceci est mon testament<choice>
-                  <orig> : </orig>
-                  <reg>.</reg>
+                  <sic> : </sic>
+                  <corr>.</corr>
 
                </choice></head>
             <p><choice>
@@ -290,8 +290,8 @@
                </choice>Avant de partir à la guerre dont<lb/> tant ne reviendront pas, je tiens à
                décider<lb/> ce qui suit<choice>
 
-                  <orig> : </orig>
-                  <reg/>
+                  <sic> : </sic>
+                  <corr/>
                </choice><choice>
                   <sic>blah</sic>
                   <corr>bla</corr>
@@ -307,8 +307,8 @@
                   <sic>fote</sic>
                   <corr/>
                </choice>la partie de mes biens<lb/> dont elle n’a que l’usufruit)<choice>
-                  <orig/>
-                  <reg>,</reg>
+                  <sic/>
+                  <corr>,</corr>
                </choice> à charge<lb/> pour mon frère André de remettre aux<lb/> personnes ci-après
                les <damage agent="stain"><supplied resp="#LDupont">legs</supplied>
                   <unclear>suivants</unclear></damage> :</p>
@@ -319,40 +319,40 @@
             <list>
 
                <item>1° <choice>
-                     <orig>à</orig>
-                     <reg>À</reg>
+                     <sic>à</sic>
+                     <corr>À</corr>
                   </choice> mon amie <choice>
                      <abbr>M<hi rend="superscript-underlined">me</hi></abbr>
                      <expan>M<ex>ada</ex>me</expan>
                   </choice> Anny Coker,<lb/> artiste lyrique, 82 <choice>
-                     <orig>Rue</orig>
-                     <reg>rue</reg>
+                     <sic>Rue</sic>
+                     <corr>rue</corr>
                   </choice> du Faubourg<lb/>
                   <choice>
                      <abbr>S<hi rend="superscript">t</hi>-Denis</abbr>
                      <expan>S<ex>ain</ex>t-Denis</expan>
                   </choice>, une somme de vingt mille<lb/> francs (<choice>
-                     <orig>20,000</orig>
-                     <reg>20 000</reg>
+                     <sic>20,000</sic>
+                     <corr>20 000</corr>
 
                   </choice>) <app>
                      <lem><add place="above">en pleine propriété et libre de tous frais</add></lem>
                      <note>Ajout dans l’interligne.</note>
                   </app><choice>
-                     <orig> - </orig>
-                     <reg>.</reg>
+                     <sic> - </sic>
+                     <corr>.</corr>
 
                   </choice> Je prie en outre<lb/> mon cher frère de remettre dès ma<lb/> mort <hi rend="underlined">et le plus vite possible</hi> à <choice>
                      <abbr>M<hi rend="superscript">me</hi></abbr>
                      <expan>M<ex>ada</ex>me</expan>
                   </choice><lb/> Anny Coker<choice>
-                     <orig>,</orig>
-                     <reg/>
+                     <sic>,</sic>
+                     <corr/>
 
                   </choice> une somme de <hi rend="double-underlined">deux</hi> mille<lb/> francs à
                   prélever sur les vingt mille<lb/> que je lui donne<choice>
-                     <orig/>
-                     <reg>,</reg>
+                     <sic/>
+                     <corr>,</corr>
                   </choice> afin d’assurer<lb/> sa subsistance jusqu’à la fin de<lb/> son entrée en
                   possession du legs que<lb/> je lui fais. Cette somme de vingt mille francs<lb/>
                   <add place="below">sera remise à <choice>
@@ -360,32 +360,32 @@
                         <expan>M<ex>ada</ex>me</expan>
                      </choice> Anny Coker libre de toute charge ou impôt<lb/> au moment où elle la
                      recevra</add><choice>
-                     <orig> - </orig>
-                     <reg>.</reg>
+                     <sic> - </sic>
+                     <corr>.</corr>
 
                   </choice></item>
                <item>2° <choice>
-                     <orig>à</orig>
-                     <reg>À</reg>
+                     <sic>à</sic>
+                     <corr>À</corr>
                   </choice>
                   <persName>ma mère</persName>
                   <del>je lui</del> tous mes objets de<lb/> piété et ce qu’elle désirera dans
                   mes<lb/> meubles en dehors des objets légués.</item>
                <item>3° <choice>
-                     <orig>à</orig>
-                     <reg>À</reg>
+                     <sic>à</sic>
+                     <corr>À</corr>
                   </choice> mon frère Paul Chatin de Chastaing <ref xml:id="will-0001-001" target="#will-0001-footnote001"/><lb/> une somme de cinq mille francs et<lb/> ma
                   montre à sonnerie<choice>
-                     <orig/>
-                     <reg>.</reg>
+                     <sic/>
+                     <corr>.</corr>
 
                   </choice></item>
                <item>4° <choice>
-                     <orig>à</orig>
-                     <reg>À</reg>
+                     <sic>à</sic>
+                     <corr>À</corr>
                   </choice> mon ami Paul de Fallois 69 <choice>
-                     <orig>Rue</orig>
-                     <reg>rue</reg>
+                     <sic>Rue</sic>
+                     <corr>rue</corr>
 
                   </choice> de <subst>
                      <del>bli</del>
@@ -393,24 +393,24 @@
                   </subst>
                   <!--  <pb facs="../images/FRAN_0045_00308.jpg"/>--> Grenelle, ma montre en or de
                   première<lb/> communion en souvenir d’un vieil<lb/> ami<choice>
-                     <orig/>
-                     <reg>.</reg>
+                     <sic/>
+                     <corr>.</corr>
 
                   </choice></item>
                <item>5° <choice>
-                     <orig>à</orig>
-                     <reg>À</reg>
+                     <sic>à</sic>
+                     <corr>À</corr>
                   </choice> mon vieil ami Morel mon fusil<lb/> calibre 12 percussion centrale <!--(de Warn--><!-- FC correction 21 mars 2°16--><app>
                      <lem> (de Warn<damage agent="stain"><supplied reason="hidden" resp="#MDurand">er</supplied>)</damage></lem>
                      <note resp="#MDurand">Tache d’encre à la fin du mot.</note>
                   </app>
                   <choice>
-                     <orig/>
-                     <reg>.</reg>
+                     <sic/>
+                     <corr>.</corr>
 
                   </choice><lb/> Mon ami Morel habite 2 <choice>
-                     <orig>Rue</orig>
-                     <reg>rue</reg>
+                     <sic>Rue</sic>
+                     <corr>rue</corr>
 
                   </choice> Lénac<lb/> à Marseille<choice>
                      <sic><surplus>Marseille</surplus></sic>
@@ -425,11 +425,11 @@
             <p>Pour le reste de mes biens mon <damage agent="stain"><supplied resp="#LDupont">frère</supplied></damage><lb/> André, dont je connais <unclear reason="quite-illegible">l’esprit de</unclear><lb/> sagesse et de bon sens, les
                reçoit en<lb/> pleine propriété. Puisse-t-il en<lb/> jouir longtemps et heureux !</p>
             <dateline rend="centered">Fait à Paris<choice>
-                  <orig/>
-                  <reg>,</reg>
+                  <sic/>
+                  <corr>,</corr>
                </choice> le 31 <choice>
-                  <orig>Juillet</orig>
-                  <reg>juillet</reg>
+                  <sic>Juillet</sic>
+                  <corr>juillet</corr>
 
                </choice> 1914</dateline>
             <signed rend="centered"><seg type="signature"><persName ref="FirstWorldWarWills-ListOfPersons.xml#p-0001"><forename>Fernand</forename> <surname>Chatin</surname></persName></seg></signed>
