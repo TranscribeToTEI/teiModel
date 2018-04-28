@@ -1,0 +1,813 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:rng="http://relaxng.org/ns/structure/1.0"
+    xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:tei="http://www.tei-c.org/ns/1.0"
+    xml:lang="fr">
+
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Modèle TEI pour le projet de transcription collaborative des Testaments de
+                    Poilus : transcription</title>
+                <author>Florence Clavaud (Archives nationales | Centre Jean-Mabillon de l'Ecole
+                    nationale des chartes)</author>
+            </titleStmt>
+            <publicationStmt>
+                <publisher>TEI Consortium</publisher>
+                <availability status="free">
+                    <p>TEI material can be licensed differently depending on the use you intend to
+                        make of it. Hence it is made available under both the CC+BY and BSD-2
+                        licences. The CC+BY licence is generally appropriate for usages which treat
+                        TEI content as data or documentation. The BSD-2 licence is generally
+                        appropriate for usage of TEI content in a software environment. For further
+                        information or clarification, please contact the TEI Consortium
+                        (info@tei-c.org).</p>
+                </availability>
+            </publicationStmt>
+            <notesStmt>
+                <note type="ns">http://www.example.org/ns/nonTEI</note>
+            </notesStmt>
+            <sourceDesc>
+                <p>Written from scratch.</p>
+            </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <head>TEI Complete</head>
+            <p>Modèle documenté pour l'encodage en TEI de l'édition de testaments de Poilus,&#13;
+                telle&#13; que pourra la produire la plate-forme de transcription collaborative&#13;
+                en&#13; cours de&#13; développement (projet porté par l'U. de Cergy, les
+                Archives&#13; nationales,&#13; l'Ecole des&#13; chartes, les AD des Yvelines,
+                Patrima)</p>
+            <!-- file:///c:/path/to/the%20file.txt-->
+
+             <schemaSpec ident="testaments-de-Poilus-transcription" start="TEI" prefix="TEI-"
+                docLang="fr"
+                source="file:///c:/dev/shared-to-online-repos/testaments-poilus-2/teiModel/version-2/TeiModel_for_FirstWorldWarWills_v2_global_ODD_compiled.xml">
+           <!-- <schemaSpec ident="testaments-de-Poilus-transcription" start="TEI" prefix="TEI-"
+                docLang="fr" source="TeiModel_for_FirstWorldWarWills_v2_global_ODD_compiled.xml">-->
+                <moduleRef key="tei"/>
+                <moduleRef key="core"/>
+                <moduleRef key="analysis"/>
+                <moduleRef key="header"/>
+                <moduleRef key="linking"/>
+                <moduleRef key="msdescription"/>
+                <moduleRef key="namesdates"
+                    except="listPerson listPlace listOrg person place org birth death residence occupation affiliation district settlement geogName geogFeat location country region settlement geo"/>
+                <moduleRef key="textcrit"/>
+                <moduleRef key="textstructure"/>
+                <moduleRef key="transcr"/>
+                <elementSpec ident="body" module="textstructure" mode="replace">
+                    <gloss versionDate="2007-06-12">corps du texte</gloss>
+                    <desc versionDate="2007-06-12">contient la totalité du corps d’un seul texte simple, à
+                        l’exclusion de toute partie pré- ou post-liminaire.</desc>
+                    <desc type="wills-ui">Contient la totalité de la transcription du document, notes
+                        d'apparat critique incluses.</desc>
+                    <!-- <classes>
+                                    <memberOf key="att.global"/>
+                                    <memberOf key="att.declaring"/>
+                              </classes>-->
+                    <content>
+                       
+                            <elementRef key="div" minOccurs="1" maxOccurs="unbounded"/>
+                         
+                        
+                    </content>
+                
+                    <exemplum>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples"><body>
+                            <div type="will"><!-- transcription du texte du testament proprement dit --></div>
+                            <div type="envelope"
+                                ><!-- transcription du texte de l'enveloppe lorsque celle-ci subsiste et porte des mentions de la main du testateur --></div>
+                        </body></egXML>
+                    </exemplum>
+                </elementSpec>
+                <elementSpec ident="note" module="core" mode="replace" predeclare="false">
+                    <gloss>note</gloss>
+                    <desc versionDate="2009-01-06">contient une note ou une annotation</desc>
+                    <desc type="wills-ui">L'élément <gi scheme="TEI">note</gi> est utilisé par les
+                        éditeurs pour saisir les notes sur le contenu des testaments (dans ce cas,
+                        l'élément <gi scheme="TEI">note</gi> est enregistré dans l'élément <gi
+                            scheme="TEI">back</gi>) ou les notes d'apparat critique relatives à la
+                        forme de la transcription (dans ce cas l'élément <gi scheme="TEI">note</gi>
+                        est enregistré dans l'élément <gi scheme="TEI">app</gi> dans le corps de la
+                        transcription). Dans ces deux cas cet élément a obligatoirement un attribut
+                            <att scheme="TEI">resp</att> qui désigne le ou les auteurs de la note.
+                        Dans de rares cas, l'élément <gi scheme="TEI">note</gi> sert à encoder une
+                        note du testateur lui-même, ajoutée en marge, relative le plus souvent à un
+                        ou des mots qu'il a rayés dans le testament.</desc>
+                    <classes mode="replace">
+
+                        <memberOf key="model.noteLike" mode="add"/>
+
+
+
+
+                    </classes>
+                    <content autoPrefix="true">
+
+                        <alternate minOccurs="1" maxOccurs="1">
+                            <alternate minOccurs="0" maxOccurs="unbounded">
+                                <textNode/>
+                                <elementRef key="lb" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="choice" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="gap" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="unclear" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="supplied" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="damage" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="add" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="del" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="subst" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="app" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="hi" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="placeName" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="date" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="persName" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="orgName" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="seg" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="term" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="ref" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="foreign" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="space" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="metamark" minOccurs="1" maxOccurs="1"/>
+                            </alternate>
+                            <alternate minOccurs="0" maxOccurs="unbounded">
+                                <textNode/>
+                                <elementRef key="hi" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="ref" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="bibl" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="term" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="orgName" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="persName" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="placeName" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="foreign" minOccurs="1" maxOccurs="1"/>
+                            </alternate>
+                            <elementRef key="p" minOccurs="1" maxOccurs="unbounded"/>
+                        </alternate>
+                    </content>
+                    <constraintSpec ident="attrIdOnHistoricalNote" scheme="schematron" mode="add"
+                        predeclare="false">
+                        <constraint><sch:rule context="tei:note[ancestor::tei:div[@type='notes']]"
+                                    ><sch:assert test="@xml:id">L'attribut xml:id est obligatoire
+                                    pour cet élément.</sch:assert></sch:rule></constraint>
+                    </constraintSpec>
+                    <constraintSpec ident="noteContentIfInBack" scheme="schematron" mode="add"
+                        predeclare="false">
+                        <constraint><sch:rule
+                                context="tei:note[parent::tei:app or ancestor::tei:div[@type='notes']]"
+                                    ><sch:assert
+                                    test="not(tei:lb) and not(tei:pb) and not(tei:choice) and not(tei:gap) and not(tei:unclear) and not(tei:supplied) and not(tei:damage) and not(tei:add) and not(tei:del) and not(tei:subst) and not(tei:app) and not(tei:seg) and not(tei:space) and not(tei:metamark)"
+                                    >Dans une note historique ou d'apparat critique, on ne doit pas
+                                    trouver les éléments dédiés à la
+                                transcription.</sch:assert></sch:rule></constraint>
+                    </constraintSpec>
+
+                    <attList>
+                        <attDef ident="resp" usage="opt" mode="add" predeclare="false">
+                            <gloss versionDate="2008-03-30">responsable</gloss>
+                            <desc versionDate="2007-06-12">indique l'agent responsable de
+                                l'intervention ou de l'interprétation, par exemple un éditeur ou un
+                                transcripteur.</desc>
+                            <desc type="wills-ui">Il est recommandé d'utiliser cet attribut, dans le
+                                cas d'une note d'apparat critique ou d'une note historique, pour
+                                identifier son ou ses auteurs.</desc>
+                            <datatype maxOccurs="unbounded" minOccurs="1">
+                                <dataRef key="teidata.pointer"/>
+                            </datatype>
+                            <valDesc mode="add">contient, séparés par des espaces, des pointeurs
+                                vers les identités des personnes qui ont contribué à l'édition du
+                                testament et en particulier, en l'occurrence, à la saisie de la note
+                                historique ou d'apparat critique, telles que déclarées dans un des
+                                éléments <gi scheme="TEI">respStmt</gi> de <gi scheme="TEI"
+                                    >teiHeader</gi>.</valDesc>
+                        </attDef>
+                        <attDef ident="xml:id" usage="opt" mode="add" predeclare="false">
+                            <gloss versionDate="2008-03-30">identifiant</gloss>
+                            <desc versionDate="2009-05-25">fournit un identifiant unique pour
+                                l'élément qui porte l'attribut</desc>
+                            <desc type="wills-ui">identifiant unique de la note</desc>
+                            <datatype minOccurs="1" maxOccurs="1">
+                                <dataRef name="ID"/>
+                            </datatype>
+                        </attDef>
+
+                    </attList>
+                    <exemplum>
+                        <p part="N">Une note d'apparat critique</p>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples" valid="true"><item>5°
+                                        <choice><sic>à</sic><corr>À</corr></choice> mon vieil ami
+                                Morel mon fusil<lb/> calibre 12 percussion centrale <app><lem> (de
+                                            Warn<supplied reason="hidden" resp="#MDurand"
+                                            >er</supplied>)</lem><note resp="#MDurand">Tache d’encre
+                                        à la fin du mot.</note></app>
+                                <choice><sic/><corr>.</corr></choice><lb/> Mon ami Morel habite 2
+                                        <choice><sic>Rue</sic><corr>rue</corr></choice> Lénac<lb/> à
+                                Marseille.</item></egXML>
+                    </exemplum>
+                    <exemplum>
+                        <p part="N">Une note éditoriale sur le contenu du testament</p>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples" valid="true"><div
+                                type="notes"><note xml:id="will-001-fnote001"
+                                    resp="#MDurand #FClavaud">Sur Paul Chatin de Chastaing, voir
+                                        <bibl>une référence biblio avec un
+                                        <title>titre</title></bibl>, et consulter <ref
+                                        target="http://www.bnf.fr">une page
+                            web</ref>.</note></div></egXML>
+                    </exemplum>
+                    <exemplum>
+                        <p part="N">Une note d'un testateur dans une addition marginale au
+                            testament, faisant suite à la suppression de deux mots. Cette note est
+                            accompagnée d'une note d'apparat critique de l'éditeur.</p>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples" valid="true"><p>En cas
+                                d’existence<lb/> d’enfants, <app><lem><choice><sic><del>je
+                                                  le</del><add place="marginLeft"><note>rayé deux
+                                                  mots nuls J.
+                                        V.</note></add></sic><corr/></choice></lem><note
+                                        resp="#FClavaud">"rayé deux mots nuls J.V." inscrit dans la
+                                        marge.</note></app> ce<lb/> legs sera réduit à la<lb/> plus
+                                forte quotité<lb/> disponible permise entre<lb/> époux tant en
+                                toute<lb/> propriété qu’en usufruit<lb/> et cette quotité
+                                disponible<lb/> sera calculée sur l’ensemble<lb/> de ma succession,
+                                y<lb/> compris les rapports. </p></egXML>
+                    </exemplum>
+                    <listRef>
+                        <ref
+                            target="http://www.tei-c.org/release/doc/tei-p5-doc/en/html/CO.html#CONONO"
+                            >3.8.1. Notes and Simple Annotation</ref>
+                        <ref
+                            target="http://www.tei-c.org/release/doc/tei-p5-doc/en/html/HD.html#HD27"
+                            >2.2.6. The Notes Statement</ref>
+                        <ref
+                            target="http://www.tei-c.org/release/doc/tei-p5-doc/en/html/CO.html#COBICON"
+                            >3.11.2.8. Notes and Statement of Language</ref>
+                        <ref
+                            target="http://www.tei-c.org/release/doc/tei-p5-doc/en/html/DI.html#DITPNO"
+                            >9.3.5.4. Notes within Entries</ref>
+                    </listRef>
+                </elementSpec>
+                <elementSpec ident="address" module="core" mode="replace" predeclare="false">
+                    <gloss>adresse</gloss>
+                    <desc versionDate="2009-01-06">contient une adresse postale ou d'un autre type,
+                        par exemple l'adresse d'un éditeur, d'un organisme ou d'une personne.</desc>
+                    <desc type="wills-ui">L'élément <gi scheme="TEI">address</gi> est utilisé, dans
+                        la transcription des testaments, pour baliser une adresse, le plus souvent
+                        comme texte écrit sur une enveloppe (dans ce cas il contient une série
+                        d'éléments <gi scheme="TEI">addrLine</gi>- ligne d'adresse).</desc>
+                    <classes mode="replace">
+
+                        <memberOf key="model.addressLike" mode="add"/>
+                        <memberOf key="model.publicationStmtPart.detail" mode="add"/>
+                    </classes>
+                    <content autoPrefix="true">
+
+                        <sequence minOccurs="1" maxOccurs="1">
+                            <elementRef key="addressLine" minOccurs="1" maxOccurs="1"/>
+                            <alternate minOccurs="0" maxOccurs="unbounded">
+                                <elementRef key="addrLine" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="space" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="metamark" minOccurs="1" maxOccurs="1"/>
+                            </alternate>
+                        </sequence>
+
+
+                    </content>
+
+                    <constraintSpec ident="ifAddressInTranscriptionThenAddrLine" scheme="schematron"
+                        mode="add" predeclare="false">
+                        <constraint><sch:rule
+                                context="tei:address[ancestor::tei:TEI[contains(@xml:id, 'EditionOfWill')]]"
+                                    ><sch:assert test="tei:addrLine">Si vous transcrivez une
+                                    adresse, vous devriez utiliser au moins un élément addrLine
+                                    (ligne d'adresse).</sch:assert></sch:rule></constraint>
+                    </constraintSpec>
+                    <attList>
+                        <attDef ident="rend" usage="opt" mode="add" predeclare="false">
+                            <desc versionDate="2007-06-12">indique comment l'élément en question a
+                                été rendu ou présenté dans le texte source</desc>
+                            <desc type="wills-ui">Cet attribut est utilisé ici pour spécifier à quel
+                                endroit, sur la page, se trouve l'adresse.</desc>
+                            <valList type="open" mode="add">
+                                <valItem ident="centered" mode="add">
+                                    <gloss>centré</gloss>
+                                </valItem>
+                                <valItem ident="right" mode="add">
+                                    <gloss>à droite</gloss>
+                                </valItem>
+                                <valItem ident="left" mode="add">
+                                    <gloss>à gauche</gloss>
+                                </valItem>
+                            </valList>
+                        </attDef>
+                    </attList>
+                    <exemplum>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples" valid="true"><div
+                                type="envelope"><pb/><p><address><addrLine>Monsieur
+                                                  Delafon<choice><sic/><corr>,</corr></choice>
+                                                  notaire<choice><sic/><corr>,</corr></choice></addrLine><addrLine>6
+                                            boulevard de
+                                                Strasbourg<choice><sic/><corr>,</corr></choice></addrLine><addrLine>Paris</addrLine></address></p><!-- etc. --></div></egXML>
+                    </exemplum>
+
+                    <listRef>
+                        <ref
+                            target="http://www.tei-c.org/release/doc/tei-p5-doc/en/html/CO.html#CONAAD"
+                            >3.5.2. Addresses</ref>
+                        <ref
+                            target="http://www.tei-c.org/release/doc/tei-p5-doc/en/html/HD.html#HD24"
+                            >2.2.4. Publication, Distribution, Licensing, etc.</ref>
+                        <ref
+                            target="http://www.tei-c.org/release/doc/tei-p5-doc/en/html/CO.html#COBICOI"
+                            >3.11.2.4. Imprint, Size of a Document, and Reprint Information</ref>
+                    </listRef>
+                </elementSpec>
+
+                <elementSpec ident="street" module="core" mode="delete"/>
+                <elementSpec ident="num" module="core" mode="delete"/>
+                
+                <elementSpec ident="persName" module="namesdates" mode="replace" predeclare="false">
+                    <gloss versionDate="2008-12-09">nom de personne</gloss>
+                    <desc versionDate="2008-12-09">contient un nom propre ou une expression nominale
+                        se référant à une personne, pouvant inclure tout ou partie de ses prénoms,
+                        noms de famille, titres honorifiques, noms ajoutés, etc.</desc>
+                    <desc type="wills-ui">L'élément <gi scheme="TEI">persName</gi>peut être utilisé
+                        dans le corps de la transcription pour baliser un nom de personne, notamment
+                        lorsque la personne fait l'objet d'une notice. On l'utilise notamment dans
+                        la ou les mentions de signature du testament. Dans ce cas, il est recommandé
+                        de distinguer, dans la chaîne de caractères ainsi balisée, le nom de famille
+                        de la personne (afin que celui-ci, ultérieurement, puisse être mis en forme
+                        de manière spécifique dans l'édition de restitution), à l'aide de l'élément
+                            <gi scheme="TEI">surname</gi>. L'élément <gi scheme="TEI">persName</gi>
+                        sert aussi pour baliser les métadonnées du testament.</desc>
+                    <classes mode="replace">
+
+
+                        <memberOf key="model.nameLike.agent" mode="add"/>
+
+
+
+                    </classes>
+                    <content autoPrefix="true">
+                        <alternate minOccurs="0" maxOccurs="unbounded">
+                            <textNode/>
+                            <elementRef key="lb" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="pb" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="choice" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="gap" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="unclear" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="supplied" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="damage" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="add" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="del" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="subst" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="app" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="hi" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="surname" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="forename" minOccurs="1" maxOccurs="1"/>
+
+                            <elementRef key="ref" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="space" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="metamark" minOccurs="1" maxOccurs="1"/>
+                        </alternate>
+                    </content>
+                    <constraintSpec ident="contentIfPersNameInSigned" scheme="schematron" mode="add"
+                        predeclare="false">
+                        <constraint><sch:rule context="tei:persName[ancestor::tei:signed]"
+                                    ><sch:assert test="tei:surname">Penser à baliser le nom de
+                                    famille de la personne</sch:assert></sch:rule></constraint>
+                    </constraintSpec>
+
+                    <constraintSpec ident="contentIfPersNameInRespStmt" scheme="schematron"
+                        mode="add" predeclare="false">
+                        <constraint><sch:rule
+                                context="tei:persName[ancestor::tei:respStmt and not(ancestor::tei:bibl)]"
+                                    ><sch:assert test="@xml:id or @corresp">Dans une mention de
+                                    responsabilité, l'élément persName devrait avoir un identifiant
+                                    (attribut xml:id) ou pointer vers un autre élément persName via
+                                    l'attribut @corresp</sch:assert></sch:rule></constraint>
+                    </constraintSpec>
+
+                    <attList>
+                        <attDef ident="ref" usage="opt" mode="add" predeclare="false">
+                            <gloss versionDate="2009-05-25">référence</gloss>
+                            <desc versionDate="2009-05-25">fournit un moyen explicite de localiser
+                                une définition complète de l'entité nommée au moyen d'un ou
+                                plusieurs URIs.</desc>
+                            <desc type="wills-ui">L'attribut <att scheme="TEI">ref</att> contient,
+                                le cas échéant, un renvoi vers la notice décrivant, au sein de la
+                                plate-forme de transcription, la personne dont le nom a été
+                                balisé.</desc>
+                            <datatype minOccurs="1" maxOccurs="1">
+                                <dataRef key="teidata.pointer"/>
+                            </datatype>
+                        </attDef>
+                        <attDef ident="xml:id" usage="opt" mode="add" predeclare="false">
+                            <gloss versionDate="2008-03-30">identifiant</gloss>
+                            <desc versionDate="2009-05-25">fournit un identifiant unique pour
+                                l'élément qui porte l'attribut</desc>
+                            <desc type="wills-ui">Cet attribut sert, dans les métadonnées du fichier
+                                TEI de transcription, pour assigner un identifiant à chacun des
+                                contributeurs.</desc>
+                            <datatype minOccurs="1" maxOccurs="1">
+                                <dataRef name="ID"/>
+                            </datatype>
+                        </attDef>
+                        <attDef ident="corresp" usage="opt" mode="add" predeclare="false">
+                            <gloss versionDate="2008-03-30">correspond</gloss>
+                            <desc versionDate="2007-06-12">pointe vers des éléments qui ont une
+                                correspondance avec l'élément en question.</desc>
+                            <desc type="wills-ui">Cet attribut sert, dans les métadonnées du fichier
+                                TEI de transcription, pour établir une correspondance entre le nom
+                                d'un contributeur et une autre occurrence du même nom, située plus
+                                haut dans le fichier et dotée d'un identifiant.</desc>
+                            <datatype minOccurs="1" maxOccurs="unbounded">
+                                <dataRef key="teidata.pointer"/>
+                            </datatype>
+                        </attDef>
+
+                    </attList>
+                    <exemplum>
+                        <p part="N">Extrait tiré de Nougaret (Christine), Clavaud (Florence)
+                            (dirs.), « Testament n° 2 (Émile Alexandre Gorand, 31 juillet 1914) »,
+                            dans <title>Testaments de guerre de Poilus parisiens (1914-1918) : une
+                                édition critique</title>. Paris : École nationale des chartes,
+                            2017-.... En ligne : <ref
+                                target=" http://elec.enc.sorbonne.fr/testaments-de-poilus/testaments/testament-002.html#transcription"
+                                >
+                                http://elec.enc.sorbonne.fr/testaments-de-poilus/testaments/testament-002.html</ref>.</p>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples" valid="true"><p>Je soussigné
+                                    <persName ref="#EAGorand">Émile
+                                        Gorand</persName><choice><sic/><corr>,</corr></choice><lb/>
+                                né le 4 <choice><sic>Août</sic><corr>août</corr></choice> 1883 à
+                                Paris 10<hi rend="superscript-underlined">e</hi>, lègue à ma
+                                femme<lb/> chérie Émilie Gorand (née Bastien) tout ce que je
+                                        possède<choice><sic/><corr>,</corr></choice><lb/> titres,
+                                bijoux, argent, meubles et immeubles, en cas<lb/> de décès dans
+                                cette guerre.</p></egXML>
+                    </exemplum>
+                    <exemplum>
+                        <p part="N">Extrait tiré de Nougaret (Christine), Clavaud (Florence)
+                            (dirs.), « Testament n° 2 (Émile Alexandre Gorand, 31 juillet 1914) »,
+                            dans <title>Testaments de guerre de Poilus parisiens (1914-1918) : une
+                                édition critique</title>. Paris : École nationale des chartes,
+                            2017-.... En ligne : <ref
+                                target=" http://elec.enc.sorbonne.fr/testaments-de-poilus/testaments/testament-002.html#transcription"
+                                >
+                                http://elec.enc.sorbonne.fr/testaments-de-poilus/testaments/testament-002.html</ref>.</p>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples" valid="true"><signed
+                                rend="right"><seg type="signature"><persName ref="#EAGorand"
+                                            ><forename>E.</forename> <surname>Gorand</surname></persName></seg></signed></egXML>
+                    </exemplum>
+
+                    <listRef>
+                        <ref
+                            target="http://www.tei-c.org/release/doc/tei-p5-doc/en/html/ND.html#NDPER"
+                            >13.2.1. Personal Names</ref>
+                    </listRef>
+                </elementSpec>
+                <elementSpec ident="orgName" module="namesdates" mode="replace" predeclare="false">
+                    <gloss versionDate="2008-12-09">nom d'organisation</gloss>
+                    <desc versionDate="2009-03-19">contient le nom d'une organisation.</desc>
+                    <desc type="wills-ui">L'élément <gi scheme="TEI">orgName</gi> peut être utilisé
+                        dans le corps de la transcription, pour baliser un nom de régiment,
+                        notamment lorsque celui-ci fait l'objet d'une notice.</desc>
+                    <classes mode="replace">
+
+
+                        <memberOf key="model.nameLike.agent" mode="add"/>
+
+
+
+                    </classes>
+                    <content autoPrefix="true">
+                        <alternate minOccurs="0" maxOccurs="unbounded">
+                            <textNode/>
+                            <elementRef key="lb" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="pb" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="choice" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="gap" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="unclear" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="supplied" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="damage" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="add" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="del" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="subst" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="app" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="hi" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="placeName" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="orgName" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="ref" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="num" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="space" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="metamark" minOccurs="1" maxOccurs="1"/>
+                        </alternate>
+                    </content>
+
+
+                    <attList>
+
+                        <attDef ident="ref" usage="opt" mode="add" predeclare="false">
+                            <gloss versionDate="2009-05-25">référence</gloss>
+                            <desc versionDate="2009-05-25">fournit un moyen explicite de localiser
+                                une définition complète de l'entité nommée au moyen d'un ou
+                                plusieurs URIs.</desc>
+                            <desc type="wills-ui">L'attribut <att scheme="TEI">ref</att> contient,
+                                le cas échéant, un renvoi vers la notice décrivant, au sein de la
+                                plate-forme de transcription, l'unité militaire dont le nom a été
+                                balisé.</desc>
+                            <datatype minOccurs="1" maxOccurs="1">
+                                <dataRef key="teidata.pointer"/>
+                            </datatype>
+                        </attDef>
+                        <attDef ident="xml:id" usage="opt" mode="add" predeclare="false">
+                            <gloss versionDate="2008-03-30">identifiant</gloss>
+                            <desc versionDate="2009-05-25">fournit un identifiant unique pour
+                                l'élément qui porte l'attribut</desc>
+                            <desc type="wills-ui">Cet attribut sert, dans les métadonnées du fichier
+                                TEI de transcription, pour assigner un identifiant à chacun des
+                                organismes contributeurs.</desc>
+                            <datatype minOccurs="1" maxOccurs="1">
+                                <dataRef name="ID"/>
+                            </datatype>
+                        </attDef>
+                        <attDef ident="corresp" usage="opt" mode="add" predeclare="false">
+                            <gloss versionDate="2008-03-30">correspond</gloss>
+                            <desc versionDate="2007-06-12">pointe vers des éléments qui ont une
+                                correspondance avec l'élément en question.</desc>
+                            <desc type="wills-ui">Cet attribut sert, dans les métadonnées du fichier
+                                TEI de transcription, pour établir une correspondance entre le nom
+                                d'un organisme contributeur et une autre occurrence du même nom,
+                                située plus haut dans le fichier et dotée d'un identifiant.</desc>
+                            <datatype minOccurs="1" maxOccurs="unbounded">
+                                <dataRef key="teidata.pointer"/>
+                            </datatype>
+                        </attDef>
+                    </attList>
+                    <exemplum>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples" valid="true"><p>Je soussigné
+                                    <persName ref="#PFeugere">Paul Louis
+                                    <surname>Feugère</surname></persName><choice><sic/><corr>,</corr></choice><lb/>
+                                soldat au <orgName type="regiment">150<hi rend="superscript">e</hi>
+                                    régiment
+                                            <choice><sic>d’Infanterie</sic><corr>d’infanterie</corr></choice></orgName><lb/>
+                                en garnison à <choice><sic>Saint
+                                        Mihiel</sic><corr>Saint-Mihiel</corr></choice>
+                                (Meuse)<!-- [...]--></p></egXML>
+                    </exemplum>
+
+                    <listRef>
+                        <ref
+                            target="http://www.tei-c.org/release/doc/tei-p5-doc/en/html/ND.html#NDORG"
+                            >13.2.2. Organizational Names</ref>
+                    </listRef>
+                </elementSpec>
+
+
+                <elementSpec ident="placeName" module="namesdates" mode="replace" predeclare="false">
+                    <gloss versionDate="2008-12-09">nom de lieu</gloss>
+                    <desc versionDate="2009-03-19">contient un nom de lieu absolu ou relatif.</desc>
+                    <desc type="wills-ui">L'élément <gi scheme="TEI">placeName</gi>peut être utilisé
+                        dans le corps de la transcription pour baliser un nom de lieu, notamment
+                        lorsque le lieu fait l'objet d'une notice. Dans ce cas, l'attribut <att
+                            scheme="TEI">type</att> permettra de dire de quel type de lieu il s'agit
+                        (lieu de rédaction du testament, lieu de naissance ou de décès du testateur,
+                        etc.). L'élément <gi scheme="TEI">placeName</gi> sert aussi pour baliser les
+                        métadonnées du testament.</desc>
+                    <classes mode="replace">
+
+                        <memberOf key="model.placeNamePart" mode="add"/>
+                    </classes>
+                    <content autoPrefix="true">
+                        <alternate minOccurs="0" maxOccurs="unbounded">
+                            <textNode/>
+                            <elementRef key="lb" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="pb" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="choice" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="gap" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="unclear" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="supplied" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="damage" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="add" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="del" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="subst" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="app" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="hi" minOccurs="1" maxOccurs="1"/>
+
+                            <elementRef key="ref" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="space" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="metamark" minOccurs="1" maxOccurs="1"/>
+                        </alternate>
+                    </content>
+
+
+
+                    <constraintSpec ident="attrTypeIfPlaceNameInTranscriptionOrWillMetadata"
+                        scheme="schematron" mode="add" predeclare="false">
+                        <constraint><sch:rule
+                                context="tei:placeName[ancestor::tei:summary or ancestor::tei:div[@type='will'] or ancestor::tei:div[@type='envelope']]"
+                                    ><sch:assert test="@type">Dans les métadonnées sur le testament
+                                    ou dans le corps de la transcription, l'élément placeName
+                                    devrait avoir un attribut
+                            type</sch:assert></sch:rule></constraint>
+                    </constraintSpec>
+                    <constraintSpec ident="contentIfPlaceNameInTranscription" scheme="schematron"
+                        mode="add" predeclare="false">
+                        <constraint><sch:rule
+                                context="tei:placeName[ancestor::tei:div[@type='will'] or ancestor::tei:div[@type='envelope']]"
+                                    ><sch:assert test="not(tei:geogName) and not(tei:geogFeat)">Dans
+                                    le corps de la transcription, l'élément placeName ne devrait pas
+                                    avoir de sous-élément geogName ou
+                                settlement</sch:assert></sch:rule></constraint>
+                    </constraintSpec>
+                    <attList>
+                        <attDef ident="ref" usage="opt" mode="add" predeclare="false">
+                            <gloss versionDate="2009-05-25">référence</gloss>
+                            <desc versionDate="2009-05-25">fournit un moyen explicite de localiser
+                                une définition complète de l'entité nommée au moyen d'un ou
+                                plusieurs URIs.</desc>
+                            <desc type="wills-ui">L'attribut <att scheme="TEI">ref</att> contient,
+                                le cas échéant, un renvoi vers la notice décrivant, au sein de la
+                                plate-forme de transcription, le lieu dont le nom a été
+                                balisé.</desc>
+                            <datatype minOccurs="1" maxOccurs="1">
+                                <dataRef key="teidata.pointer"/>
+                            </datatype>
+                        </attDef>
+                        <attDef ident="type" usage="opt" mode="add" predeclare="false">
+                            <desc versionDate="2009-05-29">caractérise l'élément en utilisant
+                                n'importe quel système ou typologie de classification
+                                approprié.</desc>
+                            <desc type="wills-ui">Utiliser cet attribut, lorsque le nom de lieu est
+                                balisé dans le corps de la transcription, pour spécifier de quel
+                                type de date il s'agit, afin de permettre, par la suite, des
+                                recherches par type de lieu.</desc>
+                            <valList type="closed" mode="add">
+                                <valItem ident="willPlace" mode="add">
+                                    <gloss type="wills-ui">lieu de rédaction du testament</gloss>
+                                </valItem>
+                                <valItem ident="codicilPlace" mode="add">
+                                    <gloss type="wills-ui">lieu de rédaction du codicille</gloss>
+                                </valItem>
+                                <valItem ident="willAuthorBirthPlace" mode="add">
+                                    <gloss type="wills-ui">lieu de naissance du testateur</gloss>
+                                </valItem>
+                                <valItem ident="willAuthorDeathPlace" mode="add">
+                                    <gloss type="wills-ui">lieu de décès du testateur</gloss>
+                                </valItem>
+                                <valItem ident="willAuthorResidence" mode="add">
+                                    <gloss type="wills-ui">domicile du testateur</gloss>
+                                </valItem>
+                                <valItem ident="militaryEventPlace" mode="add">
+                                    <gloss type="wills-ui">lieu d'un événement militaire (bataille,
+                                        offensive...)</gloss>
+                                </valItem>
+                                <valItem ident="otherPlace" mode="add">
+                                    <gloss type="wills-ui">autre type de lieu</gloss>
+                                </valItem>
+                            </valList>
+                        </attDef>
+
+                    </attList>
+                    <exemplum>
+                        <p part="N">Un exemple d'utilisation de <gi scheme="TEI">placeName</gi> dans
+                            les métadonnées du testament</p>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples" valid="true"
+                                            ><msContents><summary><p><date when="1914-07-31"
+                                            type="willDate">1914, 31 juillet</date>. <placeName
+                                            type="willPlace">Paris</placeName>.</p><p><index
+                                            indexName="willTypes"><term>testament
+                                            olographe</term></index> de <persName ref="#FLChatin"
+                                                ><forename>Fernand</forename><forename>Lucien</forename><forename>Jules</forename><forename>Melchior</forename><surname>Chatin</surname></persName>,
+                                        mort pour la France à <placeName ref="#pl-056"
+                                            type="willAuthorDeathPlace">Maroeuil
+                                            (Pas-de-Calais)</placeName>, le <date when="1915-01-10"
+                                            type="willAuthorDeathDate">10 janvier
+                                    1915</date>.</p></summary></msContents></egXML>
+                    </exemplum>
+
+                    <listRef>
+                        <ref
+                            target="http://www.tei-c.org/release/doc/tei-p5-doc/en/html/ND.html#NDPLAC"
+                            >13.2.3. Place Names</ref>
+                    </listRef>
+                </elementSpec>
+
+                <elementSpec ident="surname" module="namesdates" mode="replace" predeclare="false">
+                    <gloss versionDate="2009-03-19">nom de famille</gloss>
+                    <desc versionDate="2009-01-05" xml:lang="fr">contient un nom de famille (hérité)
+                        par opposition à un nom donné, nom de baptême ou surnom.</desc>
+                    <desc type="wills-ui">L'élément <gi scheme="TEI">surname</gi> est utilisé au
+                        sein de l'élément <gi scheme="TEI">persName</gi> (nom de personne), pour
+                        baliser par ex. le nom de famille dans une signature dans le corps de la
+                        transcription.</desc>
+                    <classes mode="replace">
+
+                        <memberOf key="model.persNamePart" mode="add"/>
+
+                    </classes>
+                    <content autoPrefix="true">
+
+                        <alternate minOccurs="0" maxOccurs="unbounded">
+                            <textNode/>
+                            <elementRef key="lb" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="pb" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="choice" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="gap" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="unclear" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="supplied" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="damage" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="add" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="del" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="subst" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="ref" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="space" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="metamark" minOccurs="1" maxOccurs="1"/>
+                        </alternate>
+                    </content>
+                    <constraintSpec ident="surnameNotEmpty" scheme="schematron" mode="add"
+                        predeclare="false">
+                        <constraint><sch:rule context="tei:surname"><sch:assert
+                                    test="normalize-space(.)!=''">Si vous utilisez l'élément
+                                    surname, il ne devrait pas être vide ; il faut lui donner un
+                                    contenu textuel.</sch:assert></sch:rule></constraint>
+                    </constraintSpec>
+
+                    <exemplum>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples" valid="true"><signed
+                                rend="centered"><seg type="signature"><persName
+                                        ref="FirstWorldWarWills-ListOfPersons.xml#p-0001"
+                                            ><forename>Fernand</forename> <surname>Chatin</surname></persName></seg></signed></egXML>
+                    </exemplum>
+                    <exemplum>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples" valid="true"><persName
+                                type="fullIndexEntryForm"
+                                    ><surname>Chatin</surname><forename>Fernand</forename><forename>Lucien</forename><forename>Jules</forename><forename>Melchior</forename></persName></egXML>
+                    </exemplum>
+                    <listRef>
+                        <ref
+                            target="http://www.tei-c.org/release/doc/tei-p5-doc/en/html/ND.html#NDPER"
+                            >13.2.1. Personal Names</ref>
+                    </listRef>
+                </elementSpec>
+                <elementSpec ident="forename" module="namesdates" mode="replace" predeclare="false">
+                    <gloss versionDate="2008-12-09">prénom</gloss>
+                    <desc versionDate="2009-03-19">contient un prénom, qu'il soit donné ou un nom de
+                        baptême.</desc>
+                    <desc type="wills-ui">L'élément <gi scheme="TEI">forename</gi> est utilisé au
+                        sein de l'élément <gi scheme="TEI">persName</gi> (nom de personne), pour
+                        baliser par ex. chacun des prénoms dans une signature dans le corps de la
+                        transcription.</desc>
+                    <classes mode="replace">
+                        <memberOf key="att.global" mode="add"/>
+                        <memberOf key="model.persNamePart" mode="add"/>
+                        <memberOf key="att.personal" mode="add"/>
+                        <memberOf key="att.typed" mode="add"/>
+                    </classes>
+                    <content autoPrefix="true">
+
+                        <alternate minOccurs="0" maxOccurs="unbounded">
+                            <textNode/>
+                            <elementRef key="lb" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="pb" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="choice" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="gap" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="unclear" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="supplied" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="damage" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="add" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="del" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="subst" minOccurs="1" maxOccurs="1"/>
+                            <elementRef key="ref" minOccurs="1" maxOccurs="1"/>
+                        </alternate>
+                    </content>
+                    <constraintSpec ident="forenameNotEmpty" scheme="schematron" mode="add"
+                        predeclare="false">
+                        <constraint><sch:rule context="tei:forename"><sch:assert
+                                    test="normalize-space(.)!=''">Si vous utilisez l'élément
+                                    forename, il ne devrait pas être vide ; il faut lui donner un
+                                    contenu textuel.</sch:assert></sch:rule></constraint>
+                    </constraintSpec>
+
+                    <exemplum>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples" valid="true"><signed
+                                rend="centered"><seg type="signature"><persName
+                                        ref="FirstWorldWarWills-ListOfPersons.xml#p-0001"
+                                            ><forename>Fernand</forename> <surname>Chatin</surname></persName></seg></signed></egXML>
+                    </exemplum>
+                    <exemplum>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples" valid="true"><persName
+                                type="fullIndexEntryForm"
+                                    ><surname>Chatin</surname><forename>Fernand</forename><forename>Lucien</forename><forename>Jules</forename><forename>Melchior</forename></persName></egXML>
+                    </exemplum>
+                    <listRef>
+                        <ref
+                            target="http://www.tei-c.org/release/doc/tei-p5-doc/en/html/ND.html#NDPER"
+                            >13.2.1. Personal Names</ref>
+                    </listRef>
+                </elementSpec>
+
+
+            </schemaSpec>
+        </body>
+    </text>
+
+</TEI>
