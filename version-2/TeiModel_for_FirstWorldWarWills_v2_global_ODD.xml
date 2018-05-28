@@ -846,13 +846,14 @@
             </attDef>
           </attList>
           <exemplum>
-            <p><figure>
+            <p>
+              <figure>
                 <figDesc>Une mention de date au début d'un testament (testament de Albert Louis
                   Legros, rédigé le 4 août 1914 ; Archives nationales, MC/ET/CXX/1534, minute du 7
                   décembre 1914 ; voir <ref
-                    target="https://testaments-de-poilus.huma-num.fr/webapp/app/#!/edition/75/180"
-                    >https://testaments-de-poilus.huma-num.fr/webapp/app/#!/edition/75/180</ref>)</figDesc>
-                <graphic url="dateline-top-surrounded_ptt.jpg"/>
+                    target="https://testaments-de-poilus.huma-num.fr/#!/edition/75/180"
+                    >https://testaments-de-poilus.huma-num.fr/#!/edition/75/180</ref>)</figDesc>
+                <graphic url="https://testaments-de-poilus.huma-num.fr/api/web/uploads/dateline-top-surrounded_ptt.jpg"/>
               </figure></p>
             <egXML xmlns="http://www.tei-c.org/ns/Examples"><dateline rend="centered"><placeName
                   type="willPlace" ref="2">Paris</placeName><date type="willDate" when="1914-08-04"
@@ -860,13 +861,14 @@
                     place="marginRight">minuit</add></date></dateline></egXML>
           </exemplum>
           <exemplum>
-            <p><figure>
+            <p>
+              <figure>
                 <figDesc>Une mention de date en fin de testament (testament de Jean M. Vernet,
                   rédigé le 2 août 1914 ; Archives nationales, MC/ET/CXX/1674, minute du 5 août 1920
                   ; voir <ref
-                    target="https://testaments-de-poilus.huma-num.fr/webapp/app/#!/edition/154/295"
-                    >https://testaments-de-poilus.huma-num.fr/webapp/app/#!/edition/154/295</ref>)</figDesc>
-                <graphic url="dateline-bottom-surrounded_ptt.jpg"/>
+                    target="https://testaments-de-poilus.huma-num.fr/#!/edition/154/295"
+                    >https://testaments-de-poilus.huma-num.fr/#!/edition/154/295</ref>)</figDesc>
+                <graphic url="https://testaments-de-poilus.huma-num.fr/api/web/uploads/dateline-bottom-surrounded_ptt.jpg"/>
               </figure></p>
             <egXML xmlns="http://www.tei-c.org/ns/Examples"><dateline>Fait à <placeName
                   type="willPlace">Paris</placeName> le <date type="willDate" when="1914-08-02">2
@@ -3002,7 +3004,7 @@
                 </valItem>
                 <!-- avril 2018 ajouté valeur ci-dessous -->
                 <valItem ident="superscript-double-underlined">
-                  <gloss type="wills-ui">en exposant et souligné</gloss>
+                  <gloss type="wills-ui">en exposant et souligné deux fois</gloss>
                 </valItem>
                 <valItem ident="capital-letters">
                   <gloss type="wills-ui">en lettres majuscules</gloss>

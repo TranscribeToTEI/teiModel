@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:rng="http://relaxng.org/ns/structure/1.0"
+<TEI xmlns:rng="http://relaxng.org/ns/structure/1.0"
   xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:tei="http://www.tei-c.org/ns/1.0"
-  xml:base="file:/C:/dev/shared-to-online-repos/testaments-poilus-2/schema-travail-2018/teiModel/TeiModel_for_FirstWorldWarWills_v3-ter_ODD.xml"
+  xmlns="http://www.tei-c.org/ns/1.0"
+  xml:base="file:/C:/dev/shared-to-online-repos/testaments-poilus-2/teiModel/version-2/TeiModel_for_FirstWorldWarWills_v2_global_ODD.xml"
   xml:lang="fr">
+
   <?TEIVERSION Version 3.3.0. Last updated on
 	31st January 2018, revision f4d8439?>
   <teiHeader>
@@ -1355,8 +1357,10 @@
           </exemplum>
           <exemplum xml:lang="en">
             <egXML xmlns="http://www.tei-c.org/ns/Examples" source="#TAYLOR">
-              <lg> <l>Punkes, Panders, baſe extortionizing sla<choice><sic>n</sic><corr
-                      resp="#JENS1_transcriber">u</corr></choice>es,</l> </lg>
+              <lg>
+                <l>Punkes, Panders, baſe extortionizing sla<choice><sic>n</sic><corr
+                      resp="#JENS1_transcriber">u</corr></choice>es,</l>
+              </lg>
               <respStmt xml:id="JENS1_transcriber">
                 <resp when="2014">Transcriber</resp>
                 <name>Janelle Jenstad</name>
@@ -18116,8 +18120,7 @@ interpretive framework -->
               Abbreviation and Expansion</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="text" module="textstructure" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="text" module="textstructure" mode="replace" predeclare="false">
           <gloss>texte</gloss>
           <desc versionDate="2007-06-12">contient un seul texte quelconque, simple ou composite, par
             exemple un poème ou une pièce de théâtre, un recueil d’essais, un roman, un dictionnaire
@@ -18148,8 +18151,7 @@ interpretive framework -->
                   chiffres.</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="xml:id" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="xml:id" usage="opt" mode="add" predeclare="false">
               <gloss versionDate="2008-03-30">identifiant</gloss>
               <desc versionDate="2009-05-25">fournit un identifiant unique pour l'élément qui porte
                 l'attribut</desc>
@@ -18165,8 +18167,7 @@ interpretive framework -->
               </text></egXML>
           </exemplum>
         </elementSpec>
-        <elementSpec ident="body" module="textstructure" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="body" module="textstructure" mode="replace" predeclare="false">
           <gloss versionDate="2007-06-12">corps du texte</gloss>
           <desc versionDate="2007-06-12">contient la totalité du corps d’un seul texte simple, à
             l’exclusion de toute partie pré- ou post-liminaire.</desc>
@@ -18191,8 +18192,7 @@ interpretive framework -->
               </body></egXML>
           </exemplum>
         </elementSpec>
-        <elementSpec ident="facsimile" module="transcr" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="facsimile" module="transcr" mode="replace" predeclare="false">
           <desc versionDate="2009-11-16">contient une représentation d'une source écrite quelconque
             sous la forme d'un ensemble d'images plutôt que sous la forme d'un texte transcrit ou
             encodé.</desc>
@@ -18213,8 +18213,7 @@ interpretive framework -->
             </sequence>
           </content>
           <attList>
-            <attDef ident="xml:base" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="xml:base" usage="opt" mode="add" predeclare="false">
               <desc versionDate="2007-06-12">donne une référence URI de base au moyen de laquelle
                 les applications peuvent résoudre des références d'URI relatives en références d'URI
                 absolues</desc>
@@ -18227,8 +18226,7 @@ interpretive framework -->
             </attDef>
           </attList>
         </elementSpec>
-        <elementSpec ident="surface" module="transcr" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="surface" module="transcr" mode="replace" predeclare="false">
           <gloss>surface</gloss>
           <desc versionDate="2008-03-30">définit une surface écrite comme un rectangle décrit par
             ses coordonnées spatiales, en regroupant éventuellement une ou plusieurs représentations
@@ -18249,16 +18247,14 @@ interpretive framework -->
 
           </content>
           <attList>
-            <attDef ident="n" usage="req" mode="add" predeclare="false"
-             >
+            <attDef ident="n" usage="req" mode="add" predeclare="false">
               <gloss versionDate="2008-03-30">nombre</gloss>
               <desc versionDate="2009-05-25">donne un nombre (ou une autre étiquette) pour un
                 élément, qui n'est pas nécessairement unique dans le document TEI.</desc>
               <desc type="wills-ui">le numéro de la surface dans l'ordre de lecture logique du
                 testament</desc>
             </attDef>
-            <attDef ident="type" usage="req" mode="add" predeclare="false"
-             >
+            <attDef ident="type" usage="req" mode="add" predeclare="false">
               <desc versionDate="2009-05-29">caractérise l'élément en utilisant n'importe quel
                 système ou typologie de classification approprié.</desc>
               <desc type="wills-ui">Catégorise ici la surface reproduite par l'image
@@ -18307,8 +18303,7 @@ interpretive framework -->
                   />--></surface></surfaceGrp></egXML>
           </exemplum>
         </elementSpec>
-        <elementSpec ident="surfaceGrp" module="transcr" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="surfaceGrp" module="transcr" mode="replace" predeclare="false">
           <desc type="wills-ui">L'élément <gi scheme="TEI">surfaceGrp</gi> est utilisé lorsque la
             page du testament dont il sert à déclarer les reproductions numériques est en fait
             physiquement segmentée en deux parties du fait que le testament est cousu avec les
@@ -18327,16 +18322,14 @@ interpretive framework -->
             </sequence>
           </content>
           <attList>
-            <attDef ident="n" usage="req" mode="add" predeclare="false"
-             >
+            <attDef ident="n" usage="req" mode="add" predeclare="false">
               <gloss versionDate="2008-03-30">nombre</gloss>
               <desc versionDate="2009-05-25">donne un nombre (ou une autre étiquette) pour un
                 élément, qui n'est pas nécessairement unique dans le document TEI.</desc>
               <desc type="wills-ui">le numéro de la surface dans l'ordre de lecture logique du
                 testament</desc>
             </attDef>
-            <attDef ident="type" usage="req" mode="add" predeclare="false"
-             >
+            <attDef ident="type" usage="req" mode="add" predeclare="false">
               <desc versionDate="2009-05-29">caractérise l'élément en utilisant n'importe quel
                 système ou typologie de classification approprié.</desc>
               <desc type="wills-ui">Catégorise ici le groupe de surfaces segmentées par la
@@ -18363,8 +18356,7 @@ interpretive framework -->
                 /></surface></surfaceGrp></egXML>
           </exemplum>
         </elementSpec>
-        <elementSpec ident="graphic" module="core" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="graphic" module="core" mode="replace" predeclare="false">
           <desc versionDate="2009-01-06">indique l'emplacement d'une image, d'une illustration ou
             d'un schéma intégrés.</desc>
           <desc type="wills-ui">Cet élément est utilisé, au sein d'un élément <gi scheme="TEI"
@@ -18381,8 +18373,7 @@ interpretive framework -->
 
           </classes>
           <attList>
-            <attDef ident="url" usage="req" mode="add" predeclare="false"
-             >
+            <attDef ident="url" usage="req" mode="add" predeclare="false">
 
               <gloss versionDate="2008-03-30">adresse URL</gloss>
               <desc type="wills-ui">L'adresse relative de l'image numérique</desc>
@@ -18390,8 +18381,7 @@ interpretive framework -->
                 <dataRef key="teidata.pointer"/>
               </datatype>
             </attDef>
-            <attDef ident="xml:id" usage="req" mode="add" predeclare="false"
-             >
+            <attDef ident="xml:id" usage="req" mode="add" predeclare="false">
               <gloss versionDate="2008-03-30">identifiant</gloss>
               <desc versionDate="2009-05-25">fournit un identifiant unique pour l'élément qui porte
                 l'attribut</desc>
@@ -18408,8 +18398,7 @@ interpretive framework -->
                 /></surface></egXML>
           </exemplum>
         </elementSpec>
-        <elementSpec module="textstructure" ident="div" mode="replace" predeclare="false"
-         >
+        <elementSpec module="textstructure" ident="div" mode="replace" predeclare="false">
           <gloss versionDate="2007-06-12">division du texte</gloss>
           <desc versionDate="2007-06-12">contient une subdivision dans le texte préliminaire, dans
             le corps d’un texte ou dans le texte postliminaire.</desc>
@@ -18507,8 +18496,7 @@ interpretive framework -->
                   doit au moins y avoir un élément fils note</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="type" usage="req" mode="add" predeclare="false"
-             >
+            <attDef ident="type" usage="req" mode="add" predeclare="false">
               <desc versionDate="2009-05-29">caractérise l'élément en utilisant n'importe quel
                 système ou typologie de classification approprié.</desc>
               <desc type="wills-ui">Permet de catégoriser la division de texte en indiquant quel est
@@ -18543,8 +18531,7 @@ interpretive framework -->
                 ><note/><note/></div></egXML>
           </exemplum>
         </elementSpec>
-        <elementSpec ident="fw" module="transcr" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="fw" module="transcr" mode="replace" predeclare="false">
           <gloss versionDate="2018-04-13" type="wills-ui">titre courant</gloss>
           <desc versionDate="2007-06-12">permet d'encoder un titre courant (en haut ou en bas de la
             page), une réclame ou une autre information comparable, qui apparaît sur la page
@@ -18584,8 +18571,7 @@ interpretive framework -->
             </alternate>
           </content>
           <attList>
-            <attDef ident="place" usage="rec" mode="add" predeclare="false"
-             >
+            <attDef ident="place" usage="rec" mode="add" predeclare="false">
               <gloss type="wills-ui">emplacement</gloss>
               <desc versionDate="2007-06-12">spécifie où cet item se trouve.</desc>
               <desc type="wills-ui">Cet attribut précise la position du titre courant sur la
@@ -18608,8 +18594,7 @@ interpretive framework -->
               Headers, Footers, and Similar Matter</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="head" module="core" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="head" module="core" mode="replace" predeclare="false">
           <gloss versionDate="2009-01-06">en-tête</gloss>
           <desc versionDate="2009-01-06">contient tout type d'en-tête, par exemple le titre d'une
             section, ou l'intitulé d'une liste, d'un glossaire, d'une description de manuscrit,
@@ -18654,8 +18639,7 @@ interpretive framework -->
             </alternate>
           </content>
           <attList>
-            <attDef ident="rend" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="rend" usage="opt" mode="add" predeclare="false">
               <desc versionDate="2007-06-12">indique comment l'élément en question a été rendu ou
                 présenté dans le texte source</desc>
               <desc type="wills-ui">Cet attribut est utilisé pour spécifier à quel endroit, sur la
@@ -18683,8 +18667,7 @@ interpretive framework -->
               Headings and Trailers</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="dateline" module="textstructure" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="dateline" module="textstructure" mode="replace" predeclare="false">
           <gloss versionDate="2007-06-12">mention de date</gloss>
           <gloss type="wills-ui">ligne de lieu et de date</gloss>
           <desc versionDate="2007-06-12">contient une brève description des lieux, date, heure, etc.
@@ -18729,8 +18712,7 @@ interpretive framework -->
             </alternate>
           </content>
           <attList>
-            <attDef ident="rend" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="rend" usage="opt" mode="add" predeclare="false">
               <desc versionDate="2007-06-12">indique comment l'élément en question a été rendu ou
                 présenté dans le texte source</desc>
               <desc type="wills-ui">Cet attribut est utilisé pour spécifier à quel endroit, sur la
@@ -18749,13 +18731,16 @@ interpretive framework -->
             </attDef>
           </attList>
           <exemplum>
-            <p part="N"><figure>
+            <p part="N">
+              <figure>
                 <figDesc>Une mention de date au début d'un testament (testament de Albert Louis
                   Legros, rédigé le 4 août 1914 ; Archives nationales, MC/ET/CXX/1534, minute du 7
                   décembre 1914 ; voir <ref
-                    target="https://testaments-de-poilus.huma-num.fr/webapp/app/#!/edition/75/180"
-                    >https://testaments-de-poilus.huma-num.fr/webapp/app/#!/edition/75/180</ref>)</figDesc>
-                <graphic url="dateline-top-surrounded_ptt.jpg"/>
+                    target="https://testaments-de-poilus.huma-num.fr/#!/edition/75/180"
+                    >https://testaments-de-poilus.huma-num.fr/#!/edition/75/180</ref>)</figDesc>
+                <graphic
+                  url="https://testaments-de-poilus.huma-num.fr/api/web/uploads/dateline-top-surrounded_ptt.jpg"
+                />
               </figure></p>
             <egXML xmlns="http://www.tei-c.org/ns/Examples" valid="true"><dateline rend="centered"
                   ><placeName type="willPlace" ref="2">Paris</placeName><date type="willDate"
@@ -18763,13 +18748,15 @@ interpretive framework -->
                     place="marginRight">minuit</add></date></dateline></egXML>
           </exemplum>
           <exemplum>
-            <p part="N"><figure>
+            <p part="N">
+              <figure>
                 <figDesc>Une mention de date en fin de testament (testament de Jean M. Vernet,
                   rédigé le 2 août 1914 ; Archives nationales, MC/ET/CXX/1674, minute du 5 août 1920
-                  ; voir <ref
-                    target="https://testaments-de-poilus.huma-num.fr/webapp/app/#!/edition/154/295"
-                    >https://testaments-de-poilus.huma-num.fr/webapp/app/#!/edition/154/295</ref>)</figDesc>
-                <graphic url="dateline-bottom-surrounded_ptt.jpg"/>
+                  ; voir <ref target="https://testaments-de-poilus.huma-num.fr/#!/edition/154/295"
+                    >https://testaments-de-poilus.huma-num.fr/#!/edition/154/295</ref>)</figDesc>
+                <graphic
+                  url="https://testaments-de-poilus.huma-num.fr/api/web/uploads/dateline-bottom-surrounded_ptt.jpg"
+                />
               </figure></p>
             <egXML xmlns="http://www.tei-c.org/ns/Examples" valid="true"><dateline>Fait à <placeName
                   type="willPlace">Paris</placeName> le <date type="willDate" when="1914-08-02">2
@@ -18781,8 +18768,7 @@ interpretive framework -->
               Openers and Closers</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="p" module="core" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="p" module="core" mode="replace" predeclare="false">
           <gloss versionDate="2009-01-06">paragraphe</gloss>
           <desc versionDate="2009-01-06">marque les paragraphes dans un texte en prose.</desc>
           <desc type="wills-ui">Le paragraphe est le principal composant du texte des
@@ -18840,8 +18826,7 @@ interpretive framework -->
                   éléments dédiés à la transcription.</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="rend" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="rend" usage="opt" mode="add" predeclare="false">
               <desc versionDate="2007-06-12">indique comment l'élément en question a été rendu ou
                 présenté dans le texte source</desc>
               <desc type="wills-ui">Cet attribut est utilisé pour spécifier à quel endroit, sur la
@@ -18878,8 +18863,7 @@ interpretive framework -->
               Speech Contents</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="signed" module="textstructure" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="signed" module="textstructure" mode="replace" predeclare="false">
           <gloss>signature</gloss>
           <desc versionDate="2008-10-02">contient la dernière salutation, ajoutée à un avant-propos,
             à une dédicace ou à une autre division du texte.</desc>
@@ -18921,8 +18905,7 @@ interpretive framework -->
             </alternate>
           </content>
           <attList>
-            <attDef ident="rend" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="rend" usage="opt" mode="add" predeclare="false">
               <desc versionDate="2007-06-12">indique comment l'élément en question a été rendu ou
                 présenté dans le texte source</desc>
               <desc type="wills-ui">Cet attribut est utilisé pour spécifier à quel endroit, sur la
@@ -18959,8 +18942,7 @@ interpretive framework -->
               Openers and Closers</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="postscript" module="textstructure" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="postscript" module="textstructure" mode="replace" predeclare="false">
           <gloss>post-scriptum</gloss>
           <desc versionDate="2008-03-30">contient un post-scriptum, par exemple au bas d'une
             lettre.</desc>
@@ -18990,8 +18972,7 @@ interpretive framework -->
             </sequence>
           </content>
           <attList>
-            <attDef ident="rend" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="rend" usage="opt" mode="add" predeclare="false">
               <desc versionDate="2007-06-12">indique comment l'élément en question a été rendu ou
                 présenté dans le texte source</desc>
               <desc type="wills-ui">Cet attribut est utilisé pour spécifier à quel endroit, sur la
@@ -19036,8 +19017,7 @@ interpretive framework -->
               Elements Common to All Divisions</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="list" module="core" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="list" module="core" mode="replace" predeclare="false">
           <gloss versionDate="2007-06-12">liste</gloss>
           <desc versionDate="2007-06-12">contient une suite d'items ordonnés dans une liste.</desc>
           <desc type="wills-ui">Cet élément est le plus souvent utilisé pour encoder une liste de
@@ -19065,8 +19045,7 @@ interpretive framework -->
                   contenir au moins un item</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="rend" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="rend" usage="opt" mode="add" predeclare="false">
               <desc versionDate="2007-06-12">indique comment l'élément en question a été rendu ou
                 présenté dans le texte source</desc>
               <desc type="wills-ui">Cet attribut est utilisé pour spécifier à quel endroit, sur la
@@ -19109,8 +19088,7 @@ interpretive framework -->
               Lists</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="item" module="core" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="item" module="core" mode="replace" predeclare="false">
           <gloss>composant de liste (item)</gloss>
           <desc versionDate="2009-01-06">contient un composant d'une liste.</desc>
           <desc type="wills-ui">Cet élément est utilisé dans l'élément <gi scheme="TEI">list</gi>,
@@ -19147,8 +19125,7 @@ interpretive framework -->
             </alternate>
           </content>
           <attList>
-            <attDef ident="rend" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="rend" usage="opt" mode="add" predeclare="false">
               <desc versionDate="2007-06-12">indique comment l'élément en question a été rendu ou
                 présenté dans le texte source</desc>
               <desc type="wills-ui">Cet attribut est utilisé pour spécifier à quel endroit, sur la
@@ -19193,8 +19170,7 @@ interpretive framework -->
               Revision Description</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="seg" module="linking" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="seg" module="linking" mode="replace" predeclare="false">
           <gloss versionDate="2007-06-12">segment quelconque (de texte)</gloss>
           <desc versionDate="2009-10-06">contient une unité de texte quelconque de niveau
               <soCalled>segment</soCalled>.</desc>
@@ -19241,8 +19217,7 @@ interpretive framework -->
               type</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="type" usage="rec" mode="add" predeclare="false"
-             >
+            <attDef ident="type" usage="rec" mode="add" predeclare="false">
               <desc versionDate="2009-05-29">caractérise l'élément en utilisant n'importe quel
                 système ou typologie de classification approprié.</desc>
               <desc type="wills-ui">Catégorise ici le segment textuel. Il est recommandé de
@@ -19263,8 +19238,7 @@ interpretive framework -->
                 </valItem>
               </valList>
             </attDef>
-            <attDef ident="rend" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="rend" usage="opt" mode="add" predeclare="false">
               <desc versionDate="2007-06-12">indique comment l'élément en question a été rendu ou
                 présenté dans le texte source</desc>
               <desc type="wills-ui">Cet attribut est utilisé pour spécifier à quel endroit, sur la
@@ -19281,8 +19255,7 @@ interpretive framework -->
                 </valItem>
               </valList>
             </attDef>
-            <attDef ident="ana" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="ana" usage="opt" mode="add" predeclare="false">
               <gloss versionDate="2008-03-30">analyse</gloss>
               <desc versionDate="2007-06-12">indique un ou plusieurs éléments contenant des
                 interprétations de l'élément qui porte l'attribut <att scheme="TEI"
@@ -19294,8 +19267,7 @@ interpretive framework -->
                 <dataRef key="teidata.pointer"/>
               </datatype>
             </attDef>
-            <attDef ident="xml:lang" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="xml:lang" usage="opt" mode="add" predeclare="false">
               <gloss versionDate="2008-03-30">langue</gloss>
               <desc versionDate="2007-06-12">indique la langue du contenu de l'élément en utilisant
                 les codes du <ref target="http://www.ietf.org/rfc/rfc3066.txt">RFC 3066</ref>
@@ -19347,8 +19319,7 @@ interpretive framework -->
               Speech Contents</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="addrLine" module="core" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="addrLine" module="core" mode="replace" predeclare="false">
           <gloss versionDate="2009-01-06">ligne d'adresse</gloss>
           <desc versionDate="2009-01-06">contient une ligne d'adresse postale.</desc>
           <desc type="wills-ui">L'élément <gi scheme="TEI">addrLine</gi>est utilisé dans le corps de
@@ -19383,8 +19354,7 @@ interpretive framework -->
             </alternate>
           </content>
           <attList>
-            <attDef ident="rend" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="rend" usage="opt" mode="add" predeclare="false">
               <desc versionDate="2007-06-12">indique comment l'élément en question a été rendu ou
                 présenté dans le texte source</desc>
               <desc type="wills-ui">Cet attribut est utilisé ici pour spécifier à quel endroit, sur
@@ -19401,8 +19371,7 @@ interpretive framework -->
                 </valItem>
               </valList>
             </attDef>
-            <attDef ident="xml:lang" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="xml:lang" usage="opt" mode="add" predeclare="false">
               <gloss versionDate="2008-03-30">langue</gloss>
               <desc versionDate="2007-06-12">indique la langue du contenu de l'élément en utilisant
                 les codes du <ref target="http://www.ietf.org/rfc/rfc3066.txt">RFC 3066</ref>
@@ -19432,8 +19401,7 @@ interpretive framework -->
               >3.11.2.4. Imprint, Size of a Document, and Reprint Information</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="choice" module="core" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="choice" module="core" mode="replace" predeclare="false">
           <gloss versionDate="2009-01-06">choix</gloss>
           <desc versionDate="2009-01-06">regroupe un certain nombre de balisages alternatifs
             possibles pour un même endroit dans un texte.</desc>
@@ -19497,8 +19465,7 @@ interpretive framework -->
               Simple Editorial Changes</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="sic" module="core" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="sic" module="core" mode="replace" predeclare="false">
           <gloss versionDate="2009-03-17">sic, du latin <gloss>ainsi</gloss></gloss>
           <desc versionDate="2009-01-06">contient du texte reproduit quoiqu'il est apparemment
             incorrect ou inexact</desc>
@@ -19543,8 +19510,7 @@ interpretive framework -->
               Apparent Errors</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="corr" module="core" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="corr" module="core" mode="replace" predeclare="false">
           <gloss>correction</gloss>
           <desc versionDate="2007-06-12">contient la forme correcte d'un passage qui est considéré
             erroné dans la copie du texte.</desc>
@@ -19571,8 +19537,7 @@ interpretive framework -->
                   encodée dans l'élément sic</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="resp" usage="rec" mode="add" predeclare="false"
-             >
+            <attDef ident="resp" usage="rec" mode="add" predeclare="false">
               <gloss versionDate="2008-03-30">responsable</gloss>
               <desc versionDate="2007-06-12">indique l'agent responsable de l'intervention ou de
                 l'interprétation, par exemple un éditeur ou un transcripteur.</desc>
@@ -19598,8 +19563,7 @@ interpretive framework -->
               Apparent Errors</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="abbr" module="core" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="abbr" module="core" mode="replace" predeclare="false">
           <gloss versionDate="2009-01-06">abréviation</gloss>
           <desc versionDate="2009-01-06">contient une abréviation quelconque.</desc>
           <desc type="wills-ui">L'élément <gi scheme="TEI">abbr</gi> contient la transcription,
@@ -19632,8 +19596,7 @@ interpretive framework -->
                   développée dans l'élément expan</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="type" usage="rec" mode="add" predeclare="false"
-             >
+            <attDef ident="type" usage="rec" mode="add" predeclare="false">
               <gloss>type</gloss>
               <desc versionDate="2009-01-06">permet à l'éditeur de caractériser l'abréviation selon
                 une typologie adéquate</desc>
@@ -19697,8 +19660,7 @@ interpretive framework -->
               Abbreviations and Their Expansions</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="expan" module="core" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="expan" module="core" mode="replace" predeclare="false">
           <gloss versionDate="2009-01-06">expansion</gloss>
           <desc versionDate="2009-01-06">contient l'expansion d'une abréviation.</desc>
           <desc type="wills-ui">L'élément <gi scheme="TEI">expan</gi> contient la forme développée
@@ -19722,8 +19684,7 @@ interpretive framework -->
                   abbr</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="resp" usage="rec" mode="add" predeclare="false"
-             >
+            <attDef ident="resp" usage="rec" mode="add" predeclare="false">
               <gloss versionDate="2008-03-30">responsable</gloss>
               <desc versionDate="2007-06-12">indique l'agent responsable de l'intervention ou de
                 l'interprétation, par exemple un éditeur ou un transcripteur.</desc>
@@ -19750,8 +19711,7 @@ interpretive framework -->
               Abbreviations and Their Expansions</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="damage" module="transcr" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="damage" module="transcr" mode="replace" predeclare="false">
           <gloss versionDate="2007-06-12">dommage</gloss>
           <desc versionDate="2007-06-12">sert à encoder une zone qui a subi des dommages dans le
             manuscrit témoin du texte.</desc>
@@ -19802,8 +19762,7 @@ interpretive framework -->
                   via l'attribut agent.</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="unit" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="unit" usage="opt" mode="add" predeclare="false">
               <gloss type="wills-ui">unité de mesure</gloss>
               <desc versionDate="2007-06-12">noms des unités utilisées pour la mesure.</desc>
               <desc type="wills-ui">Cet attribut est utiisé, conjointement avec l'attribut <att
@@ -19824,8 +19783,7 @@ interpretive framework -->
                 </valItem>
               </valList>
             </attDef>
-            <attDef ident="quantity" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="quantity" usage="opt" mode="add" predeclare="false">
               <gloss type="wills-ui">quantité</gloss>
               <desc versionDate="2008-03-30">spécifie la longueur dans les unités indiquées</desc>
               <desc type="wills-ui">Cet attribut est utilisé pour spécifier le nombre de cm, de
@@ -19835,8 +19793,7 @@ interpretive framework -->
                 <dataRef key="teidata.numeric"/>
               </datatype>
             </attDef>
-            <attDef ident="agent" usage="rec" mode="add" predeclare="false"
-             >
+            <attDef ident="agent" usage="rec" mode="add" predeclare="false">
               <gloss type="wills-ui">cause du dommage</gloss>
               <desc versionDate="2008-03-30">caractérise la raison des dommages, lorsqu'elle peut
                 être identifiée</desc>
@@ -19880,8 +19837,7 @@ interpretive framework -->
               Damage, Illegibility, and Supplied Text</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="gap" module="core" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="gap" module="core" mode="replace" predeclare="false">
           <gloss versionDate="2008-12-09">omission</gloss>
           <gloss type="wills-ui">texte non transcrit</gloss>
           <desc versionDate="2007-06-12">indique une omission dans une transcription, soit pour des
@@ -19924,8 +19880,7 @@ interpretive framework -->
                   unit.</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="reason" usage="rec" mode="add" predeclare="false"
-             >
+            <attDef ident="reason" usage="rec" mode="add" predeclare="false">
               <gloss>raison</gloss>
               <desc versionDate="2017-02-06">donne la raison de l'omission</desc>
               <desc type="wills-ui">Cet attribut sert à indiquer pourquoi il y a une lacune dans sa
@@ -19954,8 +19909,7 @@ interpretive framework -->
 
               </valList>
             </attDef>
-            <attDef ident="unit" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="unit" usage="opt" mode="add" predeclare="false">
               <gloss type="wills-ui">unité de mesure</gloss>
               <desc versionDate="2007-06-12" xml:lang="fr">noms des unités utilisées pour la
                 mesure.</desc>
@@ -19977,8 +19931,7 @@ interpretive framework -->
                 </valItem>
               </valList>
             </attDef>
-            <attDef ident="quantity" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="quantity" usage="opt" mode="add" predeclare="false">
               <gloss type="wills-ui">quantité</gloss>
               <desc versionDate="2008-03-30">spécifie la longueur dans les unités indiquées</desc>
               <desc type="wills-ui">Cet attribut est utilisé pour spécifier le nombre de cm, de
@@ -19994,8 +19947,7 @@ interpretive framework -->
               Additions, Deletions, and Omissions</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="supplied" module="transcr" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="supplied" module="transcr" mode="replace" predeclare="false">
           <gloss versionDate="2009-11-16">texte restitué</gloss>
           <desc versionDate="2009-11-16">permet d'encoder du texte restitué par l'auteur de la
             transcription ou par l'éditeur pour une raison quelconque, le plus souvent parce que le
@@ -20051,8 +20003,7 @@ interpretive framework -->
                   l'unité de mesure dans l'attribut unit.</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="unit" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="unit" usage="opt" mode="add" predeclare="false">
               <gloss type="wills-ui">unité de mesure</gloss>
               <desc versionDate="2007-06-12" xml:lang="fr">noms des unités utilisées pour la
                 mesure.</desc>
@@ -20074,8 +20025,7 @@ interpretive framework -->
                 </valItem>
               </valList>
             </attDef>
-            <attDef ident="quantity" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="quantity" usage="opt" mode="add" predeclare="false">
               <gloss type="wills-ui">quantité</gloss>
               <desc versionDate="2008-03-30">spécifie la longueur dans les unités indiquées</desc>
               <desc type="wills-ui">Cet attribut est utilisé pour spécifier le nombre de cm, de
@@ -20086,8 +20036,7 @@ interpretive framework -->
                 <dataRef key="teidata.numeric"/>
               </datatype>
             </attDef>
-            <attDef ident="reason" usage="rec" mode="add" predeclare="false"
-             >
+            <attDef ident="reason" usage="rec" mode="add" predeclare="false">
               <gloss type="wills-ui">raison</gloss>
               <desc type="wills-ui">donne la raison pour laquelle on a du restituer le texte</desc>
               <desc type="wills-ui">Cet attribut sert à indiquer pourquoi une partie du texte est
@@ -20113,8 +20062,7 @@ interpretive framework -->
                 </valItem>
               </valList>
             </attDef>
-            <attDef ident="resp" usage="rec" mode="add" predeclare="false"
-             >
+            <attDef ident="resp" usage="rec" mode="add" predeclare="false">
               <gloss versionDate="2008-03-30">responsable</gloss>
               <desc versionDate="2007-06-12">indique l'agent responsable de l'intervention ou de
                 l'interprétation, par exemple un éditeur ou un transcripteur.</desc>
@@ -20141,8 +20089,7 @@ interpretive framework -->
               Damage, Illegibility, and Supplied Text</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="unclear" module="core" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="unclear" module="core" mode="replace" predeclare="false">
           <gloss versionDate="2009-01-06">transcription incertaine</gloss>
           <desc versionDate="2009-01-06">contient un mot, une expression ou bien un passage qui ne
             peut être transcrit avec certitude parce qu'il est illisible ou inaudible dans la
@@ -20190,8 +20137,7 @@ interpretive framework -->
                   reason.</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="reason" usage="rec" mode="add" predeclare="false"
-             >
+            <attDef ident="reason" usage="rec" mode="add" predeclare="false">
               <gloss>raison</gloss>
               <desc versionDate="2009-01-06">indique pourquoi il est difficile de transcrire le
                 document</desc>
@@ -20216,8 +20162,7 @@ interpretive framework -->
 
               </valList>
             </attDef>
-            <attDef ident="resp" usage="rec" mode="add" predeclare="false"
-             >
+            <attDef ident="resp" usage="rec" mode="add" predeclare="false">
               <gloss versionDate="2008-03-30">responsable</gloss>
               <desc versionDate="2007-06-12">indique l'agent responsable de l'intervention ou de
                 l'interprétation, par exemple un éditeur ou un transcripteur.</desc>
@@ -20247,8 +20192,7 @@ interpretive framework -->
               Additions, Deletions, and Omissions</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="surplus" module="transcr" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="surplus" module="transcr" mode="replace" predeclare="false">
           <gloss versionDate="2007-06-12">texte superflu</gloss>
           <desc versionDate="2009-11-16">permet d'encoder une partie de texte présente dans la
             source lorsque l'éditeur la considère superflue ou redondante.</desc>
@@ -20283,8 +20227,7 @@ interpretive framework -->
               Damage, Illegibility, and Supplied Text</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="add" module="core" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="add" module="core" mode="replace" predeclare="false">
           <gloss versionDate="2009-01-06">ajout</gloss>
           <desc versionDate="2009-01-06">contient des lettres, des mots ou des phrases insérés dans
             le texte par un auteur, un copiste, un annotateur ou un correcteur.</desc>
@@ -20335,8 +20278,7 @@ interpretive framework -->
             </sequence>
           </content>
           <attList>
-            <attDef ident="place" usage="rec" mode="add" predeclare="false"
-             >
+            <attDef ident="place" usage="rec" mode="add" predeclare="false">
               <gloss type="wills-ui">emplacement</gloss>
               <desc versionDate="2007-06-12">spcifie où cet item se trouve.</desc>
               <desc type="wills-ui">Cet attribut précise la position du texte ajouté par rapport à
@@ -20385,8 +20327,7 @@ interpretive framework -->
               Additions, Deletions, and Omissions</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="del" module="core" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="del" module="core" mode="replace" predeclare="false">
           <gloss versionDate="2008-12-09">suppression</gloss>
           <desc versionDate="2007-06-12">contient une lettre, un mot ou un passage supprimé, marqué
             comme supprimé, sinon indiqué comme superflu ou erroné dans le texte par un auteur, un
@@ -20459,8 +20400,7 @@ interpretive framework -->
               Additions, Deletions, and Omissions</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="subst" module="transcr" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="subst" module="transcr" mode="replace" predeclare="false">
           <gloss versionDate="2008-10-02">substitution</gloss>
           <desc versionDate="2009-11-16">regroupe une ou plusieurs parties de texte supprimées et
             une ou plusieurs parties de texte ajoutées, lorsque cette combinaison peut être
@@ -20509,8 +20449,7 @@ interpretive framework -->
               Substitutions</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="hi" module="core" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="hi" module="core" mode="replace" predeclare="false">
           <gloss versionDate="2009-01-06">mis en évidence</gloss>
           <gloss type="wills-ui">mise en forme</gloss>
           <desc versionDate="2009-01-06">distingue un mot ou une expression comme graphiquement
@@ -20560,8 +20499,7 @@ interpretive framework -->
                   utilisant l'attribut rend</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="rend" usage="req" mode="add" predeclare="false"
-             >
+            <attDef ident="rend" usage="req" mode="add" predeclare="false">
               <gloss>rendu</gloss>
               <desc versionDate="2007-06-12">indique comment l'élément en question a été rendu ou
                 présenté dans le texte source</desc>
@@ -20583,7 +20521,7 @@ interpretive framework -->
                 </valItem>
 
                 <valItem ident="superscript-double-underlined" mode="add">
-                  <gloss type="wills-ui">en exposant et souligné</gloss>
+                  <gloss type="wills-ui">en exposant et souligné deux fois</gloss>
                 </valItem>
                 <valItem ident="capital-letters" mode="add">
                   <gloss type="wills-ui">en lettres majuscules</gloss>
@@ -20605,8 +20543,7 @@ interpretive framework -->
               Emphasis, Foreign Words, and Unusual Language</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="lb" module="core" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="lb" module="core" mode="replace" predeclare="false">
           <gloss versionDate="2009-01-06">saut de ligne</gloss>
           <desc versionDate="2009-01-06">marque le début d'une nouvelle ligne (typographique) dans
             une édition ou dans une version d'un texte.</desc>
@@ -20626,8 +20563,7 @@ interpretive framework -->
             <empty/>
           </content>
           <attList>
-            <attDef ident="break" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="break" usage="opt" mode="add" predeclare="false">
               <desc versionDate="2007-06-12">indique si l'élément qui porte cet attribut peut être
                 considéré comme une espace blanche indiquant la fin d'un mot orthographique.</desc>
               <valList type="closed" mode="add">
@@ -20673,8 +20609,7 @@ interpretive framework -->
               Speech Contents</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="pb" module="core" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="pb" module="core" mode="replace" predeclare="false">
           <gloss versionDate="2009-01-06">saut de page</gloss>
           <desc versionDate="2007-06-12">marque le début d'une page de texte dans un document
             paginé.</desc>
@@ -20702,8 +20637,7 @@ interpretive framework -->
                   l'élément facsimile.</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="facs" usage="req" mode="add" predeclare="false"
-             >
+            <attDef ident="facs" usage="req" mode="add" predeclare="false">
               <gloss versionDate="2008-03-30">fac-similé</gloss>
               <desc versionDate="2009-11-16">pointe directement vers une image ou vers une partie
                 d'une image correspondant au contenu de l'élément.</desc>
@@ -20738,8 +20672,7 @@ interpretive framework -->
               Milestone Elements</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="space" module="transcr" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="space" module="transcr" mode="replace" predeclare="false">
           <gloss versionDate="2007-06-12">espace</gloss>
           <desc versionDate="2009-11-16">permet de situer un espace significatif dans le texte
             édité.</desc>
@@ -20767,8 +20700,7 @@ interpretive framework -->
                   cette mesure dans l'attribut quantity.</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="dim" usage="req" mode="add" predeclare="false"
-             >
+            <attDef ident="dim" usage="req" mode="add" predeclare="false">
               <gloss versionDate="2009-11-16">dimension</gloss>
               <desc versionDate="2009-11-16">indique si l'espace laissé blanc est vertical ou
                 horizontal.</desc>
@@ -20781,8 +20713,7 @@ interpretive framework -->
                 </valItem>
               </valList>
             </attDef>
-            <attDef ident="unit" usage="rec" mode="add" predeclare="false"
-             >
+            <attDef ident="unit" usage="rec" mode="add" predeclare="false">
               <gloss type="wills-ui">unité de mesure</gloss>
               <desc versionDate="2007-06-12">noms des unités utilisées pour la mesure.</desc>
               <desc type="wills-ui">Cet attribut est utiisé, conjointement avec l'attribut <att
@@ -20801,8 +20732,7 @@ interpretive framework -->
                 </valItem>
               </valList>
             </attDef>
-            <attDef ident="quantity" usage="rec" mode="add" predeclare="false"
-             >
+            <attDef ident="quantity" usage="rec" mode="add" predeclare="false">
               <gloss type="wills-ui">quantité</gloss>
               <desc versionDate="2008-03-30">spécifie la longueur dans les unités indiquées</desc>
               <desc type="wills-ui">Cet attribut est utilisé pour spécifier le nombre de cm ou de
@@ -20835,8 +20765,7 @@ interpretive framework -->
               Space</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="metamark" module="transcr" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="metamark" module="transcr" mode="replace" predeclare="false">
           <gloss versionDate="2017-07-27">métamarque</gloss>
           <desc versionDate="2017-07-27">contient ou décrit tout type de signe graphique ou de
             caractère dans un document dont la fonction est de déterminer comment le document
@@ -20865,8 +20794,7 @@ interpretive framework -->
                   utilisant l'attribut rend)</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="function" usage="rec" mode="add" predeclare="false"
-             >
+            <attDef ident="function" usage="rec" mode="add" predeclare="false">
               <gloss type="wills-ui">fonction</gloss>
               <desc type="wills-ui">définit la fonction de la marque.</desc>
               <valList type="closed" mode="add">
@@ -20881,8 +20809,7 @@ interpretive framework -->
               </valList>
 
             </attDef>
-            <attDef ident="rend" usage="rec" mode="add" predeclare="false"
-             >
+            <attDef ident="rend" usage="rec" mode="add" predeclare="false">
               <gloss>rendu</gloss>
               <desc versionDate="2007-06-12">indique comment l'élément en question a été rendu ou
                 présenté dans le texte source</desc>
@@ -20922,8 +20849,7 @@ interpretive framework -->
               >11.3.4.2. Metamarks</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="date" module="core" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="date" module="core" mode="replace" predeclare="false">
           <gloss versionDate="2009-01-06">date</gloss>
           <desc versionDate="2009-01-06">contient une date exprimée dans n'importe quel
             format.</desc>
@@ -20978,8 +20904,7 @@ interpretive framework -->
                   chronologique.</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="type" usage="rec" mode="add" predeclare="false"
-             >
+            <attDef ident="type" usage="rec" mode="add" predeclare="false">
               <desc versionDate="2009-05-29">caractérise l'élément en utilisant n'importe quel
                 système ou typologie de classification approprié.</desc>
               <desc type="wills-ui">Il est recommandé de spécifier de quel type de date il s'agit,
@@ -21006,8 +20931,7 @@ interpretive framework -->
                 </valItem>
               </valList>
             </attDef>
-            <attDef ident="when" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="when" usage="opt" mode="add" predeclare="false">
               <gloss type="wills-ui">date exacte</gloss>
               <desc versionDate="2007-06-12">spécifie une date exacte pour un événement sous une
                 forme normalisée, par ex. aaaa-mm-jj.</desc>
@@ -21017,8 +20941,7 @@ interpretive framework -->
                 <dataRef key="teidata.temporal.w3c"/>
               </datatype>
             </attDef>
-            <attDef ident="notBefore" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="notBefore" usage="opt" mode="add" predeclare="false">
               <gloss type="wills-ui">date la plus ancienne</gloss>
               <desc versionDate="2007-06-12">spécifie la date la plus ancienne dans une tranche de
                 dates, par ex. aaaa-mm-jj</desc>
@@ -21027,8 +20950,7 @@ interpretive framework -->
                 <dataRef key="teidata.temporal.w3c"/>
               </datatype>
             </attDef>
-            <attDef ident="notAfter" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="notAfter" usage="opt" mode="add" predeclare="false">
               <gloss type="wills-ui">date la plus récente</gloss>
               <desc versionDate="2007-06-12">spécifie la date la plus récente possible pour
                 l'événement sous une forme normalisée, par ex. aaaa-mm-jj</desc>
@@ -21072,8 +20994,7 @@ interpretive framework -->
               Dates and Times</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="persName" module="namesdates" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="persName" module="namesdates" mode="replace" predeclare="false">
           <gloss versionDate="2008-12-09">nom de personne</gloss>
           <desc versionDate="2008-12-09">contient un nom propre ou une expression nominale se
             référant à une personne, pouvant inclure tout ou partie de ses prénoms, noms de famille,
@@ -21152,8 +21073,7 @@ interpretive framework -->
                 type</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="ref" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="ref" usage="opt" mode="add" predeclare="false">
               <gloss versionDate="2009-05-25">référence</gloss>
               <desc versionDate="2009-05-25">fournit un moyen explicite de localiser une définition
                 complète de l'entité nommée au moyen d'un ou plusieurs URIs.</desc>
@@ -21164,8 +21084,7 @@ interpretive framework -->
                 <dataRef key="teidata.pointer"/>
               </datatype>
             </attDef>
-            <attDef ident="xml:id" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="xml:id" usage="opt" mode="add" predeclare="false">
               <gloss versionDate="2008-03-30">identifiant</gloss>
               <desc versionDate="2009-05-25">fournit un identifiant unique pour l'élément qui porte
                 l'attribut</desc>
@@ -21175,8 +21094,7 @@ interpretive framework -->
                 <dataRef name="ID"/>
               </datatype>
             </attDef>
-            <attDef ident="corresp" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="corresp" usage="opt" mode="add" predeclare="false">
               <gloss versionDate="2008-03-30">correspond</gloss>
               <desc versionDate="2007-06-12">pointe vers des éléments qui ont une correspondance
                 avec l'élément en question.</desc>
@@ -21188,8 +21106,7 @@ interpretive framework -->
                 <dataRef key="teidata.pointer"/>
               </datatype>
             </attDef>
-            <attDef ident="type" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="type" usage="opt" mode="add" predeclare="false">
               <desc versionDate="2009-05-29">caractérise l'élément en utilisant n'importe quel
                 système ou typologie de classification approprié.</desc>
               <desc type="wills-ui">Utiliser cet attribut, lorsque le nom de personne est donné dans
@@ -21245,8 +21162,7 @@ interpretive framework -->
               Personal Names</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="orgName" module="namesdates" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="orgName" module="namesdates" mode="replace" predeclare="false">
           <gloss versionDate="2008-12-09">nom d'organisation</gloss>
           <desc versionDate="2009-03-19">contient le nom d'une organisation.</desc>
           <desc type="wills-ui">L'élément <gi scheme="TEI">orgName</gi> peut être utilisé dans le
@@ -21302,8 +21218,7 @@ interpretive framework -->
                 type</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="type" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="type" usage="opt" mode="add" predeclare="false">
               <desc versionDate="2009-05-29">caractérise l'élément en utilisant n'importe quel
                 système ou typologie de classification approprié.</desc>
               <desc type="wills-ui">Utiliser cet attribut, lorsque le nom de l'unité militaire est
@@ -21322,8 +21237,7 @@ interpretive framework -->
                 </valItem>
               </valList>
             </attDef>
-            <attDef ident="ref" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="ref" usage="opt" mode="add" predeclare="false">
               <gloss versionDate="2009-05-25">référence</gloss>
               <desc versionDate="2009-05-25">fournit un moyen explicite de localiser une définition
                 complète de l'entité nommée au moyen d'un ou plusieurs URIs.</desc>
@@ -21334,8 +21248,7 @@ interpretive framework -->
                 <dataRef key="teidata.pointer"/>
               </datatype>
             </attDef>
-            <attDef ident="xml:id" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="xml:id" usage="opt" mode="add" predeclare="false">
               <gloss versionDate="2008-03-30">identifiant</gloss>
               <desc versionDate="2009-05-25">fournit un identifiant unique pour l'élément qui porte
                 l'attribut</desc>
@@ -21346,8 +21259,7 @@ interpretive framework -->
                 <dataRef name="ID"/>
               </datatype>
             </attDef>
-            <attDef ident="corresp" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="corresp" usage="opt" mode="add" predeclare="false">
               <gloss versionDate="2008-03-30">correspond</gloss>
               <desc versionDate="2007-06-12">pointe vers des éléments qui ont une correspondance
                 avec l'élément en question.</desc>
@@ -21383,8 +21295,7 @@ interpretive framework -->
               Organizational Names</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="placeName" module="namesdates" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="placeName" module="namesdates" mode="replace" predeclare="false">
           <gloss versionDate="2008-12-09">nom de lieu</gloss>
           <desc versionDate="2009-03-19">contient un nom de lieu absolu ou relatif.</desc>
           <desc type="wills-ui">L'élément <gi scheme="TEI">placeName</gi>peut être utilisé dans le
@@ -21469,8 +21380,7 @@ interpretive framework -->
                   ou settlement</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="ref" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="ref" usage="opt" mode="add" predeclare="false">
               <gloss versionDate="2009-05-25">référence</gloss>
               <desc versionDate="2009-05-25">fournit un moyen explicite de localiser une définition
                 complète de l'entité nommée au moyen d'un ou plusieurs URIs.</desc>
@@ -21481,8 +21391,7 @@ interpretive framework -->
                 <dataRef key="teidata.pointer"/>
               </datatype>
             </attDef>
-            <attDef ident="type" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="type" usage="opt" mode="add" predeclare="false">
               <desc versionDate="2009-05-29">caractérise l'élément en utilisant n'importe quel
                 système ou typologie de classification approprié.</desc>
               <desc type="wills-ui">Utiliser cet attribut, lorsque le nom de lieu est balisé dans le
@@ -21513,8 +21422,7 @@ interpretive framework -->
                 </valItem>
               </valList>
             </attDef>
-            <attDef ident="when-iso" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="when-iso" usage="opt" mode="add" predeclare="false">
               <gloss type="wills-ui">date exacte au format ISO 8601</gloss>
               <desc versionDate="2008-12-09">précise une date exacte pour l'évènement selon la forme
                 normalisée ISO 8601, c'est-à-dire aaaa-mm-jj.</desc>
@@ -21558,8 +21466,7 @@ interpretive framework -->
               Place Names</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="term" module="core" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="term" module="core" mode="replace" predeclare="false">
           <gloss versionDate="2009-01-06">terme</gloss>
           <desc versionDate="2009-01-06">contient un mot simple, un mot composé ou un symbole, qui
             est considéré comme un terme technique.</desc>
@@ -21608,8 +21515,7 @@ interpretive framework -->
                 type</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="type" usage="rec" mode="add" predeclare="false"
-             >
+            <attDef ident="type" usage="rec" mode="add" predeclare="false">
               <desc versionDate="2009-05-29">caractérise l'élément en utilisant n'importe quel
                 système ou typologie de classification approprié.</desc>
               <desc type="wills-ui">Utiliser cet attribut pour spécifier la nature du terme
@@ -21630,8 +21536,7 @@ interpretive framework -->
                 </valItem>
               </valList>
             </attDef>
-            <attDef ident="ana" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="ana" usage="opt" mode="add" predeclare="false">
               <gloss versionDate="2008-03-30">analyse</gloss>
               <desc versionDate="2007-06-12">indique un ou plusieurs éléments contenant des
                 interprétations de l'élément qui porte l'attribut <att scheme="TEI"
@@ -21643,8 +21548,7 @@ interpretive framework -->
                 <dataRef key="teidata.pointer"/>
               </datatype>
             </attDef>
-            <attDef ident="xml:lang" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="xml:lang" usage="opt" mode="add" predeclare="false">
               <gloss versionDate="2008-03-30">langue</gloss>
               <desc versionDate="2007-06-12">indique la langue du contenu de l'élément en utilisant
                 les codes du <ref target="http://www.ietf.org/rfc/rfc3066.txt">RFC 3066</ref>
@@ -21673,8 +21577,7 @@ interpretive framework -->
               Terms, Glosses, Equivalents, and Descriptions</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="foreign" module="core" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="foreign" module="core" mode="replace" predeclare="false">
           <gloss versionDate="2009-01-06" xml:lang="fr">étranger</gloss>
           <desc versionDate="2009-01-06">reconnaît un mot ou une expression comme appartenant à une
             langue différente de celle du contexte.</desc>
@@ -21720,8 +21623,7 @@ interpretive framework -->
                   avoir un attribut xml:lang.</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="xml:lang" usage="req" mode="add" predeclare="false"
-             >
+            <attDef ident="xml:lang" usage="req" mode="add" predeclare="false">
               <gloss versionDate="2008-03-30">langue</gloss>
               <desc versionDate="2007-06-12">indique la langue du contenu de l'élément en utilisant
                 les codes du <ref target="http://www.ietf.org/rfc/rfc3066.txt">RFC 3066</ref>
@@ -21744,8 +21646,7 @@ interpretive framework -->
               >3.3.2.1. Foreign Words or Expressions</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="ref" module="core" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="ref" module="core" mode="replace" predeclare="false">
           <gloss versionDate="2009-01-06">référence</gloss>
           <desc versionDate="2009-01-06">définit une référence vers un autre emplacement, la
             référence étant éventuellement modifiée ou complétée par un texte ou un
@@ -21794,8 +21695,7 @@ interpretive framework -->
                   une notice descriptive.</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="target" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="target" usage="opt" mode="add" predeclare="false">
               <gloss type="wills-ui">la cible du renvoi</gloss>
               <desc versionDate="2009-01-06">précise la cible de la référence en donnant une ou
                 plusieurs références URI</desc>
@@ -21805,8 +21705,7 @@ interpretive framework -->
                 <dataRef key="teidata.pointer"/>
               </datatype>
             </attDef>
-            <attDef ident="xml:id" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="xml:id" usage="opt" mode="add" predeclare="false">
               <gloss versionDate="2008-03-30">identifiant</gloss>
               <desc versionDate="2009-05-25">fournit un identifiant unique pour l'élément qui porte
                 l'attribut</desc>
@@ -21815,8 +21714,7 @@ interpretive framework -->
                 <dataRef name="ID"/>
               </datatype>
             </attDef>
-            <attDef ident="type" usage="rec" mode="add" predeclare="false"
-             >
+            <attDef ident="type" usage="rec" mode="add" predeclare="false">
               <desc versionDate="2009-05-29">caractérise l'élément en utilisant n'importe quel
                 système ou typologie de classification approprié.</desc>
               <desc type="wills-ui">Utiliser cet attribut pour spécifier la catégorie de
@@ -21855,8 +21753,7 @@ interpretive framework -->
               Links</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="note" module="core" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="note" module="core" mode="replace" predeclare="false">
           <gloss>note</gloss>
           <desc versionDate="2009-01-06">contient une note ou une annotation</desc>
           <desc type="wills-ui">L'élément <gi scheme="TEI">note</gi> est utilisé par les éditeurs
@@ -21944,8 +21841,7 @@ interpretive framework -->
                 'history'.</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="resp" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="resp" usage="opt" mode="add" predeclare="false">
               <gloss versionDate="2008-03-30">responsable</gloss>
               <desc versionDate="2007-06-12">indique l'agent responsable de l'intervention ou de
                 l'interprétation, par exemple un éditeur ou un transcripteur.</desc>
@@ -21961,8 +21857,7 @@ interpretive framework -->
                 critique, telles que déclarées dans un des éléments <gi scheme="TEI">respStmt</gi>
                 de <gi scheme="TEI">teiHeader</gi>.</valDesc>
             </attDef>
-            <attDef ident="xml:id" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="xml:id" usage="opt" mode="add" predeclare="false">
               <gloss versionDate="2008-03-30">identifiant</gloss>
               <desc versionDate="2009-05-25">fournit un identifiant unique pour l'élément qui porte
                 l'attribut</desc>
@@ -21971,8 +21866,7 @@ interpretive framework -->
                 <dataRef name="ID"/>
               </datatype>
             </attDef>
-            <attDef ident="type" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="type" usage="opt" mode="add" predeclare="false">
               <desc versionDate="2009-05-29">caractérise l'élément en utilisant n'importe quel
                 système ou typologie de classification approprié.</desc>
               <desc type="wills-ui">Utiliser cet attribut pour spécifier que la note contient un
@@ -22027,8 +21921,7 @@ interpretive framework -->
               >9.3.5.4. Notes within Entries</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="app" module="textcrit" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="app" module="textcrit" mode="replace" predeclare="false">
           <gloss versionDate="2007-06-12">entrée d'apparat critique</gloss>
           <desc versionDate="2007-06-12">contient une entrée dans un apparat critique, constituée
             d'un lemme facultatif et d'au moins une leçon.</desc>
@@ -22071,8 +21964,7 @@ interpretive framework -->
                   critique, et la note d'apparat critique.</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="xml:id" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="xml:id" usage="opt" mode="add" predeclare="false">
               <gloss versionDate="2008-03-30">identifiant</gloss>
               <desc versionDate="2009-05-25">fournit un identifiant unique pour l'élément qui porte
                 l'attribut</desc>
@@ -22095,8 +21987,7 @@ interpretive framework -->
               The Apparatus Entry</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="lem" module="textcrit" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="lem" module="textcrit" mode="replace" predeclare="false">
           <gloss versionDate="2007-06-12">lemme (texte de base)</gloss>
           <desc versionDate="2007-06-12">contient le lemme ou le texte de base d'une variante
             textuelle</desc>
@@ -22160,8 +22051,7 @@ interpretive framework -->
               The Apparatus Entry, Readings, and Witnesses</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="listPerson" module="namesdates" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="listPerson" module="namesdates" mode="replace" predeclare="false">
           <gloss versionDate="2008-12-09">liste de personnes</gloss>
           <desc versionDate="2008-12-09">contient une liste d'éléments, chacun d'entre eux apportant
             des informations sur une personne précise ou sur un groupe de personnes, par exemple les
@@ -22198,8 +22088,7 @@ interpretive framework -->
               Declarable Elements</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="listPlace" module="namesdates" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="listPlace" module="namesdates" mode="replace" predeclare="false">
           <gloss>liste de lieux</gloss>
           <gloss versionDate="2007-07-04" xml:lang="en">list of places</gloss>
           <desc versionDate="2008-12-09">contient une liste de lieux, qui peut être suivie d'une
@@ -22226,8 +22115,7 @@ interpretive framework -->
               Places</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="listOrg" module="namesdates" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="listOrg" module="namesdates" mode="replace" predeclare="false">
           <gloss versionDate="2008-12-09">liste d'organisations</gloss>
           <gloss versionDate="2007-07-04" xml:lang="en">list of organizations</gloss>
           <desc versionDate="2008-12-09">contient une liste d'éléments, chacun d'eux fournissant des
@@ -22253,8 +22141,7 @@ interpretive framework -->
               Organizational Names</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="person" module="namesdates" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="person" module="namesdates" mode="replace" predeclare="false">
           <gloss versionDate="2008-12-09">personne</gloss>
           <desc versionDate="2005-12-14" xml:lang="en">provides information about an identifiable
             individual, for example a participant in a language interaction, or a person referred to
@@ -22291,16 +22178,14 @@ interpretive framework -->
               digits.</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="xml:id" usage="req" mode="add" predeclare="false"
-             >
+            <attDef ident="xml:id" usage="req" mode="add" predeclare="false">
               <desc type="wills-ui">l'identifiant unique de la personne dans le cadre du
                 projet.</desc>
               <datatype minOccurs="1" maxOccurs="1">
                 <dataRef name="ID"/>
               </datatype>
             </attDef>
-            <attDef ident="resp" usage="rec" mode="add" predeclare="false"
-             >
+            <attDef ident="resp" usage="rec" mode="add" predeclare="false">
               <datatype maxOccurs="unbounded" minOccurs="1">
                 <dataRef key="teidata.pointer"/>
               </datatype>
@@ -22331,8 +22216,7 @@ interpretive framework -->
               The Participant Description</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="place" module="namesdates" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="place" module="namesdates" mode="replace" predeclare="false">
           <gloss versionDate="2008-12-09">lieu</gloss>
           <desc versionDate="2008-12-09">contient des informations sur un lieu.</desc>
           <desc type="wills-ui">contient l'ensemble des informations connues au moment de l'export
@@ -22367,15 +22251,13 @@ interpretive framework -->
                   s'agit.</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="xml:id" usage="req" mode="add" predeclare="false"
-             >
+            <attDef ident="xml:id" usage="req" mode="add" predeclare="false">
               <desc type="wills-ui">l'identifiant unique du lieu dans le cadre du projet.</desc>
               <datatype minOccurs="1" maxOccurs="1">
                 <dataRef name="ID"/>
               </datatype>
             </attDef>
-            <attDef ident="resp" usage="rec" mode="add" predeclare="false"
-             >
+            <attDef ident="resp" usage="rec" mode="add" predeclare="false">
               <datatype maxOccurs="unbounded" minOccurs="1">
                 <dataRef key="teidata.pointer"/>
               </datatype>
@@ -22385,8 +22267,7 @@ interpretive framework -->
                   >respStmt</gi> de <gi scheme="TEI">teiHeader</gi>.</valDesc>
             </attDef>
             <attList org="group">
-              <attDef ident="type" usage="req" mode="add" predeclare="false"
-               >
+              <attDef ident="type" usage="req" mode="add" predeclare="false">
                 <gloss>le type de lieu</gloss>
                 <valList type="closed" mode="add">
                   <valItem ident="city" mode="add">
@@ -22425,8 +22306,7 @@ interpretive framework -->
               Places</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="org" module="namesdates" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="org" module="namesdates" mode="replace" predeclare="false">
           <gloss versionDate="2008-12-09">organisation</gloss>
           <desc versionDate="2008-12-09">fournit des informations sur une organisation identifiable,
             telle qu'une entreprise, une tribu ou tout autre groupement de personnes.</desc>
@@ -22453,16 +22333,14 @@ interpretive framework -->
                 digits.</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="xml:id" usage="req" mode="add" predeclare="false"
-             >
+            <attDef ident="xml:id" usage="req" mode="add" predeclare="false">
               <desc type="wills-ui">l'identifiant unique de l'unité militaire dans le cadre du
                 projet.</desc>
               <datatype minOccurs="1" maxOccurs="1">
                 <dataRef name="ID"/>
               </datatype>
             </attDef>
-            <attDef ident="resp" usage="rec" mode="add" predeclare="false"
-             >
+            <attDef ident="resp" usage="rec" mode="add" predeclare="false">
               <datatype maxOccurs="unbounded" minOccurs="1">
                 <dataRef key="teidata.pointer"/>
               </datatype>
@@ -22485,8 +22363,7 @@ interpretive framework -->
               Organizational Names</ref>
           </listRef>
         </elementSpec>
-        <elementSpec module="core" ident="bibl" mode="replace" predeclare="false"
-         >
+        <elementSpec module="core" ident="bibl" mode="replace" predeclare="false">
           <gloss versionDate="2009-01-06">référence bibliographique</gloss>
           <desc versionDate="2009-01-06">contient une référence bibliographique faiblement
             structurée dans laquelle les sous-composants peuvent ou non être explicitement
@@ -22530,8 +22407,7 @@ interpretive framework -->
                   bibl.</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="type" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="type" usage="opt" mode="add" predeclare="false">
               <valList type="closed" mode="add">
                 <valItem ident="refMemoireDesHommes" mode="add">
                   <gloss>référence à une notice dans la base Mémoire des hommes</gloss>
@@ -22563,8 +22439,7 @@ interpretive framework -->
               Declarable Elements</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="idno" module="header" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="idno" module="header" mode="replace" predeclare="false">
           <gloss versionDate="2009-01-05">identifiant</gloss>
           <desc versionDate="2009-01-05">donne un numéro normalisé ou non qui peut être utilisé pour
             identifier une référence bibliographique.</desc>
@@ -22588,8 +22463,7 @@ interpretive framework -->
             <textNode/>
           </content>
           <attList>
-            <attDef ident="type" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="type" usage="opt" mode="add" predeclare="false">
 
               <desc versionDate="2009-01-05">classe un numéro dans une catégorie, par exemple comme
                 étant un numéro ISBN ou comme appartenant une autre série normalisée.</desc>
@@ -22672,8 +22546,7 @@ interpretive framework -->
               >3.11.2.4. Imprint, Size of a Document, and Reprint Information</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="author" module="core" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="author" module="core" mode="replace" predeclare="false">
           <gloss versionDate="2011-11-26" xml:lang="fr">auteur</gloss>
           <desc versionDate="2009-01-06" xml:lang="fr">dans une référence bibliographique contient
             le nom de la (des) personne(s) physique(s) ou du collectif, auteur(s) d'une oeuvre ; par
@@ -22710,8 +22583,7 @@ interpretive framework -->
               The Title Statement</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="title" module="core" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="title" module="core" mode="replace" predeclare="false">
           <gloss versionDate="2007-06-12" xml:lang="fr">titre</gloss>
           <desc versionDate="2007-06-12">contient le titre complet d'une oeuvre quelconque</desc>
           <desc type="wills-ui">Cet élément sert soit pour donner un titre au fichier TEI (édition
@@ -22737,8 +22609,7 @@ interpretive framework -->
                 type.</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="level" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="level" usage="opt" mode="add" predeclare="false">
 
               <desc versionDate="2007-06-12" xml:lang="fr">indique le niveau bibliographique d'un
                 titre, c'est-à-dire si ce titre identifie un article, un livre, une revue, une
@@ -22776,8 +22647,7 @@ interpretive framework -->
                 </valItem>
               </valList>
             </attDef>
-            <attDef ident="type" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="type" usage="opt" mode="add" predeclare="false">
 
               <desc versionDate="2007-06-12" xml:lang="fr">caractérise le titre selon une typologie
                 adaptée.</desc>
@@ -22819,8 +22689,7 @@ interpretive framework -->
               The Series Statement</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="birth" module="namesdates" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="birth" module="namesdates" mode="replace" predeclare="false">
           <gloss versionDate="2008-12-09">naissance</gloss>
           <desc versionDate="2008-12-09" xml:lang="fr">contient des informations sur la naissance
             d'une personne, comme la date et le lieu</desc>
@@ -22855,8 +22724,7 @@ interpretive framework -->
               The Participant Description</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="death" module="namesdates" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="death" module="namesdates" mode="replace" predeclare="false">
           <gloss versionDate="2008-12-09">décès</gloss>
           <desc versionDate="2008-12-09">contient des informations sur le décès d'une personne,
             comme la date et le lieu.</desc>
@@ -22898,8 +22766,7 @@ interpretive framework -->
               The Participant Description</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="residence" module="namesdates" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="residence" module="namesdates" mode="replace" predeclare="false">
           <gloss versionDate="2008-12-09">résidence</gloss>
           <desc versionDate="2009-03-19">décrit les lieux de résidence présents ou passés d'une
             personne.</desc>
@@ -22937,8 +22804,7 @@ interpretive framework -->
               The Participant Description</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="occupation" module="namesdates" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="occupation" module="namesdates" mode="replace" predeclare="false">
           <gloss versionDate="2008-12-09">activité</gloss>
           <desc versionDate="2009-03-19">contient une description non formalisée de l'activité, de
             la profession ou de l'occupation d'une personne.</desc>
@@ -22959,8 +22825,7 @@ interpretive framework -->
               The Participant Description</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="affiliation" module="namesdates" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="affiliation" module="namesdates" mode="replace" predeclare="false">
           <gloss versionDate="2008-12-09">affiliation</gloss>
           <desc versionDate="2008-12-09">contient une description non formalisée portant sur
             l'affiliation présente ou passée d'une personne à une organisation, par exemple un
@@ -23000,8 +22865,7 @@ interpretive framework -->
               l'information.</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="xml:id" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="xml:id" usage="opt" mode="add" predeclare="false">
               <gloss versionDate="2008-03-30">identifiant</gloss>
               <desc versionDate="2009-05-25">fournit un identifiant unique pour l'élément qui porte
                 l'attribut</desc>
@@ -23015,8 +22879,7 @@ interpretive framework -->
                 <dataRef name="ID"/>
               </datatype>
             </attDef>
-            <attDef ident="source" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="source" usage="opt" mode="add" predeclare="false">
               <gloss type="wills-ui">source</gloss>
 
               <desc type="wills-ui">Cet attribut est utilisé pour pointer vers une ou plusieurs
@@ -23026,8 +22889,7 @@ interpretive framework -->
                 <dataRef key="teidata.pointer"/>
               </datatype>
             </attDef>
-            <attDef ident="exclude" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="exclude" usage="opt" mode="add" predeclare="false">
               <gloss type="wills-ui">exclusif (de)</gloss>
               <desc versionDate="2007-06-12">pointe vers des éléments qui sont une alternative
                 exclusive à l'élément en question.</desc>
@@ -23053,8 +22915,7 @@ interpretive framework -->
               The Participant Description</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="address" module="core" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="address" module="core" mode="replace" predeclare="false">
           <gloss>adresse</gloss>
           <desc versionDate="2009-01-06">contient une adresse postale ou d'un autre type, par
             exemple l'adresse d'un éditeur, d'un organisme ou d'une personne.</desc>
@@ -23101,8 +22962,7 @@ interpretive framework -->
               d'adresse).</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="rend" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="rend" usage="opt" mode="add" predeclare="false">
               <desc versionDate="2007-06-12">indique comment l'élément en question a été rendu ou
                 présenté dans le texte source</desc>
               <desc type="wills-ui">Cet attribut est utilisé ici pour spécifier à quel endroit, sur
@@ -23143,8 +23003,7 @@ interpretive framework -->
               >3.11.2.4. Imprint, Size of a Document, and Reprint Information</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="street" module="core" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="street" module="core" mode="replace" predeclare="false">
           <gloss>rue</gloss>
           <desc versionDate="2009-01-06">adresse complète d'une rue comprenant un nom ou un numéro
             identifiant un bâtiment ainsi que le nom de la rue ou du chemin sur laquelle il est
@@ -23173,8 +23032,7 @@ interpretive framework -->
               Addresses</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="num" module="core" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="num" module="core" mode="replace" predeclare="false">
           <gloss versionDate="2009-01-06">nombre</gloss>
           <desc versionDate="2009-01-06" xml:lang="fr">contient un nombre écrit sous une forme
             quelconque.</desc>
@@ -23212,8 +23070,7 @@ interpretive framework -->
               Numbers and Measures</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="district" module="namesdates" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="district" module="namesdates" mode="replace" predeclare="false">
           <gloss versionDate="2008-12-09">district</gloss>
           <desc versionDate="2009-03-19">contient le nom d'une subdivision quelconque d'une ville,
             comme une paroisse, une circonscription électorale ou toute autre unité administrative
@@ -23244,8 +23101,7 @@ interpretive framework -->
               Place Names</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="settlement" module="namesdates" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="settlement" module="namesdates" mode="replace" predeclare="false">
           <gloss versionDate="2008-12-09">lieu de peuplement</gloss>
           <desc versionDate="2009-03-19" xml:lang="fr">contient le nom d'un lieu de peuplement comme
             une cité, une ville ou un village, identifié comme une unité géo-politique ou
@@ -23287,8 +23143,7 @@ interpretive framework -->
               placeName.</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="type" usage="req" mode="add" predeclare="false"
-             >
+            <attDef ident="type" usage="req" mode="add" predeclare="false">
               <gloss>la catégorie de lieu habité</gloss>
               <valList type="closed" mode="add">
                 <valItem ident="city" mode="add">
@@ -23331,8 +23186,7 @@ interpretive framework -->
               Place Names</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="geogName" module="namesdates" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="geogName" module="namesdates" mode="replace" predeclare="false">
           <gloss versionDate="2008-12-09">nom de lieu géographique</gloss>
           <desc versionDate="2009-03-19">un nom associé à une caractéristique géographique comme
             Windrush Valley ou le Mont Sinaï.</desc>
@@ -23366,8 +23220,7 @@ interpretive framework -->
                   l'attribut type</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="type" usage="req" mode="add" predeclare="false"
-             >
+            <attDef ident="type" usage="req" mode="add" predeclare="false">
               <gloss>la catégorie de lieu géographique</gloss>
               <valList type="closed" mode="add">
                 <valItem ident="mountain" mode="add">
@@ -23394,8 +23247,7 @@ interpretive framework -->
               Place Names</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="geogFeat" module="namesdates" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="geogFeat" module="namesdates" mode="replace" predeclare="false">
           <gloss versionDate="2008-12-09">nom de caractéristique géographique</gloss>
           <desc versionDate="2008-12-09" xml:lang="fr">contient un nom commun identifiant une
             caractéristique géographique contenue dans un nom de lieu, comme vallée, mont,
@@ -23425,8 +23277,7 @@ interpretive framework -->
               Place Names</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="location" module="namesdates" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="location" module="namesdates" mode="replace" predeclare="false">
           <gloss versionDate="2008-12-09">localisation</gloss>
           <desc versionDate="2008-12-09">définit l'emplacement d'un lieu par des coordonnées
             géographiques, en termes d'entités nommées dites géopolitiques, ou par une
@@ -23479,8 +23330,7 @@ interpretive framework -->
                   type.</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="when-iso" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="when-iso" usage="opt" mode="add" predeclare="false">
               <desc type="wills-ui">la forme normalisée de la période pendant laquelle le lieu
                 décrit dans la notice a été localisé dans les subdivisions administratives
                 indiquées</desc>
@@ -23488,8 +23338,7 @@ interpretive framework -->
                 <dataRef key="teidata.temporal.iso"/>
               </datatype>
             </attDef>
-            <attDef ident="type" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="type" usage="opt" mode="add" predeclare="false">
               <desc type="wills-ui">le type de localisation</desc>
               <valList type="closed" mode="add">
                 <valItem ident="geographicalCoordinates" mode="add">
@@ -23526,8 +23375,7 @@ interpretive framework -->
               Places</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="country" module="namesdates" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="country" module="namesdates" mode="replace" predeclare="false">
           <gloss versionDate="2008-12-09">pays</gloss>
           <desc versionDate="2008-12-09">contient le nom d'une unité géo-politique, comme une
             nation, un pays, une colonie ou une communauté, plus grande ou administrativement
@@ -23561,8 +23409,7 @@ interpretive framework -->
               Place Names</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="region" module="namesdates" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="region" module="namesdates" mode="replace" predeclare="false">
           <gloss versionDate="2008-12-09">région</gloss>
           <desc versionDate="2009-01-05">contient le nom d'une unité administrative comme un état,
             une province ou un comté, plus grande qu'un lieu de peuplement, mais plus petite qu'un
@@ -23599,8 +23446,7 @@ interpretive framework -->
                   type.</sch:assert></sch:rule></constraint>
           </constraintSpec>
           <attList>
-            <attDef ident="type" usage="opt" mode="add" predeclare="false"
-             >
+            <attDef ident="type" usage="opt" mode="add" predeclare="false">
               <desc type="wills-ui">le type de région</desc>
               <valList type="closed" mode="add">
                 <valItem ident="FrenchRegion" mode="add">
@@ -23626,8 +23472,7 @@ interpretive framework -->
               Place Names</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="geo" module="namesdates" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="geo" module="namesdates" mode="replace" predeclare="false">
           <gloss versionDate="2008-12-09">coordonnées géographiques</gloss>
           <desc versionDate="2009-03-19">contient toute expression, dans un système de notation,
             d'un ensemble de coordonnées géographiques représentant un point, une ligne ou une zone
@@ -23667,8 +23512,7 @@ interpretive framework -->
               >13.3.4.1. Varieties of Location</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="surname" module="namesdates" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="surname" module="namesdates" mode="replace" predeclare="false">
           <gloss versionDate="2009-03-19">nom de famille</gloss>
           <desc versionDate="2009-01-05" xml:lang="fr">contient un nom de famille (hérité) par
             opposition à un nom donné, nom de baptême ou surnom.</desc>
@@ -23728,8 +23572,7 @@ interpretive framework -->
               Personal Names</ref>
           </listRef>
         </elementSpec>
-        <elementSpec ident="forename" module="namesdates" mode="replace" predeclare="false"
-         >
+        <elementSpec ident="forename" module="namesdates" mode="replace" predeclare="false">
           <gloss versionDate="2008-12-09">prénom</gloss>
           <desc versionDate="2009-03-19">contient un prénom, qu'il soit donné ou un nom de
             baptême.</desc>
