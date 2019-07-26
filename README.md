@@ -17,4 +17,4 @@ In this folder, two versions of the TEI model used for First World War Wills pro
     * the RNG schema (file named `TeiModel_for_FirstWorldWarWills_v2_transcription.rng`) generated from the transcription ODD file)
     * a test TEI XML file that validates against the transcription RNG schema
 
-We will add other ODD and RNG files to the version-2 folder soon.
+We will add other ODD and RNG files to the version-2 folder soon. 
